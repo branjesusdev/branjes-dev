@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    color-scheme: light dark;
+
+    --gray-90  : #343233 !important;
+    --gray-100 : #353233 !important;
+    --gray-110 : #6A696E !important;
+    --gray-150 : #7D7A7B !important;
+    --gray-190 : #707070 !important;
+    --gray-195 : #808080 !important;
+    --gray-200 : #868686 !important;
+    --gray-205 : #939199 !important;
+    --gray-210 : #979797 !important;
+    --gray-300 : #D7D7D7 !important;
+    --gray-350 : #CDCDCD !important;
+    --gray-380 : #d4d4d8 !important;
+    --gray-390 : #F2F2F2 !important;
+    --gray-400 : #efefef !important;
+    --gray-410 : #F9F9F9 !important;
+
+    --blue-100 : #1f3d66 !important;
+
+    --black-400 : #414141;
+    --black--200 : rgba(0, 0, 0, 0.5) !important;
+
+    --cyan-50 : #042225 !important;
+
+    --ocean-green-5 :  #CCE4E7 !important;
+    --ocean-green-20 :  #99CACF !important;
+    --ocean-green-80 :  #08939F  !important;
+    --ocean-green-100 :  #007A87 !important;
+    --ocean-green-120 : #094956 !important ;
+
+    --neutral : #E6EBF1 !important;
+    --neutral-0 : #FFFFFF !important;
+    --neutral-20 : #F0F0F2 !important;
+    --neutral-40 : #D1CFD9 !important;
+    --neutral-60 : #939199 !important;
+    --neutral-80 : #5E5C66 !important;
+}
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: comfortaa-regular system-ui;
+}
+
+body {
+    min-height: 100dvh;
+    margin: 0;
+}
