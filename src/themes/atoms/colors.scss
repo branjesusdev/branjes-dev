@@ -1,12 +1,5 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 :root {
-    font-synthesis: none;
-    text-rendering: optimizeLegibility;
-    color-scheme: light dark;
-
+    
     --gray-90  : #343233 !important;
     --gray-100 : #353233 !important;
     --gray-110 : #6A696E !important;
@@ -30,6 +23,9 @@
 
     --cyan-50 : #042225 !important;
 
+    --blue-magneta: #13111c;
+    --green-magneta: #042225;
+
     --ocean-green-5 :  #CCE4E7 !important;
     --ocean-green-20 :  #99CACF !important;
     --ocean-green-80 :  #08939F  !important;
@@ -42,19 +38,7 @@
     --neutral-40 : #D1CFD9 !important;
     --neutral-60 : #939199 !important;
     --neutral-80 : #5E5C66 !important;
-}
 
-*, *::before, *::after {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html {
-    font-family: comfortaa-regular system-ui;
-}
-
-body {
-    min-height: 100dvh;
-    margin: 0;
+    --border-radius: 2rem;
+    --background-noise: url(/public/backgrounds/noise-50.png);
 }

@@ -1,23 +1,95 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
+import Layout from "../layouts/Layout.astro";
+import './index.scss'
+import RadialGradient from "../shared/content/RadialGradient.astro";
+import ThemeSwitch from "../shared/components/ThemeSwitch.astro"
+import GitHub from "../shared/icons/GitHub.astro"
+import Linkedin from "../shared/icons/Linkedin.astro"
+import Mail from "../shared/icons/Mail.astro"
+
 ---
 
 <Layout title="Currículum Brandol">
-	<main>
-		
-	</main>
-</Layout>
+  <main class="page-wrapper">
+    <RadialGradient />
+	<div class="absolute pointer-events-none inset-0" style="background-image:radial-gradient(circle 300px at center, rgba(120,119,198,0.3), hsla(0, 0%, 0%, 0));"></div>
 
-<style>
-	main {
-		margin: auto;
-		padding: 1rem;
-		width: 800px;
-		max-width: calc(100% - 2rem);
-		color: white;
-		font-size: 20px;
-		line-height: 1.6;
-	}
-	
-</style>
+    <section class="section_overview mx-auto xl:px-20">
+		<div class="pf-focus--overview col-span-5">
+			<div class="h-full flex space-y-10 flex-row text-center">
+				<div>
+					<picture>
+					  <img
+						class="object-cover"
+						src="/public/images/perfil_focus.avif"
+						alt="Joven con gafas y debajo una parte de código fuente de programación"
+						sizes="(max-width: 767px) 767px, 100vw"
+						width="300"
+					  />
+					</picture>
+				</div>
+				<div class="space-y-4">
+					<h1 class="text-xl
+					  tracking-tight
+					  leading-10
+					  font-semibold
+					  text-gray-50
+					  sm:text-3xl
+					  sm:leading-none
+					  md:text-3xl
+					  lg:text-4xl
+					  xl:text-4xl
+					  2xl:text-4xl"> 👋 Hola, soy <span class="relative text-yellow-300">Brandol</span></h1>
+					<p class="text-md">
+						Soy un desarrollador FrontEnd
+					</p>
+					<p class="max-w-[60ch] 
+						text-transparent 
+						bg-gradient-to-r 
+						from-brav-secondary 
+						to-brav-primary 
+						bg-clip-text 
+						font-['comfortaa-semibold']">
+						"Una interfaz de usuario es como un chiste. Si tienes que explicarlo, no es tan bueno"
+					</p>
+				</div>
+			</div>
+		</div>
+        <div class="pf-intro--overview">
+			<aside class="min-h-[4.2rem]">
+				<ThemeSwitch></ThemeSwitch>
+			</aside>
+			<aside class="text-center backdrop-blur-3xl">
+				<p class="text-sm">Edad</p>
+				<h1 class="
+				text-transparent 
+				bg-gradient-to-r 
+				from-brav-secondary 
+				to-brav-primary 
+				bg-clip-text ">25</h1>
+				<p class="text-sm">Años</p>
+			</aside>
+			<aside class="text-center">
+				<p class="text-sm">Experiencia</p>
+				<h1 class="
+				text-transparent 
+				bg-gradient-to-r 
+				from-brav-secondary 
+				to-brav-primary 
+				bg-clip-text ">6+</h1>
+				<p class="text-sm">Años</p>
+			</aside>
+			
+		</div>
+        <div class="pf-social--overview flex items-center">
+			<GitHub className="w-[5rem] h-[5rem]"></GitHub>
+		</div>
+		<div class="pf-social--overview flex items-center bg-[#49a7ff56]">
+			<Linkedin className="w-[5rem] h-[5rem]"></Linkedin>
+		</div>
+		<div class="pf-social--overview flex items-center bg-[#7785ff56]">
+			<Mail className="w-[5rem] h-[5rem]"></Mail>
+		</div>
+    </section>
+  </main>
+</Layout>

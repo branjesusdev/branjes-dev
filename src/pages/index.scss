@@ -1,0 +1,80 @@
+@import '/src/themes/molecules/index.scss';
+
+@mixin autoText {
+    letter-spacing: 2px;
+    line-height: 1.1;
+    overflow-wrap: break-word;
+  }
+
+.page-wrapper {
+    margin: auto;
+    padding: 2rem;
+    font-size: 20px;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    z-index: 1111 !important;
+    position: relative;
+  }
+
+  .section_overview {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+
+
+    
+    // display: flex;
+    // flex-direction: row;
+    // gap: 1rem;
+    // min-height: 90vh;
+    // justify-content: space-around
+  }
+
+  .pf-focus--overview {
+    width: 100%;
+    @include overwiew();
+
+  h1 {
+    font-size: 3rem;
+    @include autoText();
+      span {
+        &:before {
+          position: absolute;
+          content: '';
+          width: 30px;
+          height: 3px;
+          right: -35px;
+          bottom: 7px;
+          border-radius: 5px;
+          @apply bg-yellow-300;
+          overflow: hidden;
+        }
+
+      }
+
+    }
+  }
+
+  .pf-intro--overview {
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 10em));
+    gap: 1rem;
+    & > aside {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      @include overwiew( $background: #49a7ff56, $padding: 1rem );
+      h1 {
+        font-size: 5rem;
+        font-family: comfortaa-bold;
+        line-height: 1;
+      }
+    }
+  }
+
+  .pf-social--overview{
+    display: flex;
+    justify-content: center;
+    @include overwiew( $background: #001324, $padding: 1rem );
+  }

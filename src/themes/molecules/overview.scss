@@ -1,0 +1,14 @@
+@mixin overwiew( $background: rgba(0, 0, 0, 0.3), $padding : 3rem ) {
+    // background-image: var(--background-noise),
+    // linear-gradient(to right, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3));
+    background-color: $background;
+    background-position:
+        0 0,
+        0 0;
+    background-size: 200px, auto;
+    backdrop-filter: blur(14px);
+    border: 1px solid hsla(0, 0%, 100%, 0.2);
+    border-radius: var(--border-radius);
+    padding: $padding;
+    @apply shadow-md;
+}

@@ -1,7 +1,7 @@
 
 @font-face {
-  src: url('/public/fonts/Comfortaa-Light.woff2') format("truetype");
-  font-family: comfortaa-light;
+  src: url('/public/fonts/Comfortaa-Light.woff2') format("woff2");
+  font-family: 'comfortaa-light';
   font-style: normal;
   font-weight: 300;
   font-display: swap;
@@ -9,8 +9,8 @@
 }
 
 @font-face {
-  src: url('/public/fonts/Comfortaa-Bold.woff2') format("truetype");
-  font-family: comfortaa-bold;
+  src: url('/public/fonts/Comfortaa-Bold.woff2') format("woff2");
+  font-family: 'comfortaa-bold';
   font-style: normal;
   font-weight: 700;
   font-display: swap;
@@ -18,8 +18,8 @@
 }
 
 @font-face {
-  src: url('/public/fonts/Comfortaa-Regular.woff2') format("truetype");
-  font-family: comfortaa-regular;
+  src: url('/public/fonts/Comfortaa-Regular.woff2') format("woff2");
+  font-family: 'comfortaa-regular';
   font-style: normal;
   font-weight: 400;
   font-display: swap;
@@ -27,10 +27,18 @@
 }
 
 @font-face {
-  src: url('/public/fonts/Comfortaa-SemiBold.woff2') format("truetype");
-  font-family: comfortaa-semibold;
+  src: url('/public/fonts/Comfortaa-SemiBold.woff2') format("woff2");
+  font-family: 'comfortaa-semibold';
   font-style: normal;
   font-weight: 600;
   font-display: swap;
   line-height: 1.4;
+}
+
+h1 {
+  font-family: 'comfortaa-bold', system-ui;
+}
+
+h1 {
+  font-family: 'comfortaa-semibold', system-ui;
 }

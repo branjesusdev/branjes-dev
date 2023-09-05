@@ -1,5 +1,6 @@
 --- 
-import '../themes/@global.css'
+import '../themes/$font-family.css'
+import '../themes/@global.scss'
 
 interface Props {
 	title: string;
@@ -18,7 +19,7 @@ const { title } = Astro.props;
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
-	<body class="bg-gradient-to-r from-[#13111c] to-[#042225] scroll-smooth overflow-x-hidden">
+	<body >
 		<slot />
 	</body>
 </html>
