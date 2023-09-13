@@ -1,95 +1,447 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import './index.scss'
-import RadialGradient from "../shared/content/RadialGradient.astro";
-import ThemeSwitch from "../shared/components/ThemeSwitch.astro"
-import GitHub from "../shared/icons/GitHub.astro"
-import Linkedin from "../shared/icons/Linkedin.astro"
-import Mail from "../shared/icons/Mail.astro"
+import Layout from "@layouts/Layout.astro";
+import "@pages/index.scss";
+import RadialGradient from "@shared/content/RadialGradient.astro";
+import ThemeSwitch from "@shared/components/ThemeSwitch.astro";
 
+import GitHub from "@shared/icons/GitHub.astro";
+import Linkedin from "@shared/icons/Linkedin.astro";
+import Mail from "@shared/icons/Mail.astro";
+import Download from "@shared/icons/Download.astro";
+import Angular from "@shared/icons/Angular.astro";
+import React from "@shared/icons/React.astro";
+import IcAstro from "@shared/icons/IcAstro.astro";
+import JavaScript from "@shared/icons/JavaScript.astro";
+import Sass from "@shared/icons/Sass.astro";
+import TailwindCss from "@shared/icons/TailwindCss.astro";
+import Laravel from "@shared/icons/Laravel.astro";
+import TypeScript from "@shared/icons/TypeScript.astro";
+import NodeJs from "@shared/icons/NodeJs.astro";
+import MySql from "@shared/icons/MySql.astro";
+import Firebase from "@shared/icons/Firebase.astro";
+import GitCommand from "@shared/icons/GitCommand.astro";
+import Docker from "@shared/icons/Docker.astro";
+import Supabase from "@shared/icons/Supabase.astro";
+import Figma from "@shared/icons/Figma.astro";
+import Jasmine from "@shared/icons/Jasmine.astro";
+import Ionic from "@shared/icons/Ionic.astro";
+import Redux from "@shared/icons/Redux.astro";
+import PostCss from "@shared/icons/PostCss.astro";
+import ESLint from "@shared/icons/ESLint.astro";
+
+import ArrowRight from "@shared/icons/ArrowRight.astro";
 ---
 
-<Layout title="Currículum Brandol">
+<Layout title="Home - Brandol Jesus">
   <main class="page-wrapper">
     <RadialGradient />
-	<div class="absolute pointer-events-none inset-0" style="background-image:radial-gradient(circle 300px at center, rgba(120,119,198,0.3), hsla(0, 0%, 0%, 0));"></div>
+    <div
+      class="absolute pointer-events-none inset-0"
+      style="background-image:radial-gradient(circle 300px at center, rgba(120,119,198,0.3), hsla(0, 0%, 0%, 0));"
+    >
+    </div>
 
-    <section class="section_overview mx-auto xl:px-20">
-		<div class="pf-focus--overview col-span-5">
-			<div class="h-full flex space-y-10 flex-row text-center">
-				<div>
-					<picture>
-					  <img
-						class="object-cover"
-						src="/public/images/perfil_focus.avif"
-						alt="Joven con gafas y debajo una parte de código fuente de programación"
-						sizes="(max-width: 767px) 767px, 100vw"
-						width="300"
-					  />
-					</picture>
-				</div>
-				<div class="space-y-4">
-					<h1 class="text-xl
-					  tracking-tight
-					  leading-10
-					  font-semibold
-					  text-gray-50
-					  sm:text-3xl
-					  sm:leading-none
-					  md:text-3xl
-					  lg:text-4xl
-					  xl:text-4xl
-					  2xl:text-4xl"> 👋 Hola, soy <span class="relative text-yellow-300">Brandol</span></h1>
-					<p class="text-md">
-						Soy un desarrollador FrontEnd
-					</p>
-					<p class="max-w-[60ch] 
-						text-transparent 
-						bg-gradient-to-r 
-						from-brav-secondary 
-						to-brav-primary 
-						bg-clip-text 
-						font-['comfortaa-semibold']">
-						"Una interfaz de usuario es como un chiste. Si tienes que explicarlo, no es tan bueno"
-					</p>
-				</div>
-			</div>
-		</div>
-        <div class="pf-intro--overview">
-			<aside class="min-h-[4.2rem]">
-				<ThemeSwitch></ThemeSwitch>
-			</aside>
-			<aside class="text-center backdrop-blur-3xl">
-				<p class="text-sm">Edad</p>
-				<h1 class="
-				text-transparent 
-				bg-gradient-to-r 
-				from-brav-secondary 
-				to-brav-primary 
-				bg-clip-text ">25</h1>
-				<p class="text-sm">Años</p>
-			</aside>
-			<aside class="text-center">
-				<p class="text-sm">Experiencia</p>
-				<h1 class="
-				text-transparent 
-				bg-gradient-to-r 
-				from-brav-secondary 
-				to-brav-primary 
-				bg-clip-text ">6+</h1>
-				<p class="text-sm">Años</p>
-			</aside>
-			
-		</div>
-        <div class="pf-social--overview flex items-center">
-			<GitHub className="w-[5rem] h-[5rem]"></GitHub>
-		</div>
-		<div class="pf-social--overview flex items-center bg-[#49a7ff56]">
-			<Linkedin className="w-[5rem] h-[5rem]"></Linkedin>
-		</div>
-		<div class="pf-social--overview flex items-center bg-[#7785ff56]">
-			<Mail className="w-[5rem] h-[5rem]"></Mail>
-		</div>
+    <div
+      class="hidden overflow-hidden absolute inset-0 rounded-3xl pointer-events-none lg:block text-[rgba(5,223,100,0.25)]"
+      aria-hidden="true"
+    >
+      <svg
+        class="absolute bottom-full left-full opacity-20 transform -translate-x-2/3 translate-y-1/3 xl:top-0 xl:bottom-auto xl:translate-y-0"
+        width="404"
+        height="384"
+        fill="none"
+        viewBox="0 0 404 384"
+        aria-hidden="true"
+      >
+        <defs>
+          <pattern
+            id="64e643ad-2176-4f86-b3d7-f2c5da3b6a6d"
+            x="0"
+            y="0"
+            width="20"
+            height="20"
+            patternUnits="userSpaceOnUse"
+          >
+            <rect
+              x="0"
+              y="0"
+              width="4"
+              height="4"
+              class="text-accent-500"
+              fill="currentColor"></rect>
+          </pattern>
+        </defs>
+        <rect
+          width="404"
+          height="384"
+          fill="url(#64e643ad-2176-4f86-b3d7-f2c5da3b6a6d)"></rect>
+      </svg>
+      <svg
+        class="absolute top-full opacity-40 transform -translate-x-1/3 -translate-y-1/3 xl:-translate-y-1/2"
+        width="404"
+        height="384"
+        fill="none"
+        viewBox="0 0 404 384"
+        aria-hidden="true"
+      >
+        <defs>
+          <pattern
+            id="64e643ad-2176-4f86-b3d7-f2c5da3b6a6d"
+            x="0"
+            y="0"
+            width="20"
+            height="20"
+            patternUnits="userSpaceOnUse"
+          >
+            <rect
+              x="0"
+              y="0"
+              width="4"
+              height="4"
+              class="text-accent-500"
+              fill="currentColor"></rect>
+          </pattern>
+        </defs>
+        <rect
+          width="404"
+          height="384"
+          fill="url(#64e643ad-2176-4f86-b3d7-f2c5da3b6a6d)"></rect>
+      </svg>
+    </div>
+
+    <section
+      class="section_overview mx-auto xl:max-w-5xl 2xl:max-w-6xl z-50 aspect-square animate-fade-down animate-once"
+    >
+      <article class="pf-focus--overview col-span-5 relative">
+        <div
+          class="absolute inset-0 flex items-center justify-center -z-50 animate-fade-up animate-once animate-delay-[400ms]"
+        >
+          <div
+            class="h-full w-full [mask-image:linear-gradient(black_1%,transparent)]"
+          >
+            <svg viewBox="0 0 1422 800" opacity="0.36"
+              ><defs
+                ><linearGradient
+                  x1="50%"
+                  y1="0%"
+                  x2="50%"
+                  y2="100%"
+                  id="oooscillate-grad"
+                  ><stop
+                    stop-color="hsl(37, 99%, 67%)"
+                    stop-opacity="1"
+                    offset="0%"></stop><stop
+                    stop-color="hsl(166, 73%, 52%)"
+                    stop-opacity="1"
+                    offset="100%"></stop></linearGradient
+                ></defs
+              ><g
+                stroke-width="2"
+                stroke="url(#oooscillate-grad)"
+                fill="none"
+                stroke-linecap="round"
+                ><path
+                  d="M 0 572 Q 355.5 -100 711 400 Q 1066.5 900 1422 572"
+                  opacity="1.00"></path><path
+                  d="M 0 550 Q 355.5 -100 711 400 Q 1066.5 900 1422 550"
+                  opacity="0.96"></path><path
+                  d="M 0 528 Q 355.5 -100 711 400 Q 1066.5 900 1422 528"
+                  opacity="0.92"></path><path
+                  d="M 0 506 Q 355.5 -100 711 400 Q 1066.5 900 1422 506"
+                  opacity="0.89"></path><path
+                  d="M 0 484 Q 355.5 -100 711 400 Q 1066.5 900 1422 484"
+                  opacity="0.85"></path><path
+                  d="M 0 462 Q 355.5 -100 711 400 Q 1066.5 900 1422 462"
+                  opacity="0.81"></path><path
+                  d="M 0 440 Q 355.5 -100 711 400 Q 1066.5 900 1422 440"
+                  opacity="0.77"></path><path
+                  d="M 0 418 Q 355.5 -100 711 400 Q 1066.5 900 1422 418"
+                  opacity="0.73"></path><path
+                  d="M 0 396 Q 355.5 -100 711 400 Q 1066.5 900 1422 396"
+                  opacity="0.70"></path><path
+                  d="M 0 374 Q 355.5 -100 711 400 Q 1066.5 900 1422 374"
+                  opacity="0.66"></path><path
+                  d="M 0 352 Q 355.5 -100 711 400 Q 1066.5 900 1422 352"
+                  opacity="0.62"></path><path
+                  d="M 0 330 Q 355.5 -100 711 400 Q 1066.5 900 1422 330"
+                  opacity="0.58"></path><path
+                  d="M 0 308 Q 355.5 -100 711 400 Q 1066.5 900 1422 308"
+                  opacity="0.54"></path><path
+                  d="M 0 286 Q 355.5 -100 711 400 Q 1066.5 900 1422 286"
+                  opacity="0.51"></path><path
+                  d="M 0 264 Q 355.5 -100 711 400 Q 1066.5 900 1422 264"
+                  opacity="0.47"></path><path
+                  d="M 0 242 Q 355.5 -100 711 400 Q 1066.5 900 1422 242"
+                  opacity="0.43"></path><path
+                  d="M 0 220 Q 355.5 -100 711 400 Q 1066.5 900 1422 220"
+                  opacity="0.39"></path><path
+                  d="M 0 198 Q 355.5 -100 711 400 Q 1066.5 900 1422 198"
+                  opacity="0.35"></path><path
+                  d="M 0 176 Q 355.5 -100 711 400 Q 1066.5 900 1422 176"
+                  opacity="0.32"></path><path
+                  d="M 0 154 Q 355.5 -100 711 400 Q 1066.5 900 1422 154"
+                  opacity="0.28"></path><path
+                  d="M 0 132 Q 355.5 -100 711 400 Q 1066.5 900 1422 132"
+                  opacity="0.24"></path><path
+                  d="M 0 110 Q 355.5 -100 711 400 Q 1066.5 900 1422 110"
+                  opacity="0.20"></path><path
+                  d="M 0 88 Q 355.5 -100 711 400 Q 1066.5 900 1422 88"
+                  opacity="0.16"></path><path
+                  d="M 0 66 Q 355.5 -100 711 400 Q 1066.5 900 1422 66"
+                  opacity="0.13"></path><path
+                  d="M 0 44 Q 355.5 -100 711 400 Q 1066.5 900 1422 44"
+                  opacity="0.09"></path></g
+              ></svg
+            >
+          </div>
+        </div>
+
+        <article class="h-full grid grid-cols-4 gap-8">
+          <div class="col-span-1 m-auto">
+            <picture>
+              <img
+                class="object-cover [transition:all_.2s_ease-in]
+                hover:scale-[101%]
+                hover:[filter:drop-shadow(0_0_1em_rgba(5,223,100,0.15))]
+                rounded-[999px] cursor-crosshair will-change-[filter]
+                p-2 [border:1px_solid_hsla(0,0%,100%,.1)]"
+                src="/images/Perfil lateral.jpg"
+                alt="Joven programador con gafas"
+                sizes="(max-width: 767px) 767px, 100vw"
+                width="591"
+              />
+            </picture>
+          </div>
+          <div class="col-span-3">
+            <div class="flex flex-col h-full">
+              <div class="flex-auto">
+                <div class="flex flex-col justify-evenly h-full">
+                  <h1
+                    class="text-xl
+                  tracking-tight
+                  leading-10
+                  font-semibold
+                  text-gray-50
+                  sm:text-3xl
+                  sm:leading-none
+                  md:text-3xl
+                  lg:text-4xl"
+                  >
+                    👋 Hola, soy <span class="relative text-yellow-300"
+                      >Brandol</span
+                    >
+                  </h1>
+
+                  <div>
+                    <p class="text-lg text-sky-100">
+                      Un apasionado buscador de conocimiento, siempre dispuesto
+                      a sumergirse en nuevos temas y desafíos para crecer
+                      constantemente.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="flex justify-end items-end">
+                <p class="text-right
+							text-cyan-200
+							font-semibold
+							text-sm
+              max-w-[40ch]">
+                  <span>"</span>Una interfaz de usuario es como un chiste. Si
+                  tienes que explicarlo, no es tan bueno"
+                </p>
+              </div>
+            </div>
+          </div>
+        </article>
+      </article>
+
+      <article
+        class="pf-intro--overview [&>aside>h1]:text-6xl animate-fade-down animate-once"
+      >
+        <aside class="min-h-[4.2rem]">
+          <ThemeSwitch />
+        </aside>
+        <aside class="text-center backdrop-blur-3xl">
+          <p class="text-sm">Edad</p>
+          <h1
+            class="text-transparent
+				bg-gradient-to-r
+				from-brav-secondary
+				to-brav-primary
+				bg-clip-text"
+          >
+            25
+          </h1>
+          <p class="text-sm">Años</p>
+        </aside>
+        <aside class="text-center">
+          <p class="text-sm">Experiencia</p>
+          <h1
+            class="text-transparent
+				bg-gradient-to-r
+				from-brav-secondary
+				to-brav-primary
+				bg-clip-text"
+          >
+            6+
+          </h1>
+          <p class="text-sm">Años</p>
+        </aside>
+      </article>
+      <article
+        class="gap-4 grid [&>div]:space-y-5 animate-fade-up animate-duration-[600ms] animate-ease-in-out"
+      >
+        <div
+          class="pf-social--overview group group-hover:opacity-70 group-hover:shadow-lg group-hover:scale-[102%] transition"
+        >
+          <Linkedin
+            className="w-[3rem] h-[3rem] group-hover:scale-110 transition-all delay-100 duration-300"
+          />
+          <p class="text-sm font-bold text-[#dae2fd] group-hover:text-base transition-all delay-100 duration-300">Linkedin</p>
+        </div>
+        <div class="pf-social--overview">
+          <Mail className="w-[3rem] h-[3rem]" />
+          <p class="text-sm font-bold text-[#dae2fd]">Correo</p>
+        </div>
+
+        <div class="pf-social--overview">
+          <Download className="w-[1.8rem] h-[1.8rem]  " />
+          <p class="text-sm font-bold text-[#dae2fd]">Curriculum</p>
+        </div>
+      </article>
+
+      <article
+        class="col-span-3 pf-content--overview relative animate-fade-up animate-duration-[600ms] animate-ease-in-out"
+      >
+        <!-- <div class=" absolute top-0 pointer-events-none cursor-none [background-image:radial-gradient(circle_50px_at_top_right,rgba(120,119,119,0.3),hsla(0,0%,0%,0))]"></div> -->
+
+        <div
+          class="grid grid-cols-4 grid-rows-3 gap-5 [&>div]:flex [&>div]:flex-col [&>div]:justify-center [&>div]:items-center [&>div>p]:leading-[2em] [&>div>p]:text-xs"
+        >
+          <header class="col-span-4 flex justify-center items-center">
+            <h1 class="text-left text-cyan-200">Tecnologías</h1>
+          </header>
+          <div>
+            <JavaScript className="w-14 h-14" />
+            <p>JavaScript</p>
+          </div>
+          <div>
+            <TypeScript className="w-14 h-14" />
+            <p>TypeScript</p>
+          </div>
+          <div>
+            <React className="w-14 h-14" />
+            <p>React</p>
+          </div>
+          <div>
+            <Angular className="w-14 h-14" />
+            <p>Angular</p>
+          </div>
+          <div>
+            <IcAstro className="w-14 h-14" />
+            <p>Astro</p>
+          </div>
+          <div>
+            <NodeJs className="w-14 h-14" />
+            <p>NodeJs</p>
+          </div>
+          <div>
+            <Laravel className="w-14 h-14" />
+            <p>Laravel</p>
+          </div>
+          <div>
+            <MySql className="w-14 h-14" />
+            <p>MySql</p>
+          </div>
+          <div>
+            <TailwindCss className="w-14 h-14" />
+            <p>TailwindCss</p>
+          </div>
+          <div>
+            <Sass className="w-14 h-14" />
+            <p>Sass</p>
+          </div>
+          <div>
+            <Firebase className="w-14 h-14" />
+            <p>Firebase</p>
+          </div>
+          <div>
+            <GitCommand className="w-14 h-14" />
+            <p>Git</p>
+          </div>
+          <div>
+            <Docker className="w-14 h-14" />
+            <p>Docker</p>
+          </div>
+          <div>
+            <Supabase className="w-14 h-14" />
+            <p>Supabase</p>
+          </div>
+          <div>
+            <Figma className="w-14 h-14" />
+            <p>Figma</p>
+          </div>
+          <div>
+            <Jasmine className="w-14 h-14" />
+            <p>Jasmine</p>
+          </div>
+          <div>
+            <Ionic className="w-14 h-14" />
+            <p>Ionic</p>
+          </div>
+          <div>
+            <Redux className="w-14 h-14" />
+            <p>Redux</p>
+          </div>
+          <div>
+            <PostCss className="w-14 h-14" />
+            <p>PostCss</p>
+          </div>
+          <div>
+            <ESLint className="w-14 h-14" />
+            <p>ESLint</p>
+          </div>
+        </div>
+      </article>
+
+      <article
+        class="col-span-2 pf-skills--overview relative inline-flex cursor-pointer hover:scale-[101%] animate-fade-up animate-duration-[600ms] animate-ease-in-out group"
+      >
+
+      <a href="https://github.com/branjesusdev" target="_blank">
+
+        <div class="absolute -z-50 inset-0 overflow-hidden rounded-[2rem]">
+          <div
+            class="h-full w-full [mask-image:linear-gradient(black_10%,transparent)] group-hover:[mask-image:linear-gradient(black_30%,transparent)] group-hover:scale-105 rounded-[2rem] transition-transform transform-gpu overflow-hidden"
+          >
+            <img src="/images/desktop-code.jpg" alt="Desktop y libreta programando" class="w-full h-full overflow-hidden">
+          </div>
+        </div>
+  
+        <div class="flex-col flex justify-between items-center h-full">
+          <GitHub
+            className="w-[4rem] h-[4rem] ml-[75%]"
+          />
+  
+          <ArrowRight className="w-10 h-10 opacity-0  group-hover:opacity-[.7] transition-opacity delay-100 duration-300 text-[#001324] bg-sky-200 rounded-full p-2 hover:bg-sky-100 hover:[filter:drop-shadow(0_0_1em_rgba(186,230,253,0.15))] "/>
+          <p
+            class="text-lg text-cyan-200
+          font-semibold group-hover:text-xl transition-all delay-100 duration-300"
+          >
+            Perfíl de GitHub, visita mis proyectos
+          </p>
+        </div>
+      </a>
+
+
+        
+      </article>
+
+      <article class="col-span-6 text-center py-20 text-sm">
+        <p>Con 💖 por branjesusdev 🚀</p>
+      </article>
     </section>
   </main>
 </Layout>

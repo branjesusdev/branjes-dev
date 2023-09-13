@@ -15,20 +15,13 @@
     flex-direction: column;
     z-index: 1111 !important;
     position: relative;
+    min-height: 100vh;
   }
 
   .section_overview {
     display: grid;
     gap: 2rem;
     grid-template-columns: repeat(6, minmax(0, 1fr));
-
-
-    
-    // display: flex;
-    // flex-direction: row;
-    // gap: 1rem;
-    // min-height: 90vh;
-    // justify-content: space-around
   }
 
   .pf-focus--overview {
@@ -36,7 +29,6 @@
     @include overwiew();
 
   h1 {
-    font-size: 3rem;
     @include autoText();
       span {
         &:before {
@@ -66,9 +58,6 @@
       justify-content: center;
       @include overwiew( $background: #49a7ff56, $padding: 1rem );
       h1 {
-        font-size: 5rem;
-        font-family: comfortaa-bold;
-        line-height: 1;
       }
     }
   }
@@ -76,5 +65,32 @@
   .pf-social--overview{
     display: flex;
     justify-content: center;
-    @include overwiew( $background: #001324, $padding: 1rem );
+    align-items: center;
+    flex-direction: column;
+    transition:all .2s ease-in;
+    cursor: pointer;
+
+    &:hover {
+      box-shadow:rgba(253,223,71,0.342) 0px 0px 0px 1px,rgba(253,223,71,0.5) 0px 0px 0px 6px;
+    }
+
+
+    &:nth-child(1) {
+      @include overwiew( $background: #7785ff56, $padding: 1rem );
+    
+    }
+    &:nth-child(2) {
+      @include overwiew( $background: #49a7ff3b, $padding: 1rem );
+    }
+    &:nth-child(3) {
+      @include overwiew( $background: #45806e56 , $padding: 1rem );
+    }
+  }
+
+  .pf-skills--overview {
+    @include overwiew( $background: #001324, $padding: 2rem );
+  }
+
+  .pf-content--overview {
+    @include overwiew( $background: #001324, $padding: 2rem );
   }
