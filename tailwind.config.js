@@ -6,7 +6,12 @@ export default {
   content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
   theme: {
     extend: {
-      fontFamily: ['comfortaa-regular', 'comfortaa-light', 'comfortaa-bold', 'comfortaa-semibold', 'system-ui'],
+      fontFamily: {
+        light: ['comfortaa-light', 'system-ui'],
+        custom: ['comfortaa-regular', 'system-ui'],
+        bold: ['comfortaa-bold', 'system-ui'],
+        semibold: ['comfortaa-semibold', 'system-ui']
+      },
       colors: {
         blue: {
           magneta: 'var(--blue-magneta)'

@@ -33,11 +33,11 @@ import ArrowRight from "@shared/icons/ArrowRight.astro";
 ---
 
 <Layout title="Home - Brandol Jesus">
-  <main class="page-wrapper">
+  <main class="page-wrapper relative">
     <RadialGradient />
     <div
-      class="absolute pointer-events-none inset-0"
-      style="background-image:radial-gradient(circle 300px at center, rgba(120,119,198,0.3), hsla(0, 0%, 0%, 0));"
+      class="absolute pointer-events-none inset-0 z-10"
+      style="background-image:radial-gradient(circle 300px at center, rgba(120, 119, 198, 0.133), hsla(0, 0%, 0%, 0));"
     >
     </div>
 
@@ -110,7 +110,7 @@ import ArrowRight from "@shared/icons/ArrowRight.astro";
     </div>
 
     <section
-      class="section_overview mx-auto xl:max-w-5xl 2xl:max-w-6xl z-50 aspect-square animate-fade-down animate-once"
+      class="section_overview mx-auto xl:max-w-5xl 2xl:max-w-6xl aspect-square animate-fade-down animate-once relative"
     >
       <article class="pf-focus--overview col-span-5 relative">
         <div
@@ -220,7 +220,6 @@ import ArrowRight from "@shared/icons/ArrowRight.astro";
                     class="text-xl
                   tracking-tight
                   leading-10
-                  font-semibold
                   text-gray-50
                   sm:text-3xl
                   sm:leading-none
@@ -243,11 +242,13 @@ import ArrowRight from "@shared/icons/ArrowRight.astro";
               </div>
 
               <div class="flex justify-end items-end">
-                <p class="text-right
+                <p
+                  class="text-right
 							text-cyan-200
 							font-semibold
 							text-sm
-              max-w-[40ch]">
+              max-w-[40ch]"
+                >
                   <span>"</span>Una interfaz de usuario es como un chiste. Si
                   tienes que explicarlo, no es tan bueno"
                 </p>
@@ -263,7 +264,7 @@ import ArrowRight from "@shared/icons/ArrowRight.astro";
         <aside class="min-h-[4.2rem]">
           <ThemeSwitch />
         </aside>
-        <aside class="text-center backdrop-blur-3xl">
+        <aside class="text-center space-y-3">
           <p class="text-sm">Edad</p>
           <h1
             class="text-transparent
@@ -274,9 +275,9 @@ import ArrowRight from "@shared/icons/ArrowRight.astro";
           >
             25
           </h1>
-          <p class="text-sm">Años</p>
+          <p class="text-sm text-sky-100 font-bold">Años</p>
         </aside>
-        <aside class="text-center">
+        <aside class="text-center space-y-3">
           <p class="text-sm">Experiencia</p>
           <h1
             class="text-transparent
@@ -290,27 +291,7 @@ import ArrowRight from "@shared/icons/ArrowRight.astro";
           <p class="text-sm">Años</p>
         </aside>
       </article>
-      <article
-        class="gap-4 grid [&>div]:space-y-5 animate-fade-up animate-duration-[600ms] animate-ease-in-out"
-      >
-        <div
-          class="pf-social--overview group group-hover:opacity-70 group-hover:shadow-lg group-hover:scale-[102%] transition"
-        >
-          <Linkedin
-            className="w-[3rem] h-[3rem] group-hover:scale-110 transition-all delay-100 duration-300"
-          />
-          <p class="text-sm font-bold text-[#dae2fd] group-hover:text-base transition-all delay-100 duration-300">Linkedin</p>
-        </div>
-        <div class="pf-social--overview">
-          <Mail className="w-[3rem] h-[3rem]" />
-          <p class="text-sm font-bold text-[#dae2fd]">Correo</p>
-        </div>
-
-        <div class="pf-social--overview">
-          <Download className="w-[1.8rem] h-[1.8rem]  " />
-          <p class="text-sm font-bold text-[#dae2fd]">Curriculum</p>
-        </div>
-      </article>
+      
 
       <article
         class="col-span-3 pf-content--overview relative animate-fade-up animate-duration-[600ms] animate-ease-in-out"
@@ -318,11 +299,14 @@ import ArrowRight from "@shared/icons/ArrowRight.astro";
         <!-- <div class=" absolute top-0 pointer-events-none cursor-none [background-image:radial-gradient(circle_50px_at_top_right,rgba(120,119,119,0.3),hsla(0,0%,0%,0))]"></div> -->
 
         <div
-          class="grid grid-cols-4 grid-rows-3 gap-5 [&>div]:flex [&>div]:flex-col [&>div]:justify-center [&>div]:items-center [&>div>p]:leading-[2em] [&>div>p]:text-xs"
+          class="grid grid-cols-4 gap-5 [&>div]:flex [&>div]:flex-col [&>div]:justify-center [&>div]:items-center [&>div>p]:leading-[2em] [&>div>p]:text-xs space-y-2"
         >
-          <header class="col-span-4 flex justify-center items-center">
-            <h1 class="text-left text-cyan-200">Tecnologías</h1>
+          <header class="col-span-4 flex justify-start items-center">
+            <h1 class="text-sm text-left text-cyan-200">
+              <span>🌕</span> Stack
+            </h1>
           </header>
+          
           <div>
             <JavaScript className="w-14 h-14" />
             <p>JavaScript</p>
@@ -406,37 +390,209 @@ import ArrowRight from "@shared/icons/ArrowRight.astro";
         </div>
       </article>
 
+
       <article
-        class="col-span-2 pf-skills--overview relative inline-flex cursor-pointer hover:scale-[101%] animate-fade-up animate-duration-[600ms] animate-ease-in-out group"
+        class="gap-4 grid [&>div]:space-y-5 animate-fade-up animate-duration-[600ms] animate-ease-in-out"
       >
-
-      <a href="https://github.com/branjesusdev" target="_blank">
-
-        <div class="absolute -z-50 inset-0 overflow-hidden rounded-[2rem]">
+        <a
+          href="https://www.linkedin.com/in/brandol-jes%C3%BAs-vargas-44294b135/"
+          target="_blank"
+          rel=""
+          class="pf-social--overview group cursor-pointer relative"
+        >
           <div
-            class="h-full w-full [mask-image:linear-gradient(black_10%,transparent)] group-hover:[mask-image:linear-gradient(black_30%,transparent)] group-hover:scale-105 rounded-[2rem] transition-transform transform-gpu overflow-hidden"
+            class="flex justify-center items-center flex-col transition space-y-2"
           >
-            <img src="/images/desktop-code.jpg" alt="Desktop y libreta programando" class="w-full h-full overflow-hidden">
-          </div>
-        </div>
-  
-        <div class="flex-col flex justify-between items-center h-full">
-          <GitHub
-            className="w-[4rem] h-[4rem] ml-[75%]"
-          />
-  
-          <ArrowRight className="w-10 h-10 opacity-0  group-hover:opacity-[.7] transition-opacity delay-100 duration-300 text-[#001324] bg-sky-200 rounded-full p-2 hover:bg-sky-100 hover:[filter:drop-shadow(0_0_1em_rgba(186,230,253,0.15))] "/>
-          <p
-            class="text-lg text-cyan-200
-          font-semibold group-hover:text-xl transition-all delay-100 duration-300"
-          >
-            Perfíl de GitHub, visita mis proyectos
-          </p>
-        </div>
-      </a>
+            <div
+              class="absolute inset-0 overflow-hidden pointer-events-none rounded-3xl"
+            >
+              <div
+                class="flex justify-center items-center group-hover:bg-gradient-to-t group-hover:from-black/50 via-transparent to-transparent group-hover:via-blafrom-black/20 w-full h-full transition"
+              >
+                <ArrowRight
+                  className="w-10 h-10 opacity-0 group-hover:opacity-70 group-hover:animate-jump-in transition-opacity delay-0 duration-300 text-[#001324] bg-sky-200 rounded-full p-2 group-hover:bg-sky-100 group-hover:[filter:drop-shadow(0_0_1em_rgba(186,230,253,0.15))] "
+                />
+              </div>
+            </div>
 
+            <Linkedin
+              className="w-[3rem] h-[3rem] group-hover:animate-jump-out duration-200 transition-all animate-jump-in delay-150"
+            />
+            <p
+              class="text-sm font-bold text-[#dae2fd] group-hover:translate-y-10 transition-all transform group-hover:text-base group-hover:text-cyan-200"
+            >
+              Linkedin
+            </p>
+          </div>
+        </a>
+
+        <a
+          href="mailto:brandolvargas9@gmail.com"
+          class="pf-social--overview group cursor-pointer relative"
+        >
+          <div
+            class="flex justify-center items-center flex-col transition space-y-2"
+          >
+            <div
+              class="absolute inset-0 overflow-hidden pointer-events-none rounded-3xl"
+            >
+              <div
+                class="flex justify-center items-center group-hover:bg-gradient-to-t group-hover:from-black/50 via-transparent to-transparent group-hover:via-blafrom-black/20 w-full h-full transition"
+              >
+                <ArrowRight
+                  className="w-10 h-10 opacity-0 group-hover:opacity-70 group-hover:animate-jump-in transition-opacity delay-0 duration-300 text-[#001324] bg-sky-200 rounded-full p-2 group-hover:bg-sky-100 group-hover:[filter:drop-shadow(0_0_1em_rgba(186,230,253,0.15))] "
+                />
+              </div>
+            </div>
+
+            <Mail
+              className="w-[3rem] h-[3rem] group-hover:animate-jump-out duration-200 transition-all animate-jump-in delay-150"
+            />
+            <p
+              class="text-sm font-bold text-[#dae2fd] group-hover:translate-y-10 transition-all transform group-hover:text-base group-hover:text-cyan-200"
+            >
+              Correo
+            </p>
+          </div>
+        </a>
+
+        <a
+          href="https://www.linkedin.com/in/brandol-jes%C3%BAs-vargas-44294b135/"
+          class="pf-social--overview group cursor-pointer relative"
+        >
+          <div
+            class="flex justify-center items-center flex-col transition space-y-2"
+          >
+            <div
+              class="absolute inset-0 overflow-hidden pointer-events-none rounded-3xl"
+            >
+              <div
+                class="flex justify-center items-center group-hover:bg-gradient-to-t group-hover:from-black/50 via-transparent to-transparent group-hover:via-blafrom-black/20 w-full h-full transition"
+              >
+                <ArrowRight
+                  className="w-10 h-10 opacity-0 group-hover:opacity-70 group-hover:animate-jump-in transition-opacity delay-0 duration-300 text-[#001324] bg-sky-200 rounded-full p-2 group-hover:bg-sky-100 group-hover:[filter:drop-shadow(0_0_1em_rgba(186,230,253,0.15))] "
+                />
+              </div>
+            </div>
+
+            <Download
+              className="w-[3rem] h-[3rem] group-hover:animate-jump-out duration-200 transition-all animate-jump-in delay-150"
+            />
+            <p
+              class="text-sm font-bold text-[#dae2fd] group-hover:translate-y-10 transition-all transform group-hover:text-base group-hover:text-cyan-200"
+            >
+              Curriculum
+            </p>
+          </div>
+        </a>
+      </article>
+
+      <article
+        class="col-span-2 pf-skills--overview group"
+      >
+        <a href="https://github.com/branjesusdev" target="_blank">
+          <div class="absolute -z-50 inset-0 overflow-hidden rounded-3xl">
+            <div
+              class="h-full w-full [mask-image:linear-gradient(black_10%,transparent)] group-hover:[mask-image:linear-gradient(black_30%,transparent)] group-hover:scale-105 transition-transform transform-gpu overflow-hidden"
+            >
+              <img
+                src="/images/desktop-code.jpg"
+                alt="Desktop y libreta programando"
+                class="w-full h-full overflow-hidden"
+              />
+            </div>
+          </div>
+
+          <div class="flex-col flex justify-between items-center h-full">
+            <GitHub className="w-[4rem] h-[4rem] ml-[75%]" />
+
+            <ArrowRight
+              className="w-10 h-10 opacity-0  group-hover:opacity-[.7] group-hover:animate-jump-in transition-opacity delay-0 duration-200 text-[#001324] bg-sky-200 rounded-full p-2 hover:bg-sky-100 hover:[filter:drop-shadow(0_0_1em_rgba(186,230,253,0.15))] "
+            />
+            <p
+              class="text-base text-cyan-200
+          font-semibold group-hover:text-lg transition-all delay-100 duration-300"
+            >
+              Perfíl de GitHub, visita mis proyectos
+            </p>
+          </div>
+        </a>
+      </article>
+
+      <article class="col-span-3 grid grid-cols-1 gap-4">
+        <div class="pf-experience--overview group ">
+          <header class="col-span-4 flex justify-start items-center p-8">
+            <h1 class="text-sm text-left text-cyan-200">
+              <span>🌕</span> Experience
+            </h1>
+          </header>
+          <section class="mt-16 [border:1px_solid_hsla(0,0%,100%,0.2)] rounded-3xl m-2 p-8 bg-gradient-to-b from-[#11151a80] to-[#2c3c4b31]">
+            <div class="relative ">
+              <div class="before:[content:''] before:w-[1px] before:h-full before:bg-gray-700 before:absolute before:top-0 before:left-1 before:right-0 before:rounded-lg">
+                <div class="relative inline-block">
+                  <div class="before:[content:''] before:w-2 before:h-2 before:rounded-full before:bg-yellow-100 before:absolute before:top-1 before:z-10 before:translate-x-[-50%] before:translate-y-[-50%] before:left-1 before:[box-shadow:rgb(255,255,255)0px_0px_0px_1px,rgba(255,255,255,0.5)0px_0px_0px_5px]">
+                    <div class="pl-9 pb-8 space-y-1 -translate-y-2">
+                      <h3 class="text-lg text-sky-100">Movii, Moviired</h3>
+                      <p class="text-xs text-white/70">Programmer Front End 〰️ Current</p>
+                    </div>
+                  </div>
+  
+                </div>
+              </div>
+            </div>
+
+            <div class="relative">
+              <div class="before:[content:''] before:w-[1px] before:h-full before:bg-gray-700 before:absolute before:top-0 before:left-1 before:right-0 before:rounded-lg">
+                <div class="relative inline-block">
+                  <div class="before:[content:''] before:w-2 before:h-2 before:rounded-full before:bg-yellow-100 before:absolute before:top-1 before:z-10 before:translate-x-[-50%] before:translate-y-[-50%] before:left-1 before:[box-shadow:rgb(255,255,255)0px_0px_0px_1px,rgba(255,255,255,0.5)0px_0px_0px_5px]">
+                    <div class="pl-9 pb-8 space-y-1 -translate-y-2">
+                      <h3 class="text-lg text-sky-100">COBIS</h3>
+                      <p class="text-xs text-white/70">Programmer 2 〰️ 2020 - 2021</p>
+                    </div>
+                  </div>
+  
+                </div>
+              </div>
+            </div>
+
+            <div class="relative">
+              <div class="before:[content:''] before:w-[1px] before:h-full before:bg-gray-700 before:absolute before:top-0 before:left-1 before:right-0 before:rounded-lg">
+                <div class="relative inline-block">
+                  <div class="before:[content:''] before:w-2 before:h-2 before:rounded-full before:bg-yellow-100 before:absolute before:top-1 before:z-10 before:translate-x-[-50%] before:translate-y-[-50%] before:left-1 before:[box-shadow:rgb(255,255,255)0px_0px_0px_1px,rgba(255,255,255,0.5)0px_0px_0px_5px]">
+                    <div class="pl-9 pb-8 space-y-1 -translate-y-2">
+                      <h3 class="text-lg text-sky-100">Bis@ Comporation</h3>
+                      <p class="text-xs text-white/70">Full Stack  〰️ 2019 - 2020</p>
+                    </div>
+                  </div>
+  
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <div class="pf-skills--overview group">
+          <header class="col-span-4 flex justify-start items-center">
+            <h1 class="text-sm text-left text-cyan-200">
+              <span>☀️</span> Location
+            </h1>
+          </header>
+        </div>
+      </article>
+
+      <article class="col-span-3 pf-skills--overview group">
+        <header class="flex justify-between items-center">
+          <h1 class="text-sm text-left text-cyan-200">
+            <span>🌕</span> Projects
+          </h1>
+
+        </header>
 
         
+
+        <section>
+
+        </section>
       </article>
 
       <article class="col-span-6 text-center py-20 text-sm">

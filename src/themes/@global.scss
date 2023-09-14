@@ -9,22 +9,31 @@
 }
 
 @import './atoms/colors.scss';
-
 @import './organisms/reset.scss';
+@import './organisms/font-family.scss';
 
-body {
-    min-height: 100dvh;
-    margin: 0;
-    font-family: "comfortaa-regular", system-ui;
-    font-size: 1rem;
-    font-weight: 300;
-    line-height: 1.5;
-    background-image: var(--background-noise), linear-gradient(to right, var(--blue-magneta), var(--green-magneta));
-    background-position: 0 0, 0 0;
-    background-size: 200px, auto;
-    overflow-x: hidden;
-}
+@layer base {
+    html {
+        font-family: "comfortaa-regular", system-ui;
+    }
+    body {
+        min-height: 100dvh;
+        margin: 0;
+        font-family: "comfortaa-regular", system-ui;
+        font-size: 1rem;
+        font-weight: 300;
+        line-height: 1.5;
+        background-image: var(--background-noise), linear-gradient(to right, var(--blue-magneta), var(--green-magneta));
+        background-position: 0 0, 0 0;
+        background-size: 200px, auto;
+        overflow-x: hidden;
+    }
 
-p {
-    line-height: 2em;
+    h1 {
+        @apply font-bold
+    }
+    
+    p {
+        line-height: 2em;
+    }
 }
