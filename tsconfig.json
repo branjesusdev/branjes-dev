@@ -5,7 +5,8 @@
       "@/*": ["src/*"],
       "@layouts/*": ["src/layouts/*"],
       "@pages/*": ["src/pages/*"],
-      "@shared/*": ["src/shared/*"]
+      "@shared/*": ["src/shared/*"],
+      "@components/*": ["src/components/*"]
     }
   },
   "extends": "astro/tsconfigs/base",

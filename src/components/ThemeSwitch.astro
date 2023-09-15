@@ -21,7 +21,7 @@
     top: 50%;
     left: 50%;
     overflow: hidden;
-    padding: 0 200px;
+    padding: 0 100px;
     transform: translate3d(-50%, -50%, 0);
     color: white;
     display: flex;
@@ -37,10 +37,10 @@
     display: inline-block;
     position: relative;
     width: 90px;
-    height: 50px;
-    background-color: #83d8ff;
+    height: 40px;
+    background-color: #83d8ff69;
     border-radius: 84px;
-    transition: background-color 200ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+    transition: background-color 100ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
   }
 
 
@@ -49,14 +49,15 @@
     position: relative;
     z-index: 1;
     top: 3px;
-    left: 3px;
-    width: 44px;
-    height: 44px;
-    background-color: #ffcf96;
+    left: 8px;
+    width: 34px;
+    height: 34px;
+    /* background-color: #ffcf96; */
     border-radius: 50px;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-    transition: all 400ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    transition: all 300ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
     transform: rotate(-45deg);
+    @apply bg-yellow-400;
   }
 
   .toggle__handler .crater {
@@ -68,22 +69,22 @@
   }
 
   .toggle__handler .crater--1 {
-    top: 18px;
+    top: 15px;
     left: 10px;
     width: 4px;
     height: 4px;
   }
 
   .toggle__handler .crater--2 {
-    top: 28px;
+    top: 22px;
     left: 22px;
     width: 6px;
     height: 6px;
   }
 
   .toggle__handler .crater--3 {
-    top: 10px;
-    left: 25px;
+    top: 5px;
+    left: 15px;
     width: 8px;
     height: 8px;
   }
@@ -91,7 +92,7 @@
   .star {
     position: absolute;
     background-color: #fff;
-    transition: all 300ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+    transition: all 200ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
     border-radius: 50%;
   }
 
@@ -104,7 +105,7 @@
   }
 
   .star--2 {
-    top: 18px;
+    top: 10px;
     left: 28px;
     z-index: 1;
     width: 30px;
@@ -113,7 +114,7 @@
 
   .star--3 {
     top: 27px;
-    left: 40px;
+    left: 45px;
     z-index: 0;
     width: 30px;
     height: 3px;
@@ -127,7 +128,7 @@
   }
 
   .star--4 {
-    top: 16px;
+    top: 14px;
     left: 11px;
     z-index: 0;
     width: 2px;
@@ -136,7 +137,7 @@
   }
 
   .star--5 {
-    top: 32px;
+    top: 22px;
     left: 17px;
     z-index: 0;
     width: 3px;
@@ -145,7 +146,7 @@
   }
 
   .star--6 {
-    top: 36px;
+    top: 28px;
     left: 28px;
     z-index: 0;
     width: 2px;
@@ -158,7 +159,7 @@
   }
 
   input:checked + .toggle:before {
-    color: #749ed7;
+    color: #749dd783;
   }
 
   input:checked + .toggle:after {

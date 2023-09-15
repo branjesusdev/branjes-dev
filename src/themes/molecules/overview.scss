@@ -1,23 +1,16 @@
 :root {
-    --tw-gradient-from: #13111c;
-    --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(19 17 28 / 0));
-    --tw-gradient-to: #042225;
+    --gradient-from: rgba(0, 0, 0, 0.3);
+    --gradient-to: rgba(0, 0, 0, 0.3);
+    --gradient-stops: var(--gradient-from), var(--gradient-to, rgb(19 17 28 / 0));
 }
 
 @mixin overwiew( $background: rgba(0, 0, 0, 0.3), $padding : 3rem ) {
-    // background-image: var(--background-noise),
-    // linear-gradient(to right, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3));
 
     background-image: var(--background-noise),
-    linear-gradient(to right, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3));
-
-
+    linear-gradient(to right, var(--gradient-stops));
     background-color: $background;
-
-    // background-image: linear-gradient(to right,var(--tw-gradient-stops));
-    // object-fit: cover;
-    // object-position: center;
-
+    object-fit: cover;
+    object-position: center;
     background-position:
         0 0,
         0 0;
