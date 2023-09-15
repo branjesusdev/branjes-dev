@@ -15,13 +15,18 @@
     flex-direction: column;
     z-index: 1111 !important;
     position: relative;
-    min-height: 100vh;
   }
 
   .section_overview {
-    display: grid;
-    gap: 2rem;
-    grid-template-columns: repeat(6, minmax(0, 1fr));
+    // display: grid;
+    // gap: 2rem;
+    // grid-template-columns: repeat(6, minmax(0, 1fr));
+
+    // display: grid;
+    // gap: 10px;
+    // grid-template-columns: repeat(6, minmax(120px, 1fr));
+    // grid-template-rows: masonry;
+
   }
 
   .pf-focus--overview {
@@ -96,5 +101,12 @@
   }
 
   .pf-experience--overview {
+    @include overwiew( $background: hsl(208, 100%, 7%), $padding: 0 );
+  }
+
+  .pf-location--overview {
+    @include overwiew( $background: hsl(208, 100%, 7%), $padding: 0 );
+  }
+  .pf-projects--overview {
     @include overwiew( $background: hsl(208, 100%, 7%), $padding: 0 );
   }

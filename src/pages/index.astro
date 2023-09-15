@@ -1,7 +1,10 @@
 ---
 import Layout from "@layouts/Layout.astro";
 import "@pages/index.scss";
+
 import RadialGradient from "@shared/content/RadialGradient.astro";
+import LineSssquiggly from "@shared/content/LineSssquiggly.astro";
+
 import ThemeSwitch from "@shared/components/ThemeSwitch.astro";
 
 import GitHub from "@shared/icons/GitHub.astro";
@@ -42,7 +45,7 @@ import ArrowRight from "@shared/icons/ArrowRight.astro";
     </div>
 
     <div
-      class="hidden overflow-hidden absolute inset-0 rounded-3xl pointer-events-none lg:block text-[rgba(5,223,100,0.25)]"
+      class=" overflow-hidden fixed inset-0 rounded-3xl pointer-events-none lg:block text-[rgba(5,223,100,0.25)]"
       aria-hidden="true"
     >
       <svg
@@ -110,11 +113,11 @@ import ArrowRight from "@shared/icons/ArrowRight.astro";
     </div>
 
     <section
-      class="section_overview mx-auto xl:max-w-5xl 2xl:max-w-6xl aspect-square animate-fade-down animate-once relative"
+      class="section_overview mx-auto xl:max-w-6xl 2xl:max-w-7xl  animate-fade-down relative grid grid-cols-6 gap-5 grid-rows-[masonry]"
     >
       <article class="pf-focus--overview col-span-5 relative">
         <div
-          class="absolute inset-0 flex items-center justify-center -z-50 animate-fade-up animate-once animate-delay-[400ms]"
+          class="absolute inset-0 flex items-center justify-center -z-50 animate-fade-up animate-delay-[400ms]"
         >
           <div
             class="h-full w-full [mask-image:linear-gradient(black_1%,transparent)]"
@@ -226,16 +229,14 @@ import ArrowRight from "@shared/icons/ArrowRight.astro";
                   md:text-3xl
                   lg:text-4xl"
                   >
-                    👋 Hola, soy <span class="relative text-yellow-300"
+                    👋 Hello, I'm <span class="relative text-yellow-300"
                       >Brandol</span
                     >
                   </h1>
 
                   <div>
-                    <p class="text-lg text-sky-100">
-                      Un apasionado buscador de conocimiento, siempre dispuesto
-                      a sumergirse en nuevos temas y desafíos para crecer
-                      constantemente.
+                    <p class="text-lg text-sky-100 max-w-[60ch]">
+                      A passionate seeker of knowledge, always willing to immerse himself in new topics and challenges in order to constantly grow.
                     </p>
                   </div>
                 </div>
@@ -249,7 +250,7 @@ import ArrowRight from "@shared/icons/ArrowRight.astro";
 							text-sm
               max-w-[40ch]"
                 >
-                  <span>"</span>Una interfaz de usuario es como un chiste. Si
+                  "Una interfaz de usuario es como un chiste. Si
                   tienes que explicarlo, no es tan bueno"
                 </p>
               </div>
@@ -265,7 +266,7 @@ import ArrowRight from "@shared/icons/ArrowRight.astro";
           <ThemeSwitch />
         </aside>
         <aside class="text-center space-y-3">
-          <p class="text-sm">Edad</p>
+          <p class="text-sm">Age</p>
           <h1
             class="text-transparent
 				bg-gradient-to-r
@@ -275,10 +276,10 @@ import ArrowRight from "@shared/icons/ArrowRight.astro";
           >
             25
           </h1>
-          <p class="text-sm text-sky-100 font-bold">Años</p>
+          <p class="text-sm text-sky-100 font-bold">Years</p>
         </aside>
         <aside class="text-center space-y-3">
-          <p class="text-sm">Experiencia</p>
+          <p class="text-sm">Experience</p>
           <h1
             class="text-transparent
 				bg-gradient-to-r
@@ -288,10 +289,9 @@ import ArrowRight from "@shared/icons/ArrowRight.astro";
           >
             6+
           </h1>
-          <p class="text-sm">Años</p>
+          <p class="text-sm">Years</p>
         </aside>
       </article>
-      
 
       <article
         class="col-span-3 pf-content--overview relative animate-fade-up animate-duration-[600ms] animate-ease-in-out"
@@ -299,14 +299,14 @@ import ArrowRight from "@shared/icons/ArrowRight.astro";
         <!-- <div class=" absolute top-0 pointer-events-none cursor-none [background-image:radial-gradient(circle_50px_at_top_right,rgba(120,119,119,0.3),hsla(0,0%,0%,0))]"></div> -->
 
         <div
-          class="grid grid-cols-4 gap-5 [&>div]:flex [&>div]:flex-col [&>div]:justify-center [&>div]:items-center [&>div>p]:leading-[2em] [&>div>p]:text-xs space-y-2"
+          class=" grid grid-cols-4 gap-5 [&>div]:flex [&>div]:flex-col [&>div]:justify-center [&>div]:items-center [&>div>p]:leading-[2em] [&>div>p]:text-xs space-y-2"
         >
-          <header class="col-span-4 flex justify-start items-center">
+          <header class="col-span-4 flex justify-start items-center mb-10">
             <h1 class="text-sm text-left text-cyan-200">
               <span>🌕</span> Stack
             </h1>
           </header>
-          
+
           <div>
             <JavaScript className="w-14 h-14" />
             <p>JavaScript</p>
@@ -390,7 +390,6 @@ import ArrowRight from "@shared/icons/ArrowRight.astro";
         </div>
       </article>
 
-
       <article
         class="gap-4 grid [&>div]:space-y-5 animate-fade-up animate-duration-[600ms] animate-ease-in-out"
       >
@@ -451,7 +450,7 @@ import ArrowRight from "@shared/icons/ArrowRight.astro";
             <p
               class="text-sm font-bold text-[#dae2fd] group-hover:translate-y-10 transition-all transform group-hover:text-base group-hover:text-cyan-200"
             >
-              Correo
+              Mail
             </p>
           </div>
         </a>
@@ -467,7 +466,7 @@ import ArrowRight from "@shared/icons/ArrowRight.astro";
               class="absolute inset-0 overflow-hidden pointer-events-none rounded-3xl"
             >
               <div
-                class="flex justify-center items-center group-hover:bg-gradient-to-t group-hover:from-black/50 via-transparent to-transparent group-hover:via-blafrom-black/20 w-full h-full transition"
+                class="flex justify-center items-center group-hover:bg-gradient-to-t group-hover:from-black/50 via-transparent to-transparent  w-full h-full transition"
               >
                 <ArrowRight
                   className="w-10 h-10 opacity-0 group-hover:opacity-70 group-hover:animate-jump-in transition-opacity delay-0 duration-300 text-[#001324] bg-sky-200 rounded-full p-2 group-hover:bg-sky-100 group-hover:[filter:drop-shadow(0_0_1em_rgba(186,230,253,0.15))] "
@@ -487,9 +486,7 @@ import ArrowRight from "@shared/icons/ArrowRight.astro";
         </a>
       </article>
 
-      <article
-        class="col-span-2 pf-skills--overview group"
-      >
+      <article class="col-span-2 pf-skills--overview group">
         <a href="https://github.com/branjesusdev" target="_blank">
           <div class="absolute -z-50 inset-0 overflow-hidden rounded-3xl">
             <div
@@ -519,80 +516,309 @@ import ArrowRight from "@shared/icons/ArrowRight.astro";
         </a>
       </article>
 
-      <article class="col-span-3 grid grid-cols-1 gap-4">
-        <div class="pf-experience--overview group ">
+      <article class="col-span-3 flex flex-col gap-4 relative">
+        <div class="pf-experience--overview group">
+          <div
+            class="opacity-0 group-hover:opacity-40 transition-all group-hover:animate-jump-in absolute pointer-events-none inset-10 z-10"
+            style="background-image:radial-gradient(circle 300px at center, rgba(120, 119, 198, 0.133), hsla(0, 0%, 0%, 0));"
+          >
+          </div>
+
           <header class="col-span-4 flex justify-start items-center p-8">
             <h1 class="text-sm text-left text-cyan-200">
               <span>🌕</span> Experience
             </h1>
           </header>
-          <section class="mt-16 [border:1px_solid_hsla(0,0%,100%,0.2)] rounded-3xl m-2 p-8 bg-gradient-to-b from-[#11151a80] to-[#2c3c4b31]">
-            <div class="relative ">
-              <div class="before:[content:''] before:w-[1px] before:h-full before:bg-gray-700 before:absolute before:top-0 before:left-1 before:right-0 before:rounded-lg">
+          <section
+            class="mt-16 [border:1px_solid_hsla(0,0%,100%,0.2)] rounded-3xl m-2 p-8 bg-gradient-to-b from-[#515c6821] to-[#49647915]"
+          >
+            <div class="relative">
+              <div
+                class="before:[content:''] before:w-[1px] before:h-full before:bg-gray-700 before:absolute before:top-0 before:left-1 before:right-0 before:rounded-lg"
+              >
                 <div class="relative inline-block">
-                  <div class="before:[content:''] before:w-2 before:h-2 before:rounded-full before:bg-yellow-100 before:absolute before:top-1 before:z-10 before:translate-x-[-50%] before:translate-y-[-50%] before:left-1 before:[box-shadow:rgb(255,255,255)0px_0px_0px_1px,rgba(255,255,255,0.5)0px_0px_0px_5px]">
+                  <div
+                    class="before:[content:''] before:w-2 before:h-2 before:rounded-full before:bg-white before:absolute before:top-1 before:z-10 before:translate-x-[-50%] before:translate-y-[-50%] before:left-1 before:[box-shadow:rgb(255,255,255)0px_0px_0px_1px,rgba(255,255,255,0.5)0px_0px_0px_5px]"
+                  >
                     <div class="pl-9 pb-8 space-y-1 -translate-y-2">
-                      <h3 class="text-lg text-sky-100">Movii, Moviired</h3>
-                      <p class="text-xs text-white/70">Programmer Front End 〰️ Current</p>
+                      <h3 class="text-base text-sky-100">Movii, Moviired</h3>
+                      <p class="text-xs text-white/70">
+                        Programmer Front End 〰️ 2021 - Current
+                      </p>
                     </div>
                   </div>
-  
                 </div>
               </div>
             </div>
 
             <div class="relative">
-              <div class="before:[content:''] before:w-[1px] before:h-full before:bg-gray-700 before:absolute before:top-0 before:left-1 before:right-0 before:rounded-lg">
+              <div
+                class="before:[content:''] before:w-[1px] before:h-full before:bg-gray-700 before:absolute before:top-0 before:left-1 before:right-0 before:rounded-lg"
+              >
                 <div class="relative inline-block">
-                  <div class="before:[content:''] before:w-2 before:h-2 before:rounded-full before:bg-yellow-100 before:absolute before:top-1 before:z-10 before:translate-x-[-50%] before:translate-y-[-50%] before:left-1 before:[box-shadow:rgb(255,255,255)0px_0px_0px_1px,rgba(255,255,255,0.5)0px_0px_0px_5px]">
+                  <div
+                    class="before:[content:''] before:w-2 before:h-2 before:rounded-full before:bg-white before:absolute before:top-1 before:z-10 before:translate-x-[-50%] before:translate-y-[-50%] before:left-1 before:[box-shadow:rgb(255,255,255)0px_0px_0px_1px,rgba(255,255,255,0.5)0px_0px_0px_5px]"
+                  >
                     <div class="pl-9 pb-8 space-y-1 -translate-y-2">
-                      <h3 class="text-lg text-sky-100">COBIS</h3>
-                      <p class="text-xs text-white/70">Programmer 2 〰️ 2020 - 2021</p>
+                      <h3 class="text-base text-sky-100">COBIS</h3>
+                      <p class="text-xs text-white/70">
+                        Programmer 2 〰️ 2020 - 2021
+                      </p>
                     </div>
                   </div>
-  
                 </div>
               </div>
             </div>
 
             <div class="relative">
-              <div class="before:[content:''] before:w-[1px] before:h-full before:bg-gray-700 before:absolute before:top-0 before:left-1 before:right-0 before:rounded-lg">
+              <div
+                class="before:[content:''] before:w-[1px] before:h-full before:bg-gray-700 before:absolute before:top-0 before:left-1 before:right-0 before:rounded-lg"
+              >
                 <div class="relative inline-block">
-                  <div class="before:[content:''] before:w-2 before:h-2 before:rounded-full before:bg-yellow-100 before:absolute before:top-1 before:z-10 before:translate-x-[-50%] before:translate-y-[-50%] before:left-1 before:[box-shadow:rgb(255,255,255)0px_0px_0px_1px,rgba(255,255,255,0.5)0px_0px_0px_5px]">
+                  <div
+                    class="before:[content:''] before:w-2 before:h-2 before:rounded-full before:bg-white before:absolute before:top-1 before:z-10 before:translate-x-[-50%] before:translate-y-[-50%] before:left-1 before:[box-shadow:rgb(255,255,255)0px_0px_0px_1px,rgba(255,255,255,0.5)0px_0px_0px_5px]"
+                  >
                     <div class="pl-9 pb-8 space-y-1 -translate-y-2">
-                      <h3 class="text-lg text-sky-100">Bis@ Comporation</h3>
-                      <p class="text-xs text-white/70">Full Stack  〰️ 2019 - 2020</p>
+                      <h3 class="text-base text-sky-100">Bis@ Comporation</h3>
+                      <p class="text-xs text-white/70">
+                        Full Stack 〰️ 2019 - 2020
+                      </p>
                     </div>
                   </div>
-  
+                </div>
+              </div>
+            </div>
+
+            <div class="relative">
+              <div
+                class="before:[content:''] before:w-[1px] before:h-full before:bg-gray-700 before:absolute before:top-0 before:left-1 before:right-0 before:rounded-lg"
+              >
+                <div class="relative inline-block">
+                  <div
+                    class="before:[content:''] before:w-2 before:h-2 before:rounded-full before:bg-white before:absolute before:top-1 before:z-10 before:translate-x-[-50%] before:translate-y-[-50%] before:left-1 before:[box-shadow:rgb(255,255,255)0px_0px_0px_1px,rgba(255,255,255,0.5)0px_0px_0px_5px]"
+                  >
+                    <div class="pl-9 pb-8 space-y-1 -translate-y-2">
+                      <h3 class="text-base text-sky-100">Tivit Synapsis</h3>
+                      <p class="text-xs text-white/70">Senior 〰️ 2017 - 2019</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="relative">
+              <div
+                class="before:[content:''] before:w-[1px] before:h-full before:bg-gray-700 before:absolute before:top-0 before:left-1 before:right-0 before:rounded-lg"
+              >
+                <div class="relative inline-block">
+                  <div
+                    class="before:[content:''] before:w-2 before:h-2 before:rounded-full before:bg-yellow-100 before:absolute before:top-1 before:z-10 before:translate-x-[-50%] before:translate-y-[-50%] before:left-1 before:[box-shadow:rgb(255,255,255)0px_0px_0px_1px,rgba(255,255,255,0.5)0px_0px_0px_5px]"
+                  >
+                    <div class="pl-9 pb-8 space-y-1 -translate-y-2">
+                      <h3 class="text-base text-sky-100">
+                        Redes y Edificaciones
+                      </h3>
+                      <p class="text-xs text-white/70">Senior 〰️ 2017</p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </section>
         </div>
 
-        <div class="pf-skills--overview group">
-          <header class="col-span-4 flex justify-start items-center">
+        <div class="pf-location--overview group relative">
+          <div
+          class="opacity-0 group-hover:opacity-40 transition-all group-hover:animate-jump-in absolute pointer-events-none inset-0 z-10"
+            style="background-image:radial-gradient(circle 200px at center, rgba(120, 119, 198, 0.133), hsla(60, 15%, 12%, 0.288)"
+          >
+          </div>
+
+
+          <header class="col-span-4 flex justify-start items-center p-8">
             <h1 class="text-sm text-left text-cyan-200">
-              <span>☀️</span> Location
+              <span>🌕</span> Location
             </h1>
           </header>
+
+          <section
+            class="mt-16 [border:1px_solid_hsla(0,0%,100%,0.2)] rounded-3xl m-2 p-8 bg-gradient-to-b from-[#515c6821] to-[#49647915] relative flex flex-row justify-between items-center"
+          >
+
+          <div
+            class="absolute inset-0 flex items-center justify-center -z-50"
+          >
+            <div
+              class="h-full w-full [mask-image:linear-gradient(black_1%,transparent)] rounded-full"
+            >
+              <LineSssquiggly/>
+            </div>
+          </div>
+
+            <h1 class="font-bold text-sky-100"> Fusagasugá, Colombia</h1>
+            <span class="text-3xl">🌤️</span>
+          </section>
         </div>
       </article>
 
-      <article class="col-span-3 pf-skills--overview group">
-        <header class="flex justify-between items-center">
+      <article class="col-span-3 pf-projects--overview relative">
+        <div
+          class="absolute pointer-events-none inset-0 z-10"
+          style="background-image:radial-gradient(circle 300px at center, rgba(120, 119, 198, 0.133), hsla(0, 0%, 0%, 0));"
+        >
+        
+        </div>
+
+        <header class="flex justify-between items-center p-8">
           <h1 class="text-sm text-left text-cyan-200">
             <span>🌕</span> Projects
           </h1>
-
         </header>
 
-        
+        <section class="flex flex-col mt-16 gap-4">
+          <article
+              class="[border:1px_solid_hsla(0,0%,100%,0.2)] rounded-3xl m-2 
+              bg-gradient-to-b from-[#515c6821] to-[#49647915] relative h-[15rem] 
+              transition-all
+              cursor-pointer group"
+            >
+  
+            <div class="overflow-hidden rounded-3xl w-full h-[14.89rem] z-10 ">
+                <img src="/images/projects/onlyShopping.png" alt="" class=" object-cover object-center w-full h-full rounded-3xl 
+                transform-gpu  overflow-hidden 
+                group-hover:-rotate-12 group-hover:translate-x-20 group-hover:opacity-40
+                transition-all duration-400">
+            </div>
+            
+            <a href="https://only-shopping.vercel.app/" target="_blank" class="flex flex-col justify-between p-8 
+            absolute z-20 bottom-0 font-extrabold 
+            group-hover:bg-gradient-to-br w-full h-full 
+            from-black/50 to-black/30 rounded-3xl [background-image:linear-gradient(0deg,#26292d_1%,#00132482_50%,#fff0_99%)]">
+  
+              <div></div>
+              <div class="flex justify-between items-center">
+                <div>
+                  <h3 class="text-yellow-400 font-bold">OnlyShopping</h3>
+                  <p class="text-sm text-white/70">Ventas de camisas</p>
+                </div>
+                <div class="flex gap-4">
+                  <span class="text-xs"><React className="w-10 h-8"/></span>
+                  <span class="text-xs"><TailwindCss className="w-8 h-8" /></span>
+                </div>
+              </div>
+  
+              <div
+                class="absolute inset-0 overflow-hidden pointer-events-none rounded-3xl"
+              >
+                <div
+                  class="flex justify-center items-center w-full h-full transition"
+                >
+                  <ArrowRight
+                    className="w-10 h-10 opacity-0 group-hover:opacity-70 group-hover:animate-jump-in transition-opacity delay-0 duration-300 text-[#001324] bg-sky-200 rounded-full p-2 group-hover:bg-sky-100 group-hover:[filter:drop-shadow(0_0_1em_rgba(186,230,253,0.15))] "
+                  />
+                </div>
+              </div>
+  
+            </a>
+  
+          </article>
+  
+          <article
+              class="[border:1px_solid_hsla(0,0%,100%,0.2)] rounded-3xl m-2 
+              bg-gradient-to-b from-[#515c6821] to-[#49647915] relative h-[15rem] 
+              transition-all
+              cursor-pointer group"
+            >
+  
+            <div class="overflow-hidden rounded-3xl w-full h-[14.89rem] z-10 ">
+                <img src="/images/projects/CatRandom.png" alt="" class=" object-cover object-center w-full h-full rounded-3xl 
+                transform-gpu  overflow-hidden 
+                group-hover:-rotate-12 group-hover:translate-x-20 group-hover:opacity-40
+                transition-all duration-400">
+            </div>
+            
+            <a href="https://only-shopping.vercel.app/" target="_blank" class="flex flex-col justify-between p-8 
+            absolute z-20 bottom-0 font-extrabold 
+            group-hover:bg-gradient-to-br w-full h-full 
+            from-black/50 to-black/30 rounded-3xl [background-image:linear-gradient(0deg,#26292d_1%,#00132482_50%,#fff0_99%)]">
+  
+              <div></div>
+              <div class="flex justify-between items-center">
+                <div>
+                  <h3 class="text-yellow-400 font-bold">Cat Random</h3>
+                  <p class="text-sm text-white/70">Text obtiene gatos aleatorios</p>
+                </div>
+                <div class="flex gap-4">
+                  <span class="text-xs"><React className="w-10 h-8"/></span>
+                  <span class="text-xs"><TailwindCss className="w-8 h-8" /></span>
+                </div>
+              </div>
+  
+              <div
+                class="absolute inset-0 overflow-hidden pointer-events-none rounded-3xl"
+              >
+                <div
+                  class="flex justify-center items-center w-full h-full transition"
+                >
+                  <ArrowRight
+                    className="w-10 h-10 opacity-0 group-hover:opacity-70 group-hover:animate-jump-in transition-opacity delay-0 duration-300 text-[#001324] bg-sky-200 rounded-full p-2 group-hover:bg-sky-100 group-hover:[filter:drop-shadow(0_0_1em_rgba(186,230,253,0.15))] "
+                  />
+                </div>
+              </div>
+  
+            </a>
+  
+          </article>
 
-        <section>
+          <article
+              class="[border:1px_solid_hsla(0,0%,100%,0.2)] rounded-3xl m-2 
+              bg-gradient-to-b from-[#515c6821] to-[#49647915] relative h-[15rem] 
+              transition-all
+              cursor-pointer group"
+            >
+  
+            <div class="overflow-hidden rounded-3xl w-full h-[14.89rem] z-10 ">
+                <img src="/images/projects/TriquiGame.png" alt="" class=" object-cover object-center w-full h-full rounded-3xl 
+                transform-gpu  overflow-hidden 
+                group-hover:-rotate-12 group-hover:translate-x-20 group-hover:opacity-40
+                transition-all duration-400">
+            </div>
+            
+            <a href="https://only-shopping.vercel.app/" target="_blank" class="flex flex-col justify-between p-8 
+            absolute z-20 bottom-0 font-extrabold 
+            group-hover:bg-gradient-to-br w-full h-full 
+            from-black/50 to-black/30 rounded-3xl [background-image:linear-gradient(0deg,#26292d_1%,#00132482_50%,#fff0_99%)]">
+  
+              <div></div>
+              <div class="flex justify-between items-center">
+                <div>
+                  <h3 class="text-yellow-400 font-bold">Triqui Game</h3>
+                  <p class="text-sm text-white/70">Juego de dos</p>
+                </div>
+                <div class="flex gap-4">
+                  <span class="text-xs"><React className="w-10 h-8"/></span>
+                  <span class="text-xs"><TailwindCss className="w-8 h-8" /></span>
+                </div>
+              </div>
+  
+              <div
+                class="absolute inset-0 overflow-hidden pointer-events-none rounded-3xl"
+              >
+                <div
+                  class="flex justify-center items-center w-full h-full transition"
+                >
+                  <ArrowRight
+                    className="w-10 h-10 opacity-0 group-hover:opacity-70 group-hover:animate-jump-in transition-opacity delay-0 duration-300 text-[#001324] bg-sky-200 rounded-full p-2 group-hover:bg-sky-100 group-hover:[filter:drop-shadow(0_0_1em_rgba(186,230,253,0.15))] "
+                  />
+                </div>
+              </div>
+  
+            </a>
+  
+          </article>
 
         </section>
+
       </article>
 
       <article class="col-span-6 text-center py-20 text-sm">
