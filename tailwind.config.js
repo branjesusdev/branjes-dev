@@ -10,7 +10,7 @@ export default {
         light: ['comfortaa-light', 'system-ui'],
         custom: ['comfortaa-regular', 'system-ui'],
         bold: ['comfortaa-bold', 'system-ui'],
-        semibold: ['comfortaa-semibold', 'system-ui']
+        semibold: ['comfortaa-semibold', 'system-ui'],
       },
       colors: {
         blue: {
@@ -20,7 +20,7 @@ export default {
           magneta: 'var(--green-magneta)'
         },
         brav: {
-          primary: '#cced89',
+          primary: 'var(--yellow-vibrant)',
           secondary: '#7cba01',
         }
       },

@@ -1,0 +1,15 @@
+---
+import ThemeSwitch from "@components/ThemeSwitch.astro";
+import CardInfo from "@/components/ui/CardInfo.astro";
+---
+
+<article
+  class="relative grid grid-cols-1 gap-5 pf-intro--overview [&>aside>h1]:text-6xl"
+>
+  <aside class="min-h-[4.2rem]">
+    <ThemeSwitch />
+  </aside>
+
+  <CardInfo titleHeader="Age" contentBody="25" footerInfo="Years"/>
+  <CardInfo titleHeader="Experience" contentBody="6+" footerInfo="Years"/>
+</article>

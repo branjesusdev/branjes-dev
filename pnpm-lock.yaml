@@ -11,9 +11,6 @@ dependencies:
   astro:
     specifier: ^3.0.7
     version: 3.0.7(sass@1.66.1)
-  atropos:
-    specifier: ^2.0.2
-    version: 2.0.2
 
 devDependencies:
   autoprefixer:
@@ -1231,11 +1228,6 @@ packages:
     dependencies:
       has-symbols: 1.0.3
     dev: true
-
-  /atropos@2.0.2:
-    resolution: {integrity: sha512-8f0u0hEOlBTWTSvzY17TcHuQjxUIpkTBq70/I4+UF5B43ORtOoRjm8TPBYEgLM8Ba9AWf6PDtkagbYoybdjaKg==}
-    engines: {node: '>= 12.0.0'}
-    dev: false
 
   /autoprefixer@10.4.15(postcss@8.4.29):
     resolution: {integrity: sha512-KCuPB8ZCIqFdA4HwKXsvz7j6gvSDNhDP7WnUjBleRkKjPdvCmHFuQ77ocavI8FT6NdvlBnE2UFr2H4Mycn8Vew==}

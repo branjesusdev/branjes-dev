@@ -1,0 +1,19 @@
+---
+interface Props {
+  titleHeader : string
+  contentBody : string
+  footerInfo  : string
+}
+
+const { titleHeader, contentBody, footerInfo } = Astro.props
+---
+
+<aside class="text-center space-y-3">
+  <p class="text-sm">{ titleHeader }</p>
+  <h1
+    class="text-5xl md:text-6xl md:leading-tight font-bold text-transparent bg-clip-text bg-gradient-to-br from-lime-300 to-cyan-300"
+  >
+    { contentBody }
+  </h1>
+  <p class="text-sm text-sky-100 font-bold">{footerInfo}</p>
+</aside>

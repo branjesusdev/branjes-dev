@@ -1,0 +1,57 @@
+---
+import OooscillateLines from "@shared/content/OooscillateLines.astro";
+import "@/themes/molecules/wordRotation.scss"
+---
+
+<article class="pf-focus--overview col-span-5 relative w-full min-h-[60dvh]">
+  <OooscillateLines />
+
+  <article class="h-full w-full flex gap-8">
+    <figure class="m-auto w-[18rem]">
+      <img
+        class="object-cover object-center [transition:all_.2s_ease-in]
+            hover:[filter:drop-shadow(0_0_1em_rgba(5,223,100,0.15))]
+            rounded-[999px] cursor-crosshair will-change-[filter]
+            p-2 [border:1px_solid_hsla(0,0%,100%,.1)] hover:[border:2px_solid_hsla(0,0%,100%,.1)]"
+        src="/images/Perfil lateral.jpg"
+        alt="Joven programador con gafas"
+        sizes="(max-width: 767px) 767px, 100vw"
+        width="591"
+      />
+    </figure>
+
+    <div class="w-full h-full flex flex-col">
+      <div class="flex flex-col justify-evenly h-full">
+        <h1
+          class="text-xl
+              tracking-tight
+              text-gray-50
+              sm:text-3xl
+              md:text-4xl
+              lg:text-5xl"
+        >
+          👋 Hello, I'm <span class="relative "
+            >Brandol</span>
+        </h1>
+
+        <div>
+          <p
+            class="text-lg font-semibold leading-normal text-sky-100 max-w-[60ch]"
+          >
+            A passionate seeker of knowledge, always willing to immerse himself
+            in new topics and challenges in order to constantly grow.
+          </p>
+        </div>
+      </div>
+
+      <div class="flex justify-end items-center">
+        <p
+          class="text-right text-cyan-200 font-semibold text-sm leading-normal max-w-[40ch]"
+        >
+          "Una interfaz de usuario es como un chiste. Si tienes que explicarlo,
+          no es tan bueno"
+        </p>
+      </div>
+    </div>
+  </article>
+</article>

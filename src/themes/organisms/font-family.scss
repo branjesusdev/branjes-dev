@@ -9,15 +9,6 @@
 }
 
 @font-face {
-  src: url('/public/fonts/Comfortaa-Bold.woff2') format("woff2");
-  font-family: 'comfortaa-bold';
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  line-height: 1.4;
-}
-
-@font-face {
   src: url('/public/fonts/Comfortaa-Regular.woff2') format("woff2");
   font-family: 'comfortaa-regular';
   font-style: normal;
@@ -34,4 +25,17 @@
   font-display: swap;
   line-height: 1.4;
 }
+
+
+@font-face {
+  src: url('/public/fonts/Comfortaa-Bold.woff2') format("woff2");
+  font-family: 'comfortaa-bold';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  line-height: 1.4;
+}
+
+
+
 

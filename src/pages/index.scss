@@ -1,112 +1,83 @@
-@import '/src/themes/molecules/index.scss';
+@import "/src/themes/molecules/index.scss";
 
 @mixin autoText {
-    letter-spacing: 2px;
-    line-height: 1.1;
-    overflow-wrap: break-word;
-  }
+  letter-spacing: 2px;
+  line-height: 1.1;
+  overflow-wrap: break-word;
+}
 
-.page-wrapper {
-    margin: auto;
-    padding: 2rem;
-    font-size: 20px;
-    line-height: 1.6;
-    display: flex;
-    flex-direction: column;
-    z-index: 1111 !important;
-    position: relative;
-  }
-
-  .section_overview {
-    // display: grid;
-    // gap: 2rem;
-    // grid-template-columns: repeat(6, minmax(0, 1fr));
-
-    // display: grid;
-    // gap: 10px;
-    // grid-template-columns: repeat(6, minmax(120px, 1fr));
-    // grid-template-rows: masonry;
-
-  }
-
-  .pf-focus--overview {
-    width: 100%;
-    @include overwiew();
+.pf-focus--overview {
+  @include overwiew();
 
   h1 {
     @include autoText();
-      span {
-        &:before {
-          position: absolute;
-          content: '';
-          width: 30px;
-          height: 3px;
-          right: -35px;
-          bottom: 7px;
-          border-radius: 5px;
-          @apply bg-yellow-300;
-          overflow: hidden;
-        }
-
-      }
-
-    }
-  }
-
-  .pf-intro--overview {
-    display: grid;
-    grid-template-columns: repeat(1, minmax(0, 10em));
-    gap: 1rem;
-    & > aside {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      @include overwiew( $background: #49a7ff56, $padding: 1rem );
-      h1 {
+    span {
+      color: hsl(64, 100%, 50%);
+      &:before {
+        position: absolute;
+        content: "";
+        width: 30px;
+        height: 3px;
+        right: -35px;
+        bottom: 7px;
+        border-radius: 5px;
+        background-color: hsl(64, 100%, 50%);
+        overflow: hidden;
       }
     }
   }
+}
 
-  .pf-social--overview{
+.pf-intro--overview {
+  & > aside {
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
-    transition:all .2s ease-in;
-    cursor: pointer;
-
-    &:hover {
-      box-shadow:rgba(253,223,71,0.342) 0px 0px 0px 1px,rgba(253,223,71,0.5) 0px 0px 0px 6px;
-    }
-
-
-    &:nth-child(1) {
-      @include overwiew( $background: #7785ff56, $padding: 1rem );
-    
-    }
-    &:nth-child(2) {
-      @include overwiew( $background: #49a7ff3b, $padding: 1rem );
-    }
-    &:nth-child(3) {
-      @include overwiew( $background: #45806e56 , $padding: 1rem );
+    justify-content: center;
+    @include overwiew($background: #49a7ff56, $padding: 1rem);
+    h1 {
     }
   }
+}
 
-  .pf-skills--overview {
-    @include overwiew( $background: #001324, $padding: 2rem );
+.pf-social--overview {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  transition: all 0.2s ease-in;
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: rgba(253, 223, 71, 0.342) 0px 0px 0px 1px,
+      rgba(253, 223, 71, 0.5) 0px 0px 0px 6px;
   }
 
-  .pf-content--overview {
-    @include overwiew( $background: #001324, $padding: 2rem );
+  &:nth-child(1) {
+    @include overwiew($background: #7785ff56, $padding: 1rem);
   }
+  &:nth-child(2) {
+    @include overwiew($background: #49a7ff3b, $padding: 1rem);
+  }
+  &:nth-child(3) {
+    @include overwiew($background: #45806e56, $padding: 1rem);
+  }
+}
 
-  .pf-experience--overview {
-    @include overwiew( $background: hsl(208, 100%, 7%), $padding: 0 );
-  }
+.pf-skills--overview {
+  @include overwiew($background: #001324, $padding: 2rem);
+}
 
-  .pf-location--overview {
-    @include overwiew( $background: hsl(208, 100%, 7%), $padding: 0 );
-  }
-  .pf-projects--overview {
-    @include overwiew( $background: hsl(208, 100%, 7%), $padding: 0 );
-  }
+.pf-content--overview {
+  @include overwiew($background: #001324, $padding: 2rem);
+}
+
+.pf-experience--overview {
+  @include overwiew($background: hsl(208, 100%, 7%), $padding: 0);
+}
+
+.pf-location--overview {
+  @include overwiew($background: hsl(208, 100%, 7%), $padding: 0);
+}
+.pf-projects--overview {
+  @include overwiew($background: hsl(208, 100%, 7%), $padding: 0);
+}
