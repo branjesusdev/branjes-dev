@@ -1,22 +1,33 @@
 ---
 import OooscillateLines from "@shared/content/OooscillateLines.astro";
+import InsetRadial from "@shared/content/InsetRadial.astro";
 import "@/themes/molecules/wordRotation.scss"
 ---
 
 <article class="pf-focus--overview col-span-5 relative w-full min-h-[60dvh]">
   <OooscillateLines />
 
+  
   <article class="h-full w-full flex gap-8">
-    <figure class="m-auto w-[18rem]">
+    <figure class="m-auto w-[28rem] relative ">
+
+      <div class="absolute inset-0 -z-10 opacity-80 contrast-50 blur-2xl">
+        <InsetRadial width="200px" initBg="#67e8f93a" endBg="rgb(0,255,247,0.02)"/>
+      </div>
+
       <img
-        class="object-cover object-center [transition:all_.2s_ease-in]
-            hover:[filter:drop-shadow(0_0_1em_rgba(5,223,100,0.15))]
-            rounded-[999px] cursor-crosshair will-change-[filter]
-            p-2 [border:1px_solid_hsla(0,0%,100%,.1)] hover:[border:2px_solid_hsla(0,0%,100%,.1)]"
-        src="/images/Perfil lateral.jpg"
+        class="object-cover object-top [transition:all_.1s_ease-in]
+            hover:[filter:drop-shadow(0_0_1.3em_rgb(0,255,247,0.09))]
+            rounded-[2rem] cursor-crosshair will-change-[filter]
+            p-2 [mask-image:linear-gradient(black_40%,transparent)] rounded-bl-[10rem]"
+        src="/images/PerfilRemove.png"
         alt="Joven programador con gafas"
         sizes="(max-width: 767px) 767px, 100vw"
-        width="591"
+        decoding="async"
+        loading="eager"
+        fetchpriority="high"
+        width="800"
+        height="800"
       />
     </figure>
 
@@ -48,8 +59,7 @@ import "@/themes/molecules/wordRotation.scss"
         <p
           class="text-right text-cyan-200 font-semibold text-sm leading-normal max-w-[40ch]"
         >
-          "Una interfaz de usuario es como un chiste. Si tienes que explicarlo,
-          no es tan bueno"
+          "A user interface is like a joke. If you have to explain it, it's not so good"
         </p>
       </div>
     </div>

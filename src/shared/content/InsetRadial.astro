@@ -1,5 +1,14 @@
+---
+const {
+  width = "300px",
+  initBg = "rgba(120, 119, 198, 0.133)",
+  endBg = "hsla(0, 0%, 0%, 0)",
+  zIndex = "z-10",
+} = Astro.props;
+---
+
 <div
-  class="absolute pointer-events-none inset-0 z-10"
-  style="background-image:radial-gradient(circle 300px at center, rgba(120, 119, 198, 0.133), hsla(0, 0%, 0%, 0));"
+  class={`absolute pointer-events-none inset-0 contrast-50 ${zIndex}`}
+  style={`background-image:radial-gradient(circle ${width} at center, ${initBg}, ${endBg});`}
 >
 </div>
