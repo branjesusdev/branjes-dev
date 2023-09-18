@@ -1,0 +1,37 @@
+---
+import CardIcon from "@components/ui/CardIcon.astro";
+
+import Linkedin from "@shared/icons/Linkedin.astro";
+import Mail from "@shared/icons/Mail.astro";
+import Download from "@shared/icons/Download.astro";
+
+const classCardIcon = `w-[3rem] h-[3rem] group-hover:animate-jump-out duration-200 transition-all animate-jump-in delay-150`
+---
+
+<article
+  class="gap-4 grid [&>div]:space-y-5 animate-fade-up animate-duration-[600ms] animate-ease-in-out col-span-6 md:col-span-1"
+>
+  <CardIcon
+    redirectURL="https://www.linkedin.com/in/brandol-jes%C3%BAs-vargas-44294b135/"
+    infoText="Linkedin"
+  >
+    <Linkedin
+      className={classCardIcon}
+    />
+  </CardIcon>
+
+  <CardIcon redirectURL="mailto:brandolvargas9@gmail.com" infoText="Mail">
+    <Mail
+      className={classCardIcon}
+    />
+  </CardIcon>
+
+  <CardIcon
+    redirectURL="https://www.linkedin.com/in/brandol-jes%C3%BAs-vargas-44294b135/"
+    infoText="Curriculum"
+  >
+    <Download
+      className={classCardIcon}
+    />
+  </CardIcon>
+</article>

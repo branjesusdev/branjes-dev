@@ -1,0 +1,35 @@
+---
+import ArrowRight from "@shared/icons/ArrowRight.astro";
+
+const { redirectURL, infoText } = Astro.props;
+
+---
+
+<a
+  href={redirectURL}
+  target="_blank"
+  rel=""
+  class="pf-social--overview group cursor-pointer relative"
+>
+  <div class="flex justify-center items-center flex-col transition space-y-2">
+    <div
+      class="absolute inset-0 overflow-hidden pointer-events-none rounded-3xl"
+    >
+      <div
+        class="flex justify-center items-center group-hover:bg-gradient-to-t group-hover:from-black/50 via-transparent to-transparent group-hover:via-blafrom-black/20 w-full h-full transition"
+      >
+        <ArrowRight
+          className="w-10 h-10 opacity-0 group-hover:opacity-70 group-hover:animate-jump-in transition-opacity delay-0 duration-300 text-[#001324] bg-sky-200 rounded-full p-2 group-hover:bg-sky-100 group-hover:[filter:drop-shadow(0_0_1em_rgba(186,230,253,0.15))] "
+        />
+      </div>
+    </div>
+
+    <slot></slot>
+
+    <p
+      class="text-sm font-bold text-[#dae2fd] group-hover:translate-y-10 transition-all transform group-hover:text-base group-hover:text-cyan-200"
+    >
+      { infoText }
+    </p>
+  </div>
+</a>

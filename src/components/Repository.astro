@@ -1,0 +1,36 @@
+---
+import GitHub from "@shared/icons/GitHub.astro";
+import ArrowRight from "@shared/icons/ArrowRight.astro";
+---
+
+<article class="col-span-6 md:col-span-2 pf-skills--overview group">
+  <a href="https://github.com/branjesusdev" target="_blank">
+    <div class="absolute -z-50 inset-0 overflow-hidden rounded-3xl">
+      <div
+        class="h-full w-full [mask-image:linear-gradient(black_10%,transparent)] 
+          group-hover:[mask-image:linear-gradient(black_30%,transparent)] 
+          group-hover:scale-105 transition-transform transform-gpu overflow-hidden"
+      >
+        <img
+          src="/images/desktop-code.jpg"
+          alt="Desktop y libreta programando"
+          class="w-full h-full overflow-hidden"
+        />
+      </div>
+    </div>
+
+    <div class="flex-col flex justify-between items-center h-full">
+      <GitHub className="w-[4rem] h-[4rem] ml-[75%]" />
+
+      <ArrowRight
+        className="w-10 h-10 opacity-0  group-hover:opacity-[.7] group-hover:animate-jump-in transition-opacity delay-0 duration-200 text-[#001324] bg-sky-200 rounded-full p-2 hover:bg-sky-100 hover:[filter:drop-shadow(0_0_1em_rgba(186,230,253,0.15))] "
+      />
+      <p
+        class="text-base text-cyan-200
+    font-semibold group-hover:text-lg transition-all delay-100 duration-300"
+      >
+        Perfíl de GitHub, visita mis proyectos
+      </p>
+    </div>
+  </a>
+</article>
