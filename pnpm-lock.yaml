@@ -13,9 +13,6 @@ dependencies:
     version: 3.0.7(sass@1.66.1)
 
 devDependencies:
-  '@fullhuman/postcss-purgecss':
-    specifier: ^5.0.0
-    version: 5.0.0(postcss@8.4.29)
   autoprefixer:
     specifier: ^10.4.15
     version: 10.4.15(postcss@8.4.29)
@@ -789,15 +786,6 @@ packages:
   /@eslint/js@8.48.0:
     resolution: {integrity: sha512-ZSjtmelB7IJfWD2Fvb7+Z+ChTIKWq6kjda95fLcQKNS5aheVHn4IkfgRQE3sIIzTcSLwLcLZUD9UBt+V7+h+Pw==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
-    dev: true
-
-  /@fullhuman/postcss-purgecss@5.0.0(postcss@8.4.29):
-    resolution: {integrity: sha512-onDS/b/2pMRzqSoj4qOs2tYFmOpaspjTAgvACIHMPiicu1ptajiBruTrjBzTKdxWdX0ldaBb7wj8nEaTLyFkJw==}
-    peerDependencies:
-      postcss: ^8.0.0
-    dependencies:
-      postcss: 8.4.29
-      purgecss: 5.0.0
     dev: true
 
   /@humanwhocodes/config-array@0.11.11:
