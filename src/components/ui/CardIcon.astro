@@ -8,8 +8,9 @@ const { redirectURL, infoText } = Astro.props;
 <a
   href={redirectURL}
   target="_blank"
-  rel=""
+  rel="noopener noreferrer"
   class="pf-social--overview group cursor-pointer relative min-h-[10rem]"
+  aria-label={infoText}
 >
   <div class="flex justify-center items-center flex-col transition space-y-2">
     <div
