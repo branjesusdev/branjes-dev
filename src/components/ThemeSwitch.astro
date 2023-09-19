@@ -31,7 +31,8 @@
     cursor: pointer;
     display: inline-block;
     position: relative;
-    width: 90px;
+    width: 100%;
+    max-width: 90px;
     height: 40px;
     background-color: #83d8ff69;
     border-radius: 84px;
@@ -163,7 +164,7 @@
 
   input:checked + .toggle .toggle__handler {
     background-color: #ffe5b5;
-    transform: translate3d(40px, 0, 0) rotate(0);
+    transform: translate3d(80%, 0, 0) rotate(0);
   }
 
   input:checked + .toggle .toggle__handler .crater {
