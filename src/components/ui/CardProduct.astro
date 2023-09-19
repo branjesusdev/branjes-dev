@@ -11,7 +11,11 @@ const path = `/images/projects/${imageProduct}`;
   <div class="overflow-hidden rounded-3xl w-full h-[14.89rem] z-10">
     <img
       src={path}
-      alt=""
+      alt={`${title} ${subTitle}`}
+      decoding="async"
+      data-sizes="(max-width: 591px) 100vw, 591px"
+      data-src={`${path}`}
+      srcset={`${path} 564w`}
       class="object-cover object-center w-full h-full rounded-3xl
           transform-gpu overflow-hidden
           group-hover:animate-movedeg
