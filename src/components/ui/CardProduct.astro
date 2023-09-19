@@ -1,0 +1,52 @@
+---
+import ArrowRight from "@shared/icons/ArrowRight.astro";
+
+const { title, subTitle, urlInner, imageProduct } = Astro.props;
+const path = `/images/projects/${imageProduct}`;
+---
+
+<article
+  class="inner-content h-[15rem] transition-all cursor-pointer group relative"
+>
+  <div class="overflow-hidden rounded-3xl w-full h-[14.89rem] z-10">
+    <img
+      src={path}
+      alt=""
+      class="object-cover object-center w-full h-full rounded-3xl
+          transform-gpu overflow-hidden
+          group-hover:animate-movedeg
+          duration-300
+          transition-all duration-400"
+    />
+  </div>
+
+  <a
+    href={urlInner}
+    target="_blank"
+    class="flex flex-col justify-between p-8
+      absolute z-20 bottom-0 font-extrabold
+      group-hover:bg-gradient-to-br w-full h-full
+      from-black/50 to-black/30 rounded-3xl [background-image:linear-gradient(0deg,#26292d_1%,#00132482_50%,#fff0_99%)]"
+  >
+    <div></div>
+    <div class="flex justify-between items-center">
+      <div>
+        <h3 class="text-brav-primary font-bold">{title}</h3>
+        <p class="text-sm text-white/70">{subTitle}</p>
+      </div>
+      <div class="flex gap-4">
+        <slot />
+      </div>
+    </div>
+
+    <div
+      class="absolute inset-0 overflow-hidden pointer-events-none rounded-3xl"
+    >
+      <div class="flex justify-center items-center w-full h-full transition">
+        <ArrowRight
+          className="w-10 h-10 opacity-0 group-hover:opacity-70 group-hover:animate-jump-in transition-opacity delay-0 duration-300 text-[#001324] bg-sky-200 rounded-full p-2 group-hover:bg-sky-100 group-hover:[filter:drop-shadow(0_0_1em_rgba(186,230,253,0.15))] "
+        />
+      </div>
+    </div>
+  </a>
+</article>

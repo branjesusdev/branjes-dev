@@ -1,0 +1,27 @@
+---
+import HeaderTitle from "@/components/ui/HeaderTitle.astro";
+import InnerLine from "@/components/ui/InnerLine.astro";
+---
+
+<section
+  class="relative pf-experience--overview group"
+>
+  <div
+    class="opacity-0 group-hover:opacity-40 transition-all group-hover:animate-jump-in absolute pointer-events-none inset-10 z-10"
+    style="background-image:radial-gradient(circle 300px at center, rgba(120, 119, 198, 0.133), hsla(0, 0%, 0%, 0));"
+  >
+  </div>
+
+  <HeaderTitle title="Experience"/>
+
+  <section
+    class="mt-16 inner-content inner-content--space"
+  >
+
+    <InnerLine title="Movii, Moviired" subTitle="Programmer Front End 〰️ 2021 - Current"/>
+    <InnerLine title="COBIS" subTitle="Programmer 2 〰️ 2020 - 2021"/>
+    <InnerLine title="Bis@ Comporation" subTitle="Full Stack 〰️ 2019 - 2020"/>
+    <InnerLine title="Tivit Synapsis" subTitle="Analista 2 〰️ 2017 - 2019"/>
+    <InnerLine title="Redes y Edificaciones" subTitle="Senior 〰️ 2017"/>
+  </section>
+</section>

@@ -9,7 +9,7 @@ const { redirectURL, infoText } = Astro.props;
   href={redirectURL}
   target="_blank"
   rel=""
-  class="pf-social--overview group cursor-pointer relative"
+  class="pf-social--overview group cursor-pointer relative min-h-[10rem]"
 >
   <div class="flex justify-center items-center flex-col transition space-y-2">
     <div
@@ -19,7 +19,7 @@ const { redirectURL, infoText } = Astro.props;
         class="flex justify-center items-center group-hover:bg-gradient-to-t group-hover:from-black/50 via-transparent to-transparent group-hover:via-blafrom-black/20 w-full h-full transition"
       >
         <ArrowRight
-          className="w-10 h-10 opacity-0 group-hover:opacity-70 group-hover:animate-jump-in transition-opacity delay-0 duration-300 text-[#001324] bg-sky-200 rounded-full p-2 group-hover:bg-sky-100 group-hover:[filter:drop-shadow(0_0_1em_rgba(186,230,253,0.15))] "
+          className=" w-10 h-10 opacity-0 group-hover:opacity-70 group-hover:animate-jump-in transition-opacity delay-0 duration-300 text-[#001324] bg-sky-200 rounded-full p-2 group-hover:bg-sky-100 group-hover:[filter:drop-shadow(0_0_1em_rgba(186,230,253,0.15))] "
         />
       </div>
     </div>
@@ -27,7 +27,7 @@ const { redirectURL, infoText } = Astro.props;
     <slot></slot>
 
     <p
-      class="text-sm font-bold text-[#dae2fd] group-hover:translate-y-10 transition-all transform group-hover:text-base group-hover:text-cyan-200"
+      class="text-sm font-bold text-[#dae2fd] group-hover:translate-y-4 md:group-hover:translate-y-10 transition-all transform group-hover:text-base group-hover:text-cyan-200"
     >
       { infoText }
     </p>
