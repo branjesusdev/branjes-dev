@@ -1,33 +1,54 @@
-# Astro Starter Kit: Basics
+![Portfolio](/public/landing.png)
+
+> 🔗 **Sitio WEB:** https://branjes-dev.vercel.app/ 
+
+# Astro Starter Kit: Minimal
 
 ```
-npm create astro@latest -- --template basics
+npm create astro@latest -- --template minimal
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/branjes-dev)
+[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/branjes-dev)
+[![Open in GitHub VSCode](https://github.com/codespaces/badge.svg)](https://vscode.dev/github/branjesusdev/branjes-dev)
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## ⚙️ Stack
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+➡️ [**Tailwindcss**](https://tailwindcss.com/) : pnpm astro add tailwind
+<br/>
 
-## 🚀 Project Structure
+➡️ [**Astro.Build**](https://astro.build/)
+<br/>
 
-Inside of your Astro project, you'll see the following folders and files:
+➡️ [**PostCss**](https://postcss.org/)
+
+## 🚀 Getting Started
+
+1. Install dependencies:
+
+```bash
+npm install
+# or
+yarn install
+# or
+pnpm install
+# or
+ultra install
+```
+
+## 📂 Project Structure
+
 
 ```
 /
 ├── public/
-│   └── favicon.svg
 ├── src/
-│   ├── components/
-│   │   └── Card.astro
-│   ├── layouts/
-│   │   └── Layout.astro
 │   └── pages/
-│       └── index.astro
-└── package.json
+│       ├── index.astro
+│       └── 404.astro
+├── package.json
+│── postcss.config.cjs
+└── tailwind.config.js
 ```
 
 Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
@@ -43,7 +64,7 @@ All commands are run from the root of the project, from a terminal:
 | Command                   | Action                                           |
 | :------------------------ | :----------------------------------------------- |
 | `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
+| `npm run dev`             | Starts local dev server at `localhost:3000`      |
 | `npm run build`           | Build your production site to `./dist/`          |
 | `npm run preview`         | Preview your build locally, before deploying     |
 | `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
