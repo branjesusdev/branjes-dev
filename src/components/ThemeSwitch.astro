@@ -1,5 +1,5 @@
 <div class="toggleWrapper">
-  <input type="checkbox" class="hidden" id="themeSwitch" checked aria-labelledby="themeSwitch"/>
+  <input type="checkbox" role="checkbox" class="hidden" id="themeSwitch" checked aria-labelledby="themeSwitch" onchange=""/>
   <label for="themeSwitch" class="toggle" aria-label="Switch Theme">
     <span class="toggle__handler">
       <span class="crater crater--1"></span>
@@ -22,8 +22,6 @@
   }
 
   .toggleWrapper input {
-    /* position: absolute; */
-    /* left: -99em; */
     display: none;
   }
 
@@ -47,7 +45,6 @@
     top: 3px;
     width: 34px;
     height: 34px;
-    /* background-color: #ffcf96; */
     border-radius: 50px;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
     transition: all 300ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
