@@ -27,6 +27,7 @@ export default {
 
       animation: {
         movedeg: 'movedeg .3s ease-in 1 forwards',
+        octocatwave: 'octocatwave .56s ease-in .3s',
       },
 
       keyframes: {
@@ -36,6 +37,11 @@ export default {
           '50%': { transform: 'rotate(-8deg) translate(3rem, 0)' },
           '80%': { transform: 'rotate(-10deg) translate(4rem, 0)' },
           '100%': { transform: 'rotate(-12deg) translate(5rem, 0)' }
+        },
+        octocatwave: {
+          '0%,100%': { transform: 'rotate(0)' },
+          '20%,60%': { transform: 'rotate(-25deg)' },
+          '40%,80%': { transform: 'rotate(10deg)' },
         }
       }
     },

@@ -1,6 +1,6 @@
 ---
-import GitHub from "@shared/icons/GitHub.astro";
 import ArrowRight from "@shared/icons/ArrowRight.astro";
+import GitHubMove from "@/shared/icons/GitHubMove.astro";
 ---
 
 <article class="relative col-span-6 md:col-span-2 pf-skills--overview group min-h-[20rem]">
@@ -31,15 +31,16 @@ import ArrowRight from "@shared/icons/ArrowRight.astro";
     </div>
 
     <div class="flex-col flex justify-between items-center h-full">
-      <GitHub className="h-[2rem] w-[2rem] md:w-[4rem] md:h-[4rem] ml-[75%]" />
+      <GitHubMove className="h-[4rem] w-[4rem] md:w-[8rem] md:h-[8rem] ml-[75%] -rotate-45 absolute top-4 right-0" />
+      
+      <span></span>
 
       <ArrowRight
         className="w-10 h-10 opacity-0  group-hover:opacity-[.7] group-hover:animate-jump-in transition-opacity delay-0 duration-200 text-[#001324] bg-sky-200 rounded-full p-2 hover:bg-sky-100 hover:[filter:drop-shadow(0_0_1em_rgba(186,230,253,0.15))] "
       />
       <p
         class="text-sm md:text-base text-cyan-200
-          font-semibold md:group-hover:text-lg
-          transition-all delay-100 duration-300"
+          font-semibold"
       >
         GitHub profile, visit my projects
       </p>
