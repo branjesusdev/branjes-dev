@@ -8,7 +8,7 @@ const path = `/images/projects/${imageProduct}`;
 <article
   class="inner-content h-[15rem] transition-all cursor-pointer group relative"
 >
-  <div class="overflow-hidden rounded-3xl w-full h-[14.89rem] z-10">
+  <div class="overflow-hidden rounded-[1.2rem] w-full h-[14.89rem] z-10">
     <img
       src={path}
       alt={`${title} ${subTitle}`}
@@ -16,14 +16,15 @@ const path = `/images/projects/${imageProduct}`;
       data-sizes="(max-width: 591px) 100vw, 591px"
       data-src={`${path}`}
       srcset={`${path} 564w`}
-      class="object-cover object-center w-full h-full rounded-3xl
+      class="object-cover object-center w-full h-full
           transform-gpu overflow-hidden
           group-hover:animate-movedeg
           duration-300
           transition-all duration-400
           group-hover:opacity-80
           group-hover:filter
-          group-hover:blur-sm"
+          group-hover:blur-sm
+          rounded-[1.2rem]"
     />
   </div>
 
@@ -35,7 +36,7 @@ const path = `/images/projects/${imageProduct}`;
     class="flex flex-col justify-between p-8
       absolute z-20 bottom-0 font-extrabold
       group-hover:bg-gradient-to-br w-full h-full
-      from-black/50 to-black/30 rounded-3xl [background-image:linear-gradient(0deg,#26292d_1%,#00132482_50%,#fff0_99%)]"
+      from-black/50 to-black/30 rounded-[1.2rem] [background-image:linear-gradient(0deg,#26292d_1%,#00132482_50%,#fff0_99%)]"
   >
     <div></div>
     <div class="flex justify-between items-center">
@@ -49,7 +50,7 @@ const path = `/images/projects/${imageProduct}`;
     </div>
 
     <div
-      class="absolute inset-0 overflow-hidden pointer-events-none rounded-3xl"
+      class="absolute inset-0 overflow-hidden pointer-events-none rounded-[1.2rem]"
     >
       <div class="flex justify-center items-center w-full h-full transition">
         <ArrowRight

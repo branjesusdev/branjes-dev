@@ -47,6 +47,6 @@
 @layer components {
   .inner-content {
     border: 1px solid hsla(0, 0%, 100%, 0.2);
-    @apply rounded-3xl  bg-gradient-to-b from-[#515c6821] to-[#49647915] relative;
+    @apply rounded-[1.2rem]  bg-gradient-to-b from-[#515c6821] to-[#49647915] relative;
   }
 }
