@@ -1,0 +1,18 @@
+---
+import Layout from "@layouts/Layout.astro";
+
+import RadialGradientBottomFix from "@shared/content/RadialGradientBottomFix.astro";
+import "@pages/index.scss";
+---
+
+<Layout title="404 - Brandol Jesus">
+  <main class="relative w-full overflow-hidden">
+    <RadialGradientBottomFix />
+
+    <section class="text-center [height:100dvh] flex flex-col w-full justify-center items-center space-y-10">
+      <img src="/images/no_image.gif" alt="Not found page">
+      <h1 class="text-6xl pt-10 font-bold text-transparent bg-clip-text bg-gradient-to-br from-lime-300 to-cyan-300">404</h1>
+      <p class="text-lg">¡Ups! Pagina no encontrada</p>
+    </section>
+  </main>
+</Layout>
