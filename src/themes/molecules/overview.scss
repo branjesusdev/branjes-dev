@@ -1,8 +1,3 @@
-:root {
-    --gradient-from: rgba(0, 0, 0, 0.3);
-    --gradient-to: rgba(0, 0, 0, 0.3);
-    --gradient-stops: var(--gradient-from), var(--gradient-to, rgb(19 17 28 / 0));
-}
 
 @mixin overwiew( $background: rgba(0, 0, 0, 0.3), $padding : 3rem ) {
 
@@ -11,6 +6,7 @@
     background-color: $background;
     object-fit: cover;
     object-position: center;
+    background-size: cover;
     background-position:
         0 0,
         0 0;

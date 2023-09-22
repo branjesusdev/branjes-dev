@@ -41,5 +41,8 @@
     --neutral-60 : #939199 !important;
     --neutral-80 : #5E5C66 !important;
 
+    --gradient-from: rgba(0, 0, 0, 0.3);
+    --gradient-to: rgba(0, 0, 0, 0.3);
+    --gradient-stops: var(--gradient-from), var(--gradient-to, rgb(19 17 28 / 0));
     --background-noise: url(/public/backgrounds/noise-50.avif);
 }

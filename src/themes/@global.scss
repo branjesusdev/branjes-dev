@@ -42,11 +42,19 @@
   .inner-content--space {
     @apply mx-2 mb-2 mt-16 p-8;
   }
+  .flex-inline--center {
+    @apply flex justify-center items-center
+  }
 }
 
 @layer components {
   .inner-content {
     border: 1px solid hsla(0, 0%, 100%, 0.2);
     @apply rounded-[1.2rem]  bg-gradient-to-b from-[#515c6821] to-[#49647915] relative;
+  }
+  .noise-content {
+    background-image: var(--background-noise),
+    linear-gradient(to right, var(--gradient-stops));
+    background-color: hsl(208, 100%, 7%);
   }
 }

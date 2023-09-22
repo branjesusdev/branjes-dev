@@ -64,7 +64,7 @@
 }
 
 .pf-skills--overview {
-  @include overwiew($background: #001324, $padding: 2rem);
+  @include overwiew($background: #001324, $padding: 0);
 }
 
 .pf-content--overview {
