@@ -23,6 +23,8 @@ import Redux from "@shared/icons/Redux.astro";
 import PostCss from "@shared/icons/PostCss.astro";
 import ESLint from "@shared/icons/ESLint.astro";
 
+import RadialGradiantHover from "@shared/content/RadialGradiantHover.astro";
+
 const widthIcons = `w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 md:w-14 md:h-14`;
 ---
 
@@ -31,11 +33,13 @@ const widthIcons = `w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 md:w-14 md:h-14`;
   <HeaderTitle title="Stack"/>
 
   <section
+    id="containerStack"
     class="mt-16 mx-2 mb-8 grid grid-cols-3 sm:grid-cols-4 gap-5 [&>div]:flex 
     [&>div]:flex-col [&>div]:justify-center [&>div]:items-center 
     [&>div>p]:leading-[2em] [&>div>p]:text-xs lg:space-y-2 
-    "
+    relative z-10"
   >
+
     <div>
       <JavaScript className={widthIcons} />
       <p>JavaScript</p>
