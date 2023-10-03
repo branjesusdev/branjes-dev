@@ -25,7 +25,7 @@ import ESLint from "@shared/icons/ESLint.astro";
 
 import NextJs from "@/shared/icons/NextJs.astro";
 
-const widthIcons = `w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 md:w-14 md:h-14`;
+const widthIcons = `w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 md:w-9 md:h-9`;
 ---
 
 <article class="col-span-6 md:col-span-3 pf-skills--overview relative animate-fade-up animate-duration-500 animate-delay-0">
@@ -33,90 +33,100 @@ const widthIcons = `w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 md:w-14 md:h-14`;
   <HeaderTitle title="Stack"/>
 
   <section
-    id="containerStack"
-    class="mt-16 mx-2 mb-8 grid grid-cols-3 sm:grid-cols-4 gap-5 [&>div]:flex 
+    class="mt-16 grid grid-cols-3 sm:grid-cols-4 gap-5 [&>div]:flex 
     [&>div]:flex-col [&>div]:justify-center [&>div]:items-center 
     [&>div>p]:leading-[2em] [&>div>p]:text-xs lg:space-y-2 
-    relative z-10"
+    relative z-10 overflow-hidden mx-1 pb-5 "
   >
 
-    <div>
+    <!-- <div class="absolute w-full h-full pointer-events-none cursor-none opacity-25 -z-10">
+      <div class="absolute bg-[url(/images/Orbite-eee.svg)] bg-cover w-[200px] h-[200px]"></div>
+      <div class="absolute bg-[url(/images/Orbite-eee.svg)] bg-cover w-[300px] h-[300px]"></div>
+      <div class="absolute bg-[url(/images/Orbite-eee.svg)] bg-cover w-[400px] h-[400px]"></div>
+      <div class="absolute bg-[url(/images/Orbite-eee.svg)] bg-cover w-[500px] h-[500px]"></div>
+    </div> -->
+
+    <div class="absolute w-full h-full pointer-events-none cursor-none opacity-25 -z-10 overflow-hidden ">
+      <div class="absolute bg-[url(/images/points-white.png)] bg-cover w-full h-full rounded-b-3xl"></div>
+    </div>
+
+    <div class=" md:rotate-3 md:-translate-x-4 md:translate-y-3">
       <JavaScript className={widthIcons} />
       <p>JavaScript</p>
     </div>
-    <div>
+    <div class="md:-translate-y-2 md:-translate-x-5 md:-rotate-6">
       <TypeScript className={widthIcons} />
       <p>TypeScript</p>
     </div>
-    <div>
+    <div class="md:-translate-x-5 md:rotate-12 md:translate-y-5">
       <React className={widthIcons} />
       <p>React</p>
     </div>
-    <div>
+    <div class="md:-translate-x-5 md:-rotate-12">
       <Angular className={widthIcons} />
       <p>Angular</p>
     </div>
-    <div>
+    <div class="md:translate-x-16 md:-translate-y-2 md:rotate-2">
       <NextJs className={widthIcons} />
       <p>NextJs</p>
     </div>
-    <div>
+    <div class="md:translate-x-12 md:-rotate-6">
       <IcAstro className={widthIcons} />
       <p>Astro</p>
     </div>
-    <div>
+    <div class="translate-x-5 md:translate-y-5 md:rotate-2">
       <NodeJs className={widthIcons} />
       <p>NodeJs</p>
     </div>
-    <div>
+    <div class="md:-translate-x-2 md:-rotate-2">
       <Laravel className={widthIcons} />
       <p>Laravel</p>
     </div>
-    <div>
+    <div class="md:-translate-x-3 md:-translate-y-12 md:rotate-3">
       <MySql className={widthIcons} />
       <p>MySql</p>
     </div>
-    <div>
+    <div class="md:-translate-x-12 md:rotate-2">
       <TailwindCss className={widthIcons} />
       <p>TailwindCss</p>
     </div>
-    <div>
+    <div class="md:-translate-x-14 md:-rotate-45">
       <Sass className={widthIcons} />
       <p>Sass</p>
     </div>
-    <div>
+    <div class="md:-translate-x-9 md:-rotate-[5deg]">
       <Firebase className={widthIcons} />
       <p>Firebase</p>
     </div>
-    <div>
+    <div class="md:-translate-x-2 md:rotate-[7deg] md:-translate-y-8">
       <GitCommand className={widthIcons} />
       <p>Git</p>
     </div>
-    <div>
+    <div class="md:-translate-x-6 md:-rotate-[7deg] md:-translate-y-3">
       <Docker className={widthIcons} />
       <p>Docker</p>
     </div>
-    <div>
+    <div class="md:translate-x-8 md:rotate-[7deg] md:-translate-y-12">
       <Supabase className={widthIcons} />
       <p>Supabase</p>
     </div>
-    <div>
+    <div class="md:-rotate-6">
       <Jasmine className={widthIcons} />
       <p>Jasmine</p>
     </div>
-    <div>
+    <div class="md:-translate-y-4 md:translate-x-6 md:rotate-2">
       <Ionic className={widthIcons} />
       <p>Ionic</p>
     </div>
-    <div>
+    <div class="md:translate-x-12 md:-translate-y-11 md:rotate-3">
       <Redux className={widthIcons} />
       <p>Redux</p>
     </div>
-    <div>
+    <div class="md:-translate-x-1 md:-translate-y-11 md:rotate-3">
       <PostCss className={widthIcons} />
       <p>PostCss</p>
     </div>
-    <div>
+    <div class="md:rotate-[60deg] md:-translate-x-12 md:-translate-y-5">
       <ESLint className={widthIcons} />
       <p>ESLint</p>
     </div>

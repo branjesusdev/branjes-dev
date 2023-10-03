@@ -4,7 +4,7 @@ import InnerLine from "@/components/ui/InnerLine.astro";
 ---
 
 <section
-  class="relative pf-experience--overview group"
+  class="relative pf-experience--overview group overflow-hidden"
 >
   <div
     class="opacity-0 group-hover:opacity-40 transition-all group-hover:animate-jump-in absolute pointer-events-none inset-10 z-10"
@@ -15,9 +15,14 @@ import InnerLine from "@/components/ui/InnerLine.astro";
   <HeaderTitle title="Experience"/>
 
   <section
-    class="inner-content inner-content--space"
+  class="inner-content inner-content--space overflow-hidden relative "
   >
-
+  <div class="absolute  pointer-events-none cursor-none w-full h-full flex justify-center items-center translate-x-[18rem] opacity-30 translate-y-36">
+    <div class="absolute bg-[url(/images/Orbite-eee.svg)] bg-cover bg-center w-[170px] h-[170px]"></div>
+    <div class="absolute bg-[url(/images/Orbite-eee.svg)] bg-cover bg-center w-[260px] h-[260px]"></div>
+    <div class="absolute bg-[url(/images/Orbite-eee.svg)] bg-cover bg-center w-[350px] h-[350px]"></div>
+    <div class="absolute bg-[url(/images/Orbite-eee.svg)] bg-cover bg-center w-[440px] h-[440px]"></div>
+  </div>
     <InnerLine title="Movii, Moviired" subTitle="Front Web Developer 〰️ 2021 - Current"/>
     <InnerLine title="COBIS" subTitle="Full Stack Developer 〰️ 2020 - 2021"/>
     <InnerLine title="Bis@ Comporation" subTitle="Full Stack Developer 〰️ 2019 - 2020"/>

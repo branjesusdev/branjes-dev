@@ -1,18 +1,16 @@
 ---
 import LineSssquiggly from "@shared/content/LineSssquiggly.astro";
-import InsetRadial from "@shared/content/InsetRadial.astro";
 import HeaderTitle from "@/components/ui/HeaderTitle.astro";
 ---
 
-<div class="pf-location--overview group relative">
+<div class="pf-location--overview group relative overflow-hidden">
 
-  <InsetRadial width="300px" addClass="opacity-0 group-hover:opacity-40 group-hover:animate-jump-in animate-once"/>
   <HeaderTitle title="Location"/>
 
   <section
-    class="mt-16 inner-content inner-content--space flex flex-row justify-between items-center"
+    class="mt-16 inner-content inner-content--space flex flex-row justify-between items-center overflow-hidden"
   >
-    <div class="absolute inset-0 flex items-center justify-center -z-50">
+    <div class="absolute inset-0 flex items-center justify-center -z-50 opacity-70 group-hover:opacity-90">
       <div
         class="h-full w-full [mask-image:linear-gradient(black_1%,transparent)] rounded-full"
       >
@@ -21,6 +19,6 @@ import HeaderTitle from "@/components/ui/HeaderTitle.astro";
     </div>
 
     <h1 class="font-bold text-sky-100">Fusagasugá, Colombia</h1>
-    <span class="text-3xl">🌤️</span>
+    <span class="absolute pointer-events-none cursor-none -right-20 text-9xl opacity-20 group-hover:opacity-75 transition-all group-hover:-right-12 group-hover:[filter:drop-shadow(0_0_2em_rgba(5,223,100,0.25))]">🌤️</span>
   </section>
 </div>
