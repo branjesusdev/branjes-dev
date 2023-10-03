@@ -9,8 +9,8 @@
 }
 
 @import "./atoms/colors.scss";
+@import "./atoms/font-family.scss";
 @import "./organisms/reset.scss";
-@import "./organisms/font-family.scss";
 
 @layer base {
   html {
@@ -19,9 +19,6 @@
   body {
     min-height: 100dvh;
     margin: 0;
-    font-size: 1rem;
-    font-weight: 300;
-    line-height: 1.5;
     background-image: var(--background-noise),
       linear-gradient(to right, var(--blue-magneta), var(--green-magneta));
     background-position: 0 0, 0 0;
@@ -34,7 +31,7 @@
   }
 
   p {
-    line-height: 2em;
+    line-height: 1.8 !important;
   }
 }
 
