@@ -11,6 +11,9 @@ dependencies:
   astro:
     specifier: ^3.0.7
     version: 3.0.7(sass@1.66.1)
+  canvas-confetti:
+    specifier: ^1.8.0
+    version: 1.8.0
 
 devDependencies:
   autoprefixer:
@@ -1411,6 +1414,10 @@ packages:
 
   /caniuse-lite@1.0.30001534:
     resolution: {integrity: sha512-vlPVrhsCS7XaSh2VvWluIQEzVhefrUQcEsQWSS5A5V+dM07uv1qHeQzAOTGIMy9i3e9bH15+muvI/UHojVgS/Q==}
+
+  /canvas-confetti@1.8.0:
+    resolution: {integrity: sha512-hR2b5nGhHoqxKUufuM0CM1KRT7H7tq3ni6xIjR9mX4ilgmheX3HOgkK1yZI1DzX7yJdmXZ4KGMZUlvfxVmu7+w==}
+    dev: false
 
   /ccount@2.0.1:
     resolution: {integrity: sha512-eyrF0jiFpY+3drT6383f1qhkbGsLSifNAjA61IUjZjmLCWjItY6LB9ft9YhoDgwfmclB2zhu51Lc7+95b8NRAg==}

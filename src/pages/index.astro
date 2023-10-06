@@ -15,6 +15,7 @@ import Experience from "@components/Experience.astro";
 import Location from "@components/Location.astro";
 import Projects from "@/components/Projects.astro";
 import News from "@/components/News.astro";
+import Acknowledgements from "@/components/Acknowledgements.astro";
 ---
 
 <Layout title="Home - Brandol Jesus">
@@ -33,12 +34,17 @@ import News from "@/components/News.astro";
       <Repository />
 
       <article class="col-span-6 md:col-span-3 flex flex-col gap-4 relative">
-        <Location />
+        <Location/>
         <Experience />
-        <News />
+        <News/>
       </article>
 
-      <Projects />
+      <Projects client:visible/>
+
+      <div class="col-span-6 flex flex-col gap-4 relative">
+        <Acknowledgements client:visible/>
+      </div>
+      
 
       <article class="col-span-6 text-center py-20 text-base">
         <p>With 💖 for branjesusdev 🚀</p>

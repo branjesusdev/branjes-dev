@@ -11,6 +11,7 @@ const path = `/images/projects/${imageProduct}`;
       src={path}
       alt={`${title} ${subTitle}`}
       decoding="async"
+      loading="lazy"
       data-sizes="(max-width: 591px) 100vw, 591px"
       data-src={`${path}`}
       srcset={`${path} 564w`}

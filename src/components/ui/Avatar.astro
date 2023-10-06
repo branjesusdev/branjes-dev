@@ -1,0 +1,16 @@
+---
+const { className, img, alt, caption } = Astro.props;
+---
+
+<figure class:list={[`${className} flex justify-center items-center flex-col
+  [&_figure>img]:w-[4.5rem] gap-2 text-xs`]}>
+  <img 
+    src={img} 
+    alt={alt} 
+    decoding="async"
+    loading="lazy"
+    width="70"
+    height="70"
+    class="[border:1px_solid_var(--black-light)] cursor-crosshair rounded-full p-1">
+  <caption><span class="font-bold text-[var(--gray-390)]"> {caption}</span></caption>
+</figure>

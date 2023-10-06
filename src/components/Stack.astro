@@ -22,7 +22,7 @@ import Ionic from "@shared/icons/Ionic.astro";
 import Redux from "@shared/icons/Redux.astro";
 import PostCss from "@shared/icons/PostCss.astro";
 import ESLint from "@shared/icons/ESLint.astro";
-
+import NestJs from "@shared/icons/NestJs.astro";
 import NextJs from "@/shared/icons/NextJs.astro";
 
 const widthIcons = `w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 md:w-9 md:h-9`;
@@ -38,14 +38,6 @@ const widthIcons = `w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 md:w-9 md:h-9`;
     [&>div>p]:leading-[2em] [&>div>p]:text-xs lg:space-y-2 
     relative z-10 overflow-hidden mx-1 pb-5 "
   >
-
-    <!-- <div class="absolute w-full h-full pointer-events-none cursor-none opacity-25 -z-10">
-      <div class="absolute bg-[url(/images/Orbite-eee.svg)] bg-cover w-[200px] h-[200px]"></div>
-      <div class="absolute bg-[url(/images/Orbite-eee.svg)] bg-cover w-[300px] h-[300px]"></div>
-      <div class="absolute bg-[url(/images/Orbite-eee.svg)] bg-cover w-[400px] h-[400px]"></div>
-      <div class="absolute bg-[url(/images/Orbite-eee.svg)] bg-cover w-[500px] h-[500px]"></div>
-    </div> -->
-
     <div class="absolute w-full h-full pointer-events-none cursor-none opacity-25 -z-10 overflow-hidden ">
       <div class="absolute bg-[url(/images/points-white.png)] bg-cover w-full h-full rounded-b-3xl"></div>
     </div>
@@ -122,13 +114,13 @@ const widthIcons = `w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 md:w-9 md:h-9`;
       <Redux className={widthIcons} />
       <p>Redux</p>
     </div>
-    <div class="md:-translate-x-1 md:-translate-y-11 md:rotate-3">
+    <div class="md:-translate-x-1 md:-translate-y-11 md:-rotate-[30deg]">
       <PostCss className={widthIcons} />
       <p>PostCss</p>
     </div>
-    <div class="md:rotate-[60deg] md:-translate-x-12 md:-translate-y-5">
-      <ESLint className={widthIcons} />
-      <p>ESLint</p>
+    <div class="md:rotate-[40deg] md:-translate-x-12 md:-translate-y-5">
+      <NestJs className={widthIcons} />
+      <p>NestJs</p>
     </div>
   </section>
 </article>
