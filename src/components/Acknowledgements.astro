@@ -3,50 +3,81 @@ import HeaderTitle from "@/components/ui/HeaderTitle.astro";
 import Avatar from "@/components/ui/Avatar.astro";
 ---
 
-<section
-  id="acknowledgements"
-  class="pf-location--overview group relative "
->
+<section id="acknowledgements" class="pf-location--overview group relative">
   <HeaderTitle title="Acknowledgements" />
 
   <article
-    class="mt-16 inner-content inner-content--space flex flex-col justify-between items-center space-y-2 relative overflow-hidden">
-
+    class="mt-16 inner-content inner-content--space flex flex-col justify-between items-center space-y-2 relative overflow-hidden"
+  >
     <div class="absolute -z-50 inset-0 overflow-hidden w-full h-full">
-        <img
-          src="/backgrounds/blob-scene.svg"
-          alt="Desktop and notebook programming"
-          class="w-full h-full overflow-hidden  object-cover object-center blur-md opacity-50"
-          width="564"
-          height="705"
-          decoding="async"
-          data-all-status="loaded"
-        />
+      <img
+        src="/backgrounds/blob-scene.svg"
+        alt="Desktop and notebook programming"
+        class="w-full h-full overflow-hidden object-cover object-center blur-md opacity-50"
+        width="564"
+        height="705"
+        decoding="async"
+        data-all-status="loaded"
+      />
     </div>
 
-    <div class="relative w-full flex max-w-4xl py-4">
-
-      <div>
-        <Avatar className="-translate-y-5" img="/images/avatars/midudev.jpg" alt="Master programmer with +15 years of experience" caption="Midudev"/>
-        <Avatar className="-translate-x-12" img="/images/avatars/leiferMendez.png" alt="Master programmer Leifer Mendez" caption="Leifer Mendez"/>
-        <Avatar className="translate-y-5" img="/images/avatars/fernandoHerrera.jpg" alt="Master programmer Fernando Herrera" caption="Fernando Herrera"/>
+    <div
+      class="relative w-full flex flex-col md:flex-row max-w-xl md:max-w-4xl py-4 gap-8"
+    >
+      <div class="flex justify-between md:block">
+        <Avatar
+          className="md:-translate-y-5 xl:-translate-y-5"
+          img="/images/avatars/midudev.jpg"
+          alt="Master programmer with +15 years of experience"
+          caption="Midudev"
+        />
+        <Avatar
+          className="md:translate-x-12 xl:-translate-x-12"
+          img="/images/avatars/leiferMendez.png"
+          alt="Master programmer Leifer Mendez"
+          caption="Leifer Mendez"
+        />
+        <Avatar
+          className="md:translate-y-5 xl:translate-y-5"
+          img="/images/avatars/fernandoHerrera.jpg"
+          alt="Master programmer Fernando Herrera"
+          caption="Fernando Herrera"
+        />
       </div>
 
-      <div class="flex flex-col justify-center items-center max-w-2xl gap-6 text-center mx-auto">
+      <div
+        class="flex flex-col justify-center items-center max-w-2xl gap-6 text-center mx-auto"
+      >
         <span>⭐⭐⭐⭐⭐</span>
-        <p class="max-w-[40ch]">The beauty of programming lies in its ability to inspire and connect us. To learn from the masters is to honour tradition and innovation in equal measure!</p>
+        <p class="max-w-[40ch] md:text-sm xl:text-lg">
+          The beauty of programming lies in its ability to inspire and connect
+          us. To learn from the masters is to honour tradition and innovation in
+          equal measure!
+        </p>
         <h1 class="text-[var(--ocean-green-20)]">Thanks 🙏</h1>
       </div>
 
-      <div>
-        <Avatar className="-translate-y-5" img="/images/avatars/Goncy.jpg" alt="Master programmer Goncy" caption="Goncy"/>
-        <Avatar className="translate-x-12" img="/images/avatars/nikobytes.jpg" alt="Master programmer Nikobytes" caption="Nikobytes"/>
-        <Avatar className="translate-y-5" img="/images/avatars/bettatech.jpg" alt="Master programmer bettatech" caption="bettatech"/>
+      <div class="flex justify-between md:block">
+        <Avatar
+          className="md:-translate-y-5 xl:-translate-y-5"
+          img="/images/avatars/Goncy.jpg"
+          alt="Master programmer Goncy"
+          caption="Goncy"
+        />
+        <Avatar
+          className="md:-translate-x-12 xl:translate-x-12"
+          img="/images/avatars/nikobytes.jpg"
+          alt="Master programmer Nikobytes"
+          caption="Nikobytes"
+        />
+        <Avatar
+          className="md:translate-y-5 xl:translate-y-5"
+          img="/images/avatars/bettatech.jpg"
+          alt="Master programmer bettatech"
+          caption="bettatech"
+        />
       </div>
-
     </div>
-
-    
   </article>
 </section>
 
