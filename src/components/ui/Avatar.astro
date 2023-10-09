@@ -2,7 +2,7 @@
 const { className, img, alt, caption } = Astro.props;
 ---
 
-<figure class:list={[`${className} flex justify-start items-center flex-col
+<figure class:list={[`${className} flex justify-start md:justify-center items-center flex-col
   [&_figure>img]:w-[4.5rem] gap-2 text-xs text-center`]}>
   <img 
     src={img} 
