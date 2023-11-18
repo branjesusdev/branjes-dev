@@ -1,9 +1,17 @@
 ---
+import '@/themes/molecules/notification.scss'
 import HeaderTitle from "@/components/ui/HeaderTitle.astro";
+import Notification from "@/shared/icons/Notification.astro";
 ---
 
 <section class="pf-location--overview group relative noise-content">
-  <HeaderTitle title="News"/>
+  <HeaderTitle title="News">
+    <div class="flex-1"></div>
+    <div class="relative transition-all">
+      <span class="notification"></span>
+      <Notification />
+    </div>
+  </HeaderTitle>
 
   <article
     class="mt-16 inner-content inner-content--space flex flex-col justify-between items-center space-y-2"
