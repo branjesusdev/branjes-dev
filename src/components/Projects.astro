@@ -8,6 +8,8 @@ import React from "@shared/icons/React.astro";
 import IcAstro from "@shared/icons/IcAstro.astro";
 import TailwindCss from "@shared/icons/TailwindCss.astro";
 
+import Badge from "@/components/ui/Badge.astro";
+
 ---
 
 <section class="col-span-6 md:col-span-3 pf-projects--overview relative">
@@ -15,13 +17,22 @@ import TailwindCss from "@shared/icons/TailwindCss.astro";
   <HeaderTitle title="Projects"/>
 
   <section class="flex flex-col mt-16 gap-4 px-2 pb-2">
+
     <CardProduct 
       urlInner="https://only-shopping.vercel.app/" 
       imageProduct="onlyShopping.avif"
       title="OnlyShopping" 
       subTitle="Shirt sales">
-      <span class="text-xs"><React  className="w-10 h-8"/></span>
-      <span class="text-xs"><TailwindCss className="w-8 h-8" /></span>
+
+      <Badge>
+        <React  className="w-5 h-5"/>
+        React
+      </Badge>
+
+      <Badge>
+        <TailwindCss className="w-5 h-5" />
+        TailwindCss
+      </Badge>
     </CardProduct>
 
     <CardProduct 
@@ -29,8 +40,16 @@ import TailwindCss from "@shared/icons/TailwindCss.astro";
       imageProduct="MovieFilm.avif"
       title="MovieFilm" 
       subTitle="Featured films with filters">
-      <span class="text-xs"><NextJs className="w-10 h-8"/></span>
-      <span class="text-xs"><TailwindCss className="w-8 h-8" /></span>
+
+      <Badge>
+        <NextJs  className="w-5 h-5"/>
+        NextJs
+      </Badge>
+
+      <Badge>
+        <TailwindCss  className="w-5 h-5"/>
+        TailwindCss
+      </Badge>
     </CardProduct>
     
     <CardProduct 
@@ -38,8 +57,16 @@ import TailwindCss from "@shared/icons/TailwindCss.astro";
       imageProduct="Warriors.avif"
       title="Landing Warriors" 
       subTitle="VS Mortal Combat">
-      <span class="text-xs"><IcAstro className="w-10 h-8"/></span>
-      <span  class="text-xs"><TailwindCss   className="w-8 h-8" /></span>
+
+      <Badge>
+        <IcAstro  className="w-5 h-5"/>
+        Astrp
+      </Badge>
+
+      <Badge>
+        <TailwindCss  className="w-5 h-5"/>
+        TailwindCss
+      </Badge>
     </CardProduct>
   
     <CardProduct 
@@ -47,8 +74,16 @@ import TailwindCss from "@shared/icons/TailwindCss.astro";
       imageProduct="TriquiGame.avif"
       title="Triqui Game" 
       subTitle="set of two people">
-      <span class="text-xs"><React className="w-10 h-8"/></span>
-      <span class="text-xs"><TailwindCss className="w-8 h-8" /></span>
+
+      <Badge>
+        <React  className="w-5 h-5"/>
+        React
+      </Badge>
+
+      <Badge>
+        <TailwindCss  className="w-5 h-5"/>
+        TailwindCss
+      </Badge>
     </CardProduct>
   </section>
 
