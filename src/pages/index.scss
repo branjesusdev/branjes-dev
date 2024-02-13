@@ -11,20 +11,6 @@
 
   h1 {
     @include autoText();
-    span {
-      color: hsl(64, 100%, 50%);
-      &:before {
-        position: absolute;
-        content: "";
-        width: 30px;
-        height: 3px;
-        right: -35px;
-        bottom: 7px;
-        border-radius: 5px;
-        background-color: hsl(64, 100%, 50%);
-        overflow: hidden;
-      }
-    }
   }
 }
 
