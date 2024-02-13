@@ -8,7 +8,6 @@
 
 .pf-focus--overview {
   @include overwiew();
-  max-height: 40rem;
 
   h1 {
     @include autoText();

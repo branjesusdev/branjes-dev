@@ -31,11 +31,6 @@ const widthIcons = `w-10 h-10 sm:w-11 sm:h-11 md:w-9 md:h-9 lg:w-12 lg:h-12 `;
   id="skills"
   class="col-span-6 md:col-span-3 pf-skills--overview relative animate-fade-up animate-duration-500 animate-delay-0">
 
-  <!-- <div
-    id="mouse-follower"
-    class="pointer-events-none absolute transform-gpu -inset-px opacity-0 transition duration-300"
-  /> -->
-
   <div
       id="mouse-follower"
       class="opacity-0 pointer-events-none absolute transform-gpu -inset-px transition duration-300 rounded-3xl "
@@ -137,73 +132,3 @@ const widthIcons = `w-10 h-10 sm:w-11 sm:h-11 md:w-9 md:h-9 lg:w-12 lg:h-12 `;
   </section>
 </article>
 
-<!-- <script lang="ts" is:inline defer>
-  
-  let $domElement = document.querySelector("#skills");
-  let $mouseFollower = document.querySelector("#mouse-follower");
-
-  let opacity = 0;
-  let focused = false;
-  let position = { x: 0, y: 0 };
-
-  
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      
-      if (entry.isIntersecting) {
-
-        $domElement.addEventListener(
-          "mouseenter",
-          () => {
-            opacity = 1;
-            focused = true;
-
-            // const styleApply = `opacity: ${opacity}; background:radial-gradient(800px circle at ${position.x}px ${position.y}px, rgba(97, 97, 97, 0.1), transparent 40%)`
-            // const styleApply = `opacity: ${opacity}; background-image:radial-gradient(circle 300px at ${position.x}px ${position.y}px, rgba(210, 210, 223, 0.04), transparent 100%);`
-            // const styleApply = `opacity: ${opacity}; mask-image:radial-gradient(800px circle at ${position.x}px ${position.y}px,#000,transparent 60%)`
-            const styleApply = `opacity: ${opacity}; background-image:radial-gradient(circle 300px at ${position.x}px ${position.y}px, rgba(157, 157, 204, 0.096), transparent 100%);`
-            $mouseFollower.setAttribute("style", styleApply);
-            
-            console.log("enter", styleApply);
-            
-          }
-        )
-
-        $domElement.addEventListener(
-          "mouseleave",
-          () => {
-            opacity = 0;
-            // const styleApply = `opacity: ${opacity}; background:radial-gradient(800px circle at ${position.x}px ${position.y}px, rgba(97, 97, 97, 0.1), transparent 40%)`
-            // const styleApply = `opacity: ${opacity}; background-image:radial-gradient(circle 300px at ${position.x}px ${position.y}px, rgba(210, 210, 223, 0.04), transparent 100%);`
-            // const styleApply = `opacity: ${opacity}; mask-image:radial-gradient(800px circle at ${position.x}px ${position.y}px,#000,transparent 60%)`
-            const styleApply = `opacity: ${opacity}; background-image:radial-gradient(circle 300px at ${position.x}px ${position.y}px, rgba(157, 157, 204, 0.096), transparent 100%);`
-            $mouseFollower.setAttribute("style", styleApply);
-          }
-        )
-        
-        $domElement.addEventListener(
-          "mousemove",
-          (e) => {
-            if (!focused) return
-            const rect = $domElement.getBoundingClientRect();
-
-            position.x = e.clientX - rect.left;
-            position.y = e.clientY - rect.top;
-
-            // const styleApply = `opacity: ${opacity}; background:radial-gradient(600px circle at ${position.x}px ${position.y}px, rgba(97, 97, 97, 0.1), transparent 40%)`
-            // 'background-image:radial-gradient(hsla(0,0%,100%,.25) 1.8px,transparent 2.5px)'
-            // 'mask-image:radial-gradient(800px circle at var(--mouse-x) var(--mouse-y),#000,transparent 60%)'
-            // const styleApply = `opacity: ${opacity}; mask-image:radial-gradient(800px circle at ${position.x}px ${position.y}px,#000,transparent 60%)`
-            // const styleApply = `opacity: ${opacity}; background-image:radial-gradient(circle 300px at ${position.x}px ${position.y}px, rgba(210, 210, 223, 0.04), transparent 100%);`
-
-            const styleApply = `opacity: ${opacity}; background-image:radial-gradient(circle 300px at ${position.x}px ${position.y}px, rgba(157, 157, 204, 0.096), transparent 100%);`
-            $mouseFollower.setAttribute("style", styleApply);
-          }
-        )
-
-      }
-    });
-  });
-
-  observer.observe($domElement);
-</script> -->
