@@ -1,0 +1,25 @@
+@tailwind base;
+
+@layer base {
+  html {
+    @apply font-custom;
+  }
+  
+  body {
+    min-height: 100dvh;
+    margin: 0;
+    background-image: var(--background-noise),
+      linear-gradient(to right, var(--blue-magneta), var(--green-magneta));
+    background-position: 0 0, 0 0;
+    background-size: 200px, auto;
+    overflow-x: hidden;
+  }
+
+  h1 {
+    @apply font-bold;
+  }
+
+  p {
+    line-height: 1.8 !important;
+  }
+}

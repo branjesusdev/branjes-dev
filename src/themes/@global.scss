@@ -11,48 +11,11 @@
 @import "./atoms/colors.scss";
 @import "./atoms/font-family.scss";
 @import "./organisms/reset.scss";
-@import './molecules/layer_util.scss';
 
-@layer base {
-  html {
-    @apply font-custom;
-  }
-  body {
-    min-height: 100dvh;
-    margin: 0;
-    background-image: var(--background-noise),
-      linear-gradient(to right, var(--blue-magneta), var(--green-magneta));
-    background-position: 0 0, 0 0;
-    background-size: 200px, auto;
-    overflow-x: hidden;
-  }
+@import './layers/base.scss';
+@import './layers/utilities.scss';
+@import './layers/components.scss';
 
-  h1 {
-    @apply font-bold;
-  }
 
-  p {
-    line-height: 1.8 !important;
-  }
-}
 
-@layer utilities {
-  .inner-content--space {
-    @apply mx-2 mb-2 mt-16 p-8;
-  }
-  .flex-inline--center {
-    @apply flex justify-center items-center
-  }
-}
 
-@layer components {
-  .inner-content {
-    border: 1px solid hsla(0, 0%, 100%, 0.2);
-    @apply rounded-[1.2rem]  bg-gradient-to-b from-[#515c6821] to-[#49647915] relative;
-  }
-  .noise-content {
-    background-image: var(--background-noise),
-    linear-gradient(to right, var(--gradient-stops));
-    background-color: hsl(208, 100%, 7%);
-  }
-}
