@@ -1,8 +1,7 @@
 
 @mixin overwiew( $background: rgba(0, 0, 0, 0.3), $padding : 3rem ) {
 
-    background-image: var(--background-noise),
-    linear-gradient(to right, var(--gradient-stops));
+    background-image: linear-gradient(to right, var(--gradient-stops));
     background-color: $background;
     object-fit: cover;
     object-position: center;
