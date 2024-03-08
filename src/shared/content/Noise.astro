@@ -16,6 +16,12 @@
     animation: noise 1s steps(10) infinite;
   }
 
+  @media (prefers-reduced-motion: reduce) {
+    div {
+      animation: none;
+    }
+  }
+
   @keyframes noise {
     0% {
       transform: translate(0, 0);
