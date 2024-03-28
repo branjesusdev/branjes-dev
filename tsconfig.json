@@ -1,4 +1,5 @@
 {
+  "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
@@ -9,6 +10,6 @@
       "@components/*": ["src/components/*"]
     }
   },
-  "extends": "astro/tsconfigs/base",
+  "exclude": ["public"],
   "eslintConfig": { "extends": "./node_modules/standard/eslintrc.json" }
 }
