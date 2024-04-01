@@ -1,0 +1,37 @@
+@import '../layers/utilities.scss';
+@tailwind components;
+
+@layer components {
+
+  
+  .word-animate {
+    color: transparent;
+    -webkit-text-fill-color:transparent;
+    -webkit-background-clip:text;
+    background-clip: text;
+    @extend .bg-text--gradient;
+    background-size: 350% 100%;
+    // animation: 3s reverse 1s 1 running gradientWord;
+
+
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+    animation-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+    animation-direction: reverse;
+    animation-play-state: running;
+    animation-delay: 0;
+    animation-duration: 1s;
+    animation-name: gradientWord;
+  }
+
+  @keyframes gradientWord {
+    0% {
+      background-position: 0% 50%;
+      opacity: .8;
+    }
+    100% {
+      background-position: 100% 50%;
+      opacity: 1;
+    }
+  }
+}
