@@ -1,0 +1,14 @@
+{
+  "headers": [
+    {
+      "source": "/(.*).(avif|webp|svg|png|jpg)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, stale-while-revalidate=31536000, stale-if-error=31536000"
+        }
+      ]
+    }
+
+  ]
+}
