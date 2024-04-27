@@ -10,7 +10,7 @@ import "@/themes/molecules/wordAnimate.scss";
   <OooscillateLines />
 
   <article class="h-full w-full flex flex-col md:flex-row gap-8">
-    <figure class="m-auto w-[15rem] md:w-[28rem] relative">
+    <figure class="m-auto w-[15rem] md:w-[28rem] relative saturate-[120%]  brightness-100 transition-all">
       <div class="absolute inset-0 -z-10 opacity-80 contrast-50 blur-2xl">
         <InsetRadial
           width="200px"
@@ -22,6 +22,7 @@ import "@/themes/molecules/wordAnimate.scss";
       <img
         class="object-cover object-top [transition:all_.1s_ease-in]
             hover:[filter:drop-shadow(0_0_1.3em_rgb(0,255,247,0.09))]
+            
             rounded-[2rem] cursor-crosshair will-change-[filter]
             lg:p-2 [mask-image:linear-gradient(black_40%,transparent)] rounded-bl-[10rem] "
         src="/images/PerfilRemove.avif"
