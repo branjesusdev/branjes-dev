@@ -5,4 +5,4 @@ Allow: /
 Host: https://branjes-dev.vercel.app/
 
 # Sitemaps
-Sitemap: https://lavelada.es/sitemap-index.xml
+Sitemap: https://branjes-dev.vercel.app/sitemap-index.xml
