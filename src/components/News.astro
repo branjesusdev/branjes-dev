@@ -2,9 +2,16 @@
 import '@/themes/molecules/notification.scss'
 import HeaderTitle from "@/components/ui/HeaderTitle.astro";
 import Notification from "@/shared/icons/Notification.astro";
+
+interface Props {
+  class?: string
+}
+
+const { class: classList } = Astro.props as Props;
+
 ---
 
-<section class="pf-location--overview group relative">
+<section class:list={[classList, "pf-location--overview group relative"]}>
   <HeaderTitle title="News">
     <div class="flex-1"></div>
     <div class="relative transition-all">

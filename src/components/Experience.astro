@@ -1,10 +1,17 @@
 ---
 import HeaderTitle from "@/components/ui/HeaderTitle.astro";
 import InnerLine from "@/components/ui/InnerLine.astro";
+
+interface Props {
+  class?: string
+}
+
+const { class: classList } = Astro.props as Props;
+
 ---
 
 <section
-  class="relative pf-experience--overview group overflow-hidden border-clip "
+  class:list={[classList, "relative pf-experience--overview group overflow-hidden border-clip"]}
 >
   <div
     class="opacity-0 group-hover:opacity-40 transition-all group-hover:animate-jump-in absolute pointer-events-none inset-10 z-10"

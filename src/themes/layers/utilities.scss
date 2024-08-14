@@ -4,6 +4,12 @@
   .inner-content--space {
     @apply mx-2 mb-2 mt-16 p-8;
   }
+
+  .inner-content--not-padded {
+    @apply mx-2 mb-2 mt-16;
+  }
+
+
   .flex-inline--center {
     @apply flex justify-center items-center
   }
@@ -16,5 +22,11 @@
     --bard-color-surface: #131314;
 
     background: linear-gradient(74deg,var(--bard-color-brand-text-gradient-stop-1) 0,var(--bard-color-brand-text-gradient-stop-2) 9%,var(--bard-color-brand-text-gradient-stop-3) 20%,var(--bard-color-brand-text-gradient-stop-3) 24%,var(--bard-color-brand-text-gradient-stop-2) 35%,var(--bard-color-brand-text-gradient-stop-1) 44%,var(--bard-color-brand-text-gradient-stop-2) 50%,var(--bard-color-brand-text-gradient-stop-3) 56%,var(--bard-color-surface) 75%,var(--bard-color-surface) 100%)
+  }
+
+  .stroke-text {
+    color:  transparent;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: var(--neutral-20);
   }
 }

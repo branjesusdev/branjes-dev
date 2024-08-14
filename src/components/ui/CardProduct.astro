@@ -1,12 +1,31 @@
 ---
+import ArrowIconEfect from "@components/ui/ArrowIconEfect.astro";
+
 const { title, subTitle, urlInner, imageProduct } = Astro.props;
 const path = `/images/projects/${imageProduct}`;
 ---
 
 <article
-  class="inner-content h-[15rem] transition-all cursor-pointer group relative overflow-hidden hover:shadow-md"
+  class="h-[15rem] transition-all relative overflow-hidden hover:shadow-md grid grid-cols-1 sm:grid-cols-2 gap-4 rounded-[1.2rem] group"
 >
-  <div class="overflow-hidden rounded-[1.2rem] w-full h-[14.89rem] z-10">
+  <img
+    src="/backgrounds/fire-stars.svg"
+    alt="Fire stars"
+    class="absolute top-12 right-[50%] transform-gpu -z-10 group-hover:right-[100%] group-hover:opacity-0 transition-all duration-300"
+  />
+
+  <div
+    class="w-full h-[14.89rem] flex flex-col justify-items-start gap-4 p-5 z-10"
+  >
+    <h1 class="stroke-text text-3xl">{title}</h1>
+    <p class="text-lg text-white/70 mt-1">{subTitle}</p>
+
+    <div class="flex gap-4">
+      <slot />
+    </div>
+  </div>
+
+  <div class="overflow-hidden relative rounded-[1.2rem] w-full h-[14.89rem] group/product">
     <img
       src={path}
       alt={`${title} ${subTitle}`}
@@ -17,9 +36,8 @@ const path = `/images/projects/${imageProduct}`;
       srcset={`${path} 564w`}
       class="object-cover object-center w-full h-full
           transform-gpu overflow-hidden
-          group-hover:animate-movedeg
           duration-300
-        
+          
           animate-movedeg
           blur-md
           opacity-80
@@ -27,22 +45,35 @@ const path = `/images/projects/${imageProduct}`;
           sm:opacity-100
           sm:transform-none
           sm:animate-none
-
+          
           transition-all duration-400
-          group-hover:opacity-80
-          group-hover:filter
-          group-hover:blur-md
+          group-hover/product:animate-movedeg
+          group-hover/product:opacity-80
+          group-hover/product:filter
+          group-hover/product:blur-md
           rounded-[1.2rem]"
     />
-  </div>
 
-  <a
+    <a
+      href={urlInner}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={`${title} ${subTitle}`}
+      class="absolute inset-0 overflow-hidden z-20
+          from-black/50 to-black/30
+          [background-image:linear-gradient(0deg,#26292d_1%,#00132482_50%,#fff0_99%)]
+          flex flex-col justify-center items-center"
+    >
+      <ArrowIconEfect />
+    </a>
+
+    <!-- <a
     href={urlInner}
     target="_blank"
     rel="noopener noreferrer"
     aria-label={`${title} ${subTitle}`}
     class="flex flex-col justify-center items-center
-      absolute z-20 bottom-0 font-extrabold
+      z-20 bottom-0 font-extrabold
       w-full h-full
       group-hover:bg-gradient-to-br 
       from-black/50 to-black/30  
@@ -65,5 +96,6 @@ const path = `/images/projects/${imageProduct}`;
       </div>
     </div>
 
-  </a>
+  </a> -->
+  </div>
 </article>

@@ -6,6 +6,7 @@ import RadialGradientBottomFix from "@shared/content/RadialGradientBottomFix.ast
 import InsetRadial from "@shared/content/InsetRadial.astro";
 import PointsFixed from "@shared/content/PointsFixed.astro";
 
+import ThemeSwitch from "@/components/ThemeSwitch.astro";
 import About from "@components/About.astro";
 import Intro from "@components/Intro.astro";
 import Stack from "@components/Stack.astro";
@@ -23,23 +24,24 @@ import Acknowledgements from "@/components/Acknowledgements.astro";
     <RadialGradientBottomFix />
     <InsetRadial zIndex="z-30"/>
     <PointsFixed />
-
+    
     <section
-      class="z-20 mx-auto xl:max-w-6xl 2xl:max-w-7xl relative grid grid-cols-6 gap-5 grid-rows-[masonry] tabular-nums"
+    class="z-20 mx-auto xl:max-w-6xl 2xl:max-w-7xl relative grid grid-cols-6 gap-5 grid-rows-[masonry] tabular-nums"
     >
+    <ThemeSwitch />
       <About/>
       <Intro />
       <Stack />
       <Contact />
       <Repository />
 
-      <article class="col-span-6 md:col-span-3 flex flex-col gap-4 relative">
-        <Location/>
-        <Experience />
-        <News/>
-      </article>
+      <Location class:list={`col-span-3 `}/>
+      <Experience  class:list={`col-span-3 row-span-2`}/>
+      <News class:list={`col-span-3`}/>
 
-      <Projects />
+      <div class="col-span-6">
+        <Projects />
+      </div>
 
       <div class="col-span-6 flex flex-col gap-4 relative">
         <Acknowledgements/>
@@ -48,6 +50,7 @@ import Acknowledgements from "@/components/Acknowledgements.astro";
 
       <article class="col-span-6 text-center py-20 text-base text-slate-100">
         <p>With 💖 for branjesusdev 🚀</p>
+        <p>2.0.0</p>
       </article>
     </section>
   </main>
