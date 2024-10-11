@@ -7,10 +7,10 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        light: ['comfortaa-light', 'system-ui'],
-        custom: ['comfortaa-regular', 'system-ui'],
-        bold: ['comfortaa-bold', 'system-ui'],
-        semibold: ['comfortaa-semibold', 'system-ui'],
+        light: ['font-light', 'system-ui'],
+        custom: ['font-regular', 'system-ui'],
+        bold: ['font-bold', 'system-ui'],
+        semibold: ['font-semibold', 'system-ui'],
       },
       colors: {
         blue: {

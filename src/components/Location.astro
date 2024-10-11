@@ -14,9 +14,9 @@ const { class: classList } = Astro.props as Props;
   <HeaderTitle title="Location"/>
 
   <section
-    class="mt-16 inner-content inner-content--not-padded flex flex-row justify-between items-center overflow-hidden p-0"
+    class="mt-16 inner-content inner-content--not-padded flex flex-row justify-between items-center overflow-hidden p-0 min-h-[4rem] "
   >
-    <div class="absolute -z-50 inset-x-0 top-1 overflow-hidden w-full h-full">
+    <div class="absolute -z-50 inset-x-0 top-1 overflow-hidden w-full h-full min-h-[] ">
       <img
         src="/backgrounds/stars.svg"
         alt="Desktop and notebook programming"
@@ -27,9 +27,10 @@ const { class: classList } = Astro.props as Props;
     </div>
 
     <p class="font-bold text-sky-100 text-sm ml-4">Fusagasugá, Colombia</p>
-    <!-- <span class="absolute pointer-events-none cursor-none -right-20 text-9xl opacity-20 group-hover:opacity-75 transition-all group-hover:-right-12 group-hover:[filter:drop-shadow(0_0_2em_rgba(5,223,100,0.25))]">🌤️</span> -->
-
-    <img src="/backgrounds/globe.svg" alt="illustration localization Satellitor" class="lg:block w-1/2" />
+    <img src="/backgrounds/globe.svg" 
+      alt="illustration localization Satellitor" 
+      class="lg:block w-1/2" 
+      />
 
   </section>
 </div>

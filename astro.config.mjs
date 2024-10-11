@@ -11,6 +11,7 @@ export default defineConfig({
   devToolbar: {
     enabled: false
   },
+  server: { port: 8080 },  
   compressHTML: true,
   prefetch: true,
   integrations: [tailwind(), sitemap()],
