@@ -3,6 +3,3 @@ Allow: /
 
 # Host
 Host: https://branjes-dev.vercel.app/
-
-# Sitemaps
-Sitemap: https://branjes-dev.vercel.app/sitemap-index.xml
