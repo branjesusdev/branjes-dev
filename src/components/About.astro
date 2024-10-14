@@ -3,6 +3,7 @@ import OooscillateLines from "@shared/content/OooscillateLines.astro";
 import InsetRadial from "@shared/content/InsetRadial.astro";
 import "@/themes/molecules/wordAnimate.scss";
 
+const textReveal = `👋 Hello, I'm Brandol`;
 ---
 
 <article
@@ -44,8 +45,7 @@ import "@/themes/molecules/wordAnimate.scss";
 
     <div class="w-full h-full flex flex-col gap-8 md:gap-0 relative">
       <div class="flex flex-col justify-evenly h-full gap-8 md:gap-0">
-
-        <h1
+        <h1 
           class="relative inline-block
             text-3xl
             sm:text-3xl
@@ -53,13 +53,28 @@ import "@/themes/molecules/wordAnimate.scss";
             lg:text-5xl
             xl:text-5xl
             2xl:text-5xl
-            font-bold"
+            font-bold
+            overflow-hidden"
         >
-          <span>👋</span>
-          <span class="word-animate">Hello, I'm Brandol</span>
+          
+          <span class="word-animate-reveal text-yellow-500">
+            {
+              textReveal.match(/./gu)!.map((char, index) => (
+                <span
+                  class="word-item"
+                  style={{ animationDelay: `${index * 0.05}s` }}
+                >
+                  {char === " " ? "\u00A0" : char}
+                </span>
+              ))
+            }
+          </span>
+
         </h1>
 
-        <h2 class="text-lg lg:text-2xl text-balance max-w-[700px] text-sky-200 font-semibold leading-6 tracking-widest">
+        <h2
+          class="text-lg lg:text-2xl text-balance max-w-[700px] text-sky-200 font-semibold leading-6 tracking-widest"
+        >
           Creative problem solver with a full-stack skillset, passionate about
           mastering new technologies and crafting elegant solutions.
         </h2>
@@ -76,3 +91,26 @@ import "@/themes/molecules/wordAnimate.scss";
     </div>
   </article>
 </article>
+
+<style is:inline>
+
+  .word-animate-reveal {
+    letter-spacing: 1px;
+    
+  }
+
+  .word-item {
+    display: inline-block;
+    animation: reveal 1.5s cubic-bezier(0.77, 0, 0.175, 1) 0.5s;
+    animation-fill-mode: backwards;
+  }
+
+  @keyframes reveal {
+    0% {
+      transform: translate(0, 100%);
+    }
+    100% {
+      transform: translate(0, 0);
+    }
+  }
+</style>
