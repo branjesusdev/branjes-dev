@@ -1,6 +1,9 @@
 ---
 import HeaderTitle from "@/components/ui/HeaderTitle.astro";
 import Avatar from "@/components/ui/Avatar.astro";
+
+import { Picture } from "astro:assets";
+import avatar from "./assets/stars.svg";
 ---
 
 <section id="acknowledgements" class="pf-location--overview group relative">
@@ -12,12 +15,13 @@ import Avatar from "@/components/ui/Avatar.astro";
     <div 
       id="stars-background"
       class="absolute -z-50 inset-x-0 top-4 overflow-hidden w-full h-full pointer-events-none">
-      <img
-        src="/backgrounds/stars.svg"
+
+      <Picture
+        class="w-4/5 mx-auto pointer-events-none cursor-none"
+        src={avatar}
         alt="Desktop and notebook programming"
-        class="object-contain w-4/5 mx-auto"
-        decoding="async"
-        data-all-status="loaded"
+        loading="lazy"
+        formats={["avif", "webp", "png"]}
       />
     </div>
 
