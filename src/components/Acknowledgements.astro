@@ -9,7 +9,9 @@ import Avatar from "@/components/ui/Avatar.astro";
   <article
     class="mt-16 inner-content inner-content--space flex flex-col justify-between items-center space-y-2 relative overflow-hidden"
   >
-    <div class="absolute -z-50 inset-x-0 top-4 overflow-hidden w-full h-full">
+    <div 
+      id="stars-background"
+      class="absolute -z-50 inset-x-0 top-4 overflow-hidden w-full h-full pointer-events-none">
       <img
         src="/backgrounds/stars.svg"
         alt="Desktop and notebook programming"
@@ -81,7 +83,10 @@ import Avatar from "@/components/ui/Avatar.astro";
 
 <script>
   import confetti from "canvas-confetti";
-  const $acknowledgements = document.querySelector(`#acknowledgements`);
+  import { splotlightBorder } from "@shared/lib/spotlight-border";
+  import { mouseFollowerRun } from "@shared/lib/mouse-follower";
+
+  const $acknowledgements = document.getElementById("acknowledgements");
 
   $acknowledgements.addEventListener(
     "mouseenter",
@@ -95,4 +100,25 @@ import Avatar from "@/components/ui/Avatar.astro";
     },
     { once: true }
   );
+
+
+  // Animate Stars
+
+  const $starsBackground = document.getElementById("stars-background");
+  
+  new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        $starsBackground.classList.add("animate-stars");
+      } else {
+        $starsBackground.classList.remove("animate-stars");
+      }
+    });
+  }).observe($starsBackground);
+  
+
+  splotlightBorder({ selector: "acknowledgements" });
+  mouseFollowerRun({ selector: "acknowledgements" });
+
+
 </script>

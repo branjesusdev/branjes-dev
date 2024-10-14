@@ -1,12 +1,15 @@
 ---
+import { Picture } from "astro:assets";
 import OooscillateLines from "@shared/content/OooscillateLines.astro";
 import InsetRadial from "@shared/content/InsetRadial.astro";
 import "@/themes/molecules/wordAnimate.scss";
+import avatar from "./assets/avatar.avif";
 
 const textReveal = `👋 Hello, I'm Brandol`;
 ---
 
 <article
+  id="about"
   class="pf-focus--overview col-span-6 md:col-span-5 relative w-full min-h-[60dvh] animate-fade-up animate-duration-500 animate-delay-0"
 >
   <OooscillateLines />
@@ -23,23 +26,12 @@ const textReveal = `👋 Hello, I'm Brandol`;
         />
       </div>
 
-      <img
-        class="object-cover object-top [transition:all_.1s_ease-in]
-            hover:[filter:drop-shadow(0_0_1.3em_rgb(0,255,247,0.09))]
-            
-            rounded-[2rem] cursor-crosshair will-change-[filter]
-            lg:p-2 [mask-image:linear-gradient(black_40%,transparent)] rounded-bl-[10rem]"
-        src="/images/PerfilRemove.avif"
-        alt="Joven programador con gafas"
-        sizes="(max-width: 591px) 100vw, 591px"
-        decoding="async"
+      <Picture
+        class="object-cover object-top [transition:all_.1s_ease-in] hover:[filter:drop-shadow(0_0_1.3em_rgb(0,255,247,0.09))] rounded-[2rem] cursor-crosshair will-change-[filter] lg:p-2 [mask-image:linear-gradient(black_40%,transparent)] rounded-bl-[10rem]"
+        src={avatar}
+        alt="Avatar"
         loading="eager"
-        draggable="false"
-        fetchpriority="high"
-        width="591"
-        height="556"
-        data-srcset="/images/PerfilRemove600.avif 300w, /images/PerfilRemove.avif 591w"
-        srcset="/images/PerfilRemove600.avif 300w, /images/PerfilRemove.avif 591w"
+        formats={["avif", "webp", "png"]}
       />
     </figure>
 
@@ -114,3 +106,14 @@ const textReveal = `👋 Hello, I'm Brandol`;
     }
   }
 </style>
+
+
+<script >
+
+  import { splotlightBorder } from "@shared/lib/spotlight-border";
+  import { mouseFollowerRun } from "@shared/lib/mouse-follower";
+  
+  splotlightBorder({ selector: "about" });
+  mouseFollowerRun({ selector: "about" });
+  
+</script>

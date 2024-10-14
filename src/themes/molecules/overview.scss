@@ -9,12 +9,14 @@
   background-position: 0 0, 0 0;
   background-size: 200px, auto;
   backdrop-filter: blur(14px);
-  border: 1px solid hsla(0, 0%, 100%, 0.2);
+  border: 1px solid hsla(0, 0%, 100%, 0);
   padding: $padding;
   @apply shadow-md rounded-3xl;
-  transition: border 0.2s ease-in;
+  transition: border 0.3s ease-in;
+  box-shadow: inset 20px 20px 60px $background,
+            inset -20px -20px 60px $background;
 
   &:hover {
-    border: 1px solid hsla(0, 0%, 100%, 0.4);
+    border: 0.5px solid hsla(0, 0%, 100%, 0.4);
   }
 }

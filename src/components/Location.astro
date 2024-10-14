@@ -9,7 +9,9 @@ const { class: classList } = Astro.props as Props;
 
 ---
 
-<div class:list={[classList, "pf-location--overview group relative overflow-hidden"]}>
+<div 
+  id="location"
+  class:list={[classList, "pf-location--overview group relative"]}>
 
   <HeaderTitle title="Location"/>
 
@@ -34,3 +36,12 @@ const { class: classList } = Astro.props as Props;
 
   </section>
 </div>
+
+<script>
+  import { splotlightBorder } from "@shared/lib/spotlight-border";
+  import { mouseFollowerRun } from "@shared/lib/mouse-follower";
+  
+  splotlightBorder({ selector: "location" });
+  mouseFollowerRun({ selector: "location" });
+
+</script>

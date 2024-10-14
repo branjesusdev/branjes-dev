@@ -1,0 +1,14 @@
+---
+interface Props {
+  reference: string;
+}
+
+const { reference } = Astro.props as Props;
+---
+
+<div
+  id={`${reference}-spotlight-border`}
+  class="pointer-events-none absolute left-0 top-0 z-10 h-full w-full rounded-3xl border border-blue-500 opacity-0 transition-opacity duration-500"
+  aria-hidden="true"
+>
+</div>

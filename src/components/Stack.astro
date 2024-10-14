@@ -31,13 +31,7 @@ const widthIcons = `w-10 h-10 sm:w-11 sm:h-11 md:w-9 md:h-9 lg:w-12 lg:h-12 `;
   id="skills"
   class="col-span-6 md:col-span-3 pf-skills--overview relative animate-fade-up animate-duration-500 animate-delay-0">
 
-  <div
-      id="mouse-follower"
-      class="opacity-0 pointer-events-none absolute transform-gpu -inset-px transition duration-300 rounded-3xl "
-    />
-
-  <HeaderTitle title="Stack"/>
-
+    
   <section
     class="mt-16 grid grid-cols-3 sm:grid-cols-4 gap-5 [&>div]:flex 
     [&>div]:flex-col [&>div]:justify-center [&>div]:items-center 
@@ -133,57 +127,11 @@ const widthIcons = `w-10 h-10 sm:w-11 sm:h-11 md:w-9 md:h-9 lg:w-12 lg:h-12 `;
 </article>
 
 <script >
+
+  import { splotlightBorder } from "@shared/lib/spotlight-border";
+  import { mouseFollowerRun } from "@shared/lib/mouse-follower";
   
-  const $domElement = document.querySelector("#skills") as HTMLElement;
-  const $mouseFollower = document.querySelector("#mouse-follower") as HTMLElement;
-
-  let opacity = 0;
-  let focused = false;
-  let position = { x: 0, y: 0 };
+  splotlightBorder({ selector: "skills" });
+  mouseFollowerRun({ selector: "skills" });
   
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      
-      if (entry.isIntersecting) {
-
-        $domElement.addEventListener(
-          "mouseenter",
-          () => {
-            opacity = 1;
-            focused = true;
-            
-            const styleApply = `opacity: ${opacity}; background-image:radial-gradient(circle 300px at ${position.x}px ${position.y}px, rgba(157, 157, 204, 0.096), transparent 100%);`
-            $mouseFollower.setAttribute("style", styleApply);
-                        
-          }
-        ) 
-
-        $domElement.addEventListener(
-          "mouseleave",
-          () => {
-            opacity = 0;
-            const styleApply = `opacity: ${opacity}; background-image:radial-gradient(circle 300px at ${position.x}px ${position.y}px, rgba(157, 157, 204, 0.096), transparent 100%);`
-            $mouseFollower.setAttribute("style", styleApply);
-          }
-        )
-        
-        $domElement.addEventListener(
-          "mousemove",
-          (e) => {
-            if (!focused) return
-            const rect = $domElement.getBoundingClientRect();
-
-            position.x = e.clientX - rect.left;
-            position.y = e.clientY - rect.top;
-
-            const styleApply = `opacity: ${opacity}; background-image:radial-gradient(circle 300px at ${position.x}px ${position.y}px, rgba(157, 157, 204, 0.096), transparent 100%);`
-            $mouseFollower.setAttribute("style", styleApply);
-          }
-        )
-
-      }
-    });
-  });
-
-  observer.observe($domElement);
 </script>
