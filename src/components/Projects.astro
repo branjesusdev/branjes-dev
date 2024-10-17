@@ -6,6 +6,7 @@ import NextJs from "@shared/icons/NextJs.astro";
 import React from "@shared/icons/React.astro";
 import IcAstro from "@shared/icons/IcAstro.astro";
 import TailwindCss from "@shared/icons/TailwindCss.astro";
+import Angular from "@shared/icons/Angular.astro";
 
 import Badge from "@/components/ui/Badge.astro";
 
@@ -23,12 +24,31 @@ import Badge from "@/components/ui/Badge.astro";
   <div>
   
     <div class="grid  grid-cols-1 gap-6 md:grid-cols-2">
+
+      <CardProduct  
+        urlInner="https://flypass-find-movies.vercel.app/" 
+        imageProduct="findmovies.webp"
+        title="Find Movies"
+        subTitle="I developed a movie app with Angular 18 and Signals, integrating TheMovieDB API to show trending and popular content."
+        >
+  
+        <Badge>
+          <Angular className="w-5 h-5" />
+          Angular
+        </Badge>
+  
+        <Badge>
+          <TailwindCss className="w-5 h-5" />
+          TailwindCss
+        </Badge>
+      </CardProduct>
+      
   
       <CardProduct  
         urlInner="https://only-shopping.vercel.app/" 
         imageProduct="onlyShopping.avif"
         title="OnlyShopping"
-        subTitle="Shirt sales"
+        subTitle="I developed a shirt store web app using React, integrating WhatsApp for direct customer contact and orders."
         >
   
         <Badge>
@@ -46,7 +66,7 @@ import Badge from "@/components/ui/Badge.astro";
         urlInner="https://film-quality.vercel.app/" 
         imageProduct="MovieFilm.avif"
         title="MovieFilm" 
-        subTitle="Featured films with filters">
+        subTitle="I built a movie web app using Next.js, with server-side rendering for fast performance, integrating TheMovieDB API to showcase trending and popular movies.">
   
         <Badge>
           <NextJs  className="w-5 h-5"/>
@@ -64,11 +84,11 @@ import Badge from "@/components/ui/Badge.astro";
         urlInner="https://landing-warriors.vercel.app/" 
         imageProduct="Warriors.avif"
         title="Landing Warriors" 
-        subTitle="VS Mortal Combat">
+        subTitle="I built a web app with Astro, featuring dynamic Mortal Kombat characters and animations, optimized for fast performance.">
   
         <Badge>
           <IcAstro  className="w-5 h-5"/>
-          Astrp
+          Astro
         </Badge>
   
         <Badge>
@@ -81,7 +101,7 @@ import Badge from "@/components/ui/Badge.astro";
         urlInner="https://triqui-game-neon.vercel.app/" 
         imageProduct="TriquiGame.avif"
         title="Triqui Game" 
-        subTitle="set of two people">
+        subTitle="I developed a Tic-Tac-Toe game using React, with interactive gameplay and state management for a smooth user experience.">
   
         <Badge>
           <React  className="w-5 h-5"/>

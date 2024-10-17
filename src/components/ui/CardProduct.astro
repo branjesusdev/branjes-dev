@@ -6,7 +6,7 @@ const path = `/images/projects/${imageProduct}`;
 ---
 
 <article
-  class="h-[15rem] transition-all relative overflow-hidden hover:shadow-md grid grid-cols-1 sm:grid-cols-2 gap-4 rounded-[1.2rem] group pf-projects--overview"
+  class="h-auto transition-all relative overflow-hidden hover:shadow-md grid grid-cols-1 sm:grid-cols-2 gap-4 rounded-[1.2rem] group pf-projects--overview"
 >
   <img
     src="/backgrounds/fire-stars.svg"
@@ -15,10 +15,10 @@ const path = `/images/projects/${imageProduct}`;
   />
 
   <div
-    class="w-full h-[14.89rem] flex flex-col justify-items-start gap-4 p-5 z-10"
+    class="w-full h-full flex flex-col justify-between gap-4 p-5 z-10"
   >
     <h1 class="stroke-text text-3xl">{title}</h1>
-    <p class="text-lg text-white/70 mt-1">{subTitle}</p>
+    <p class="text-sm text-white/70 mt-1">{subTitle}</p>
 
     <div class="flex gap-4">
       <slot />
@@ -26,6 +26,8 @@ const path = `/images/projects/${imageProduct}`;
   </div>
 
   <div class="overflow-hidden relative rounded-[1.2rem] w-full h-[14.89rem] group/product">
+
+    
     <img
       src={path}
       alt={`${title} ${subTitle}`}
@@ -39,7 +41,6 @@ const path = `/images/projects/${imageProduct}`;
           duration-300
           
           animate-movedeg
-          blur-md
           opacity-80
           sm:blur-none
           sm:opacity-100
