@@ -86,11 +86,17 @@ import avatar from "./assets/stars.svg";
 </section>
 
 <script>
-  import confetti from "canvas-confetti";
   import { splotlightBorder } from "@shared/lib/spotlight-border";
   import { mouseFollowerRun } from "@shared/lib/mouse-follower";
+  splotlightBorder({ selector: "acknowledgements" });
+  mouseFollowerRun({ selector: "acknowledgements" });
+</script>
 
-  const $acknowledgements = document.getElementById("acknowledgements");
+<script>
+
+  import confetti from "canvas-confetti";
+
+  const $acknowledgements = document.getElementById("acknowledgements")!;
 
   $acknowledgements.addEventListener(
     "mouseenter",
@@ -108,7 +114,7 @@ import avatar from "./assets/stars.svg";
 
   // Animate Stars
 
-  const $starsBackground = document.getElementById("stars-background");
+  const $starsBackground = document.getElementById("stars-background")!;
   
   new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
@@ -120,9 +126,5 @@ import avatar from "./assets/stars.svg";
     });
   }).observe($starsBackground);
   
-
-  splotlightBorder({ selector: "acknowledgements" });
-  mouseFollowerRun({ selector: "acknowledgements" });
-
 
 </script>

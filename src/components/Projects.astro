@@ -1,6 +1,5 @@
 ---
 import InsetRadial from "@shared/content/InsetRadial.astro";
-import HeaderTitle from "@/components/ui/HeaderTitle.astro";
 import CardProduct from "@/components/ui/CardProduct.astro";
 
 import NextJs from "@shared/icons/NextJs.astro";
@@ -14,82 +13,90 @@ import Badge from "@/components/ui/Badge.astro";
 
 <section 
   id="projects"
-  class="col-span-6 md:col-span-3 pf-projects--overview relative animation-timeline">
-  <InsetRadial/>
-  <HeaderTitle title="Projects"/>
+  class="col-span-6 md:col-span-3 animation-timeline my-32">
 
-  <section class="flex flex-col mt-16 gap-4 px-2 pb-2">
+  <div class="relative w-full my-14">
+    <InsetRadial/>
+    <h1 class="stroke-text text-[9rem] text-center py-10">Projects</h1>
+  </div>
 
-    <CardProduct 
-      urlInner="https://only-shopping.vercel.app/" 
-      imageProduct="onlyShopping.avif"
-      title="OnlyShopping" 
-      subTitle="Shirt sales">
-
-      <Badge>
-        <React  className="w-5 h-5"/>
-        React
-      </Badge>
-
-      <Badge>
-        <TailwindCss className="w-5 h-5" />
-        TailwindCss
-      </Badge>
-    </CardProduct>
-
-    <CardProduct 
-      urlInner="https://film-quality.vercel.app/" 
-      imageProduct="MovieFilm.avif"
-      title="MovieFilm" 
-      subTitle="Featured films with filters">
-
-      <Badge>
-        <NextJs  className="w-5 h-5"/>
-        NextJs
-      </Badge>
-
-      <Badge>
-        <TailwindCss  className="w-5 h-5"/>
-        TailwindCss
-      </Badge>
-    </CardProduct>
-    
-    <CardProduct 
-      urlInner="https://landing-warriors.vercel.app/" 
-      imageProduct="Warriors.avif"
-      title="Landing Warriors" 
-      subTitle="VS Mortal Combat">
-
-      <Badge>
-        <IcAstro  className="w-5 h-5"/>
-        Astrp
-      </Badge>
-
-      <Badge>
-        <TailwindCss  className="w-5 h-5"/>
-        TailwindCss
-      </Badge>
-    </CardProduct>
+  <div>
   
-    <CardProduct 
-      urlInner="https://triqui-game-neon.vercel.app/" 
-      imageProduct="TriquiGame.avif"
-      title="Triqui Game" 
-      subTitle="set of two people">
+    <div class="grid  grid-cols-1 gap-6 md:grid-cols-2">
+  
+      <CardProduct  
+        urlInner="https://only-shopping.vercel.app/" 
+        imageProduct="onlyShopping.avif"
+        title="OnlyShopping"
+        subTitle="Shirt sales"
+        >
+  
+        <Badge>
+          <React  className="w-5 h-5"/>
+          React
+        </Badge>
+  
+        <Badge>
+          <TailwindCss className="w-5 h-5" />
+          TailwindCss
+        </Badge>
+      </CardProduct>
 
-      <Badge>
-        <React  className="w-5 h-5"/>
-        React
-      </Badge>
+      <CardProduct 
+        urlInner="https://film-quality.vercel.app/" 
+        imageProduct="MovieFilm.avif"
+        title="MovieFilm" 
+        subTitle="Featured films with filters">
+  
+        <Badge>
+          <NextJs  className="w-5 h-5"/>
+          NextJs
+        </Badge>
+  
+        <Badge>
+          <TailwindCss  className="w-5 h-5"/>
+          TailwindCss
+        </Badge>
+      </CardProduct>
+  
+      
+      <CardProduct 
+        urlInner="https://landing-warriors.vercel.app/" 
+        imageProduct="Warriors.avif"
+        title="Landing Warriors" 
+        subTitle="VS Mortal Combat">
+  
+        <Badge>
+          <IcAstro  className="w-5 h-5"/>
+          Astrp
+        </Badge>
+  
+        <Badge>
+          <TailwindCss  className="w-5 h-5"/>
+          TailwindCss
+        </Badge>
+      </CardProduct>
+    
+      <CardProduct 
+        urlInner="https://triqui-game-neon.vercel.app/" 
+        imageProduct="TriquiGame.avif"
+        title="Triqui Game" 
+        subTitle="set of two people">
+  
+        <Badge>
+          <React  className="w-5 h-5"/>
+          React
+        </Badge>
+  
+        <Badge>
+          <TailwindCss  className="w-5 h-5"/>
+          TailwindCss
+        </Badge>
+      </CardProduct> 
+    </div>
 
-      <Badge>
-        <TailwindCss  className="w-5 h-5"/>
-        TailwindCss
-      </Badge>
-    </CardProduct>
-  </section>
-
-
+  </div>
+  
 </section>
 
 
