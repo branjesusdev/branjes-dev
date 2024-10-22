@@ -6,26 +6,25 @@ const path = `/images/projects/${imageProduct}`;
 ---
 
 <article
-  class="h-auto transition-all relative overflow-hidden hover:shadow-md grid grid-cols-1 sm:grid-cols-2 gap-4 rounded-[1.2rem] group pf-projects--overview"
+  class="h-auto transition-all relative flex flex-wrap flex-1 gap-4 rounded-[1.2rem] group"
 >
-  <img
-    src="/backgrounds/fire-stars.svg"
-    alt="Fire stars"
-    class="absolute top-12 right-[50%] transform-gpu -z-10 group-hover:right-[100%] group-hover:opacity-0 transition-all duration-300"
-  />
+
+  <div class="absolute w-full h-full pointer-events-none cursor-none opacity-25 -z-10 overflow-hidden [mask-image:linear-gradient(332deg,#26292d_-266%,#00132482_74%,#fff0_116%)]">
+    <div class="absolute bg-[url(/images/points-white.avif)] bg-cover w-full h-full rounded-b-3xl"></div>
+  </div>
 
   <div
-    class="w-full h-full flex flex-col justify-between gap-4 p-5 z-10"
+    class="w-full h-full flex flex-col justify-between gap-4  z-10"
   >
     <h1 class="stroke-text text-3xl">{title}</h1>
-    <p class="text-sm text-white/70 mt-1">{subTitle}</p>
+    <p class="text-base text-white/70 mt-1">{subTitle}</p>
 
     <div class="flex gap-4">
       <slot />
     </div>
   </div>
 
-  <div class="overflow-hidden relative rounded-[1.2rem] w-full h-[14.89rem] group/product">
+  <div class="overflow-hidden relative rounded-[1.2rem] w-full h-[18.89rem] group/product">
 
     
     <img
