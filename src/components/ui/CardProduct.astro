@@ -1,21 +1,31 @@
 ---
 import ArrowIconEfect from "@components/ui/ArrowIconEfect.astro";
 
-const { title, subTitle, urlInner, imageProduct } = Astro.props;
-const path = `/images/projects/${imageProduct}`;
+interface CardProductProps {
+  title: string;
+  subTitle: string;
+  urlInner: string;
+  imageProduct: string[];
+}
+
+const { title, subTitle, urlInner, imageProduct } =
+  Astro.props as CardProductProps;
+const idImageCard = `image-card-${title.replace(/\s/g, "-").toLowerCase()}`;
 ---
 
 <article
   class="h-auto transition-all relative flex flex-wrap flex-1 gap-4 rounded-[1.2rem] group"
 >
-
-  <div class="absolute w-full h-full pointer-events-none cursor-none opacity-25 -z-10 overflow-hidden [mask-image:linear-gradient(332deg,#26292d_-266%,#00132482_74%,#fff0_116%)]">
-    <div class="absolute bg-[url(/images/points-white.avif)] bg-cover w-full h-full rounded-b-3xl"></div>
+  <div
+    class="absolute w-full h-full pointer-events-none cursor-none opacity-25 -z-10 overflow-hidden [mask-image:linear-gradient(332deg,#26292d_-266%,#00132482_74%,#fff0_116%)]"
+  >
+    <div
+      class="absolute bg-[url(/images/points-white.avif)] bg-cover w-full h-full rounded-b-3xl"
+    >
+    </div>
   </div>
 
-  <div
-    class="w-full h-full flex flex-col justify-between gap-4  z-10"
-  >
+  <div class="w-full h-full flex flex-col justify-between gap-4 z-10">
     <h1 class="stroke-text text-3xl">{title}</h1>
     <p class="text-base text-white/70 mt-1">{subTitle}</p>
 
@@ -24,35 +34,26 @@ const path = `/images/projects/${imageProduct}`;
     </div>
   </div>
 
-  <div class="overflow-hidden relative rounded-[1.2rem] w-full h-[18.89rem] group/product">
-
-    
-    <img
-      src={path}
-      alt={`${title} ${subTitle}`}
-      decoding="async"
-      loading="lazy"
-      data-sizes="(max-width: 591px) 100vw, 591px"
-      data-src={`${path}`}
-      srcset={`${path} 564w`}
-      class="object-cover object-center w-full h-full
+  <div
+    class="overflow-hidden relative rounded-[1.2rem] w-full h-[18.89rem] group/product"
+  >
+    <div
+      id={`${idImageCard}`}
+      class="bg-images
+          object-cover object-center
           transform-gpu overflow-hidden
-          duration-300
-          
-          animate-movedeg
-          opacity-80
           sm:blur-none
           sm:opacity-100
           sm:transform-none
           sm:animate-none
-          
-          transition-all duration-400
           group-hover/product:animate-movedeg
           group-hover/product:opacity-80
           group-hover/product:filter
           group-hover/product:blur-md
-          rounded-[1.2rem]"
-    />
+          rounded-[1.2rem]
+          w-full h-full"
+    >
+    </div>
 
     <a
       href={urlInner}
@@ -66,3 +67,57 @@ const path = `/images/projects/${imageProduct}`;
     </a>
   </div>
 </article>
+
+<style is:inline>
+  .stroke-text {
+    -webkit-text-stroke: 1px #fff;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+  }
+</style>
+
+<script define:vars={{ idImageCard, imageProduct }}>
+  const $ = (selector) => document.querySelector(selector);
+  let intervalId;
+
+  const pathImage = `/images/projects/`;
+  const imageContent$ = $(`#${idImageCard}`);
+
+  // animate changes in the background image
+
+  const changeImage = (image) => {
+    imageContent$.style.backgroundImage = `url(${pathImage}${image})`;
+    imageContent$.style.transition = "background-image 1s ease-in-out";
+    imageContent$.style.backgroundSize = "cover";
+    imageContent$.style.backgroundPosition = "center";
+
+  };
+
+  const initImages = () => {
+    changeImage(imageProduct[0]);
+    if (imageProduct.length <= 1) return;
+
+    let i = 1;
+    intervalId = setInterval(() => {
+      changeImage(imageProduct[i]);
+      i = i === imageProduct.length - 1 ? 0 : i + 1;
+    }, 3000);
+  };
+
+  const stopImageRotation = () => {
+    if (intervalId) {
+      clearInterval(intervalId);
+      intervalId = null; // Resetea para evitar múltiples llamadas
+    }
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) 
+        initImages();
+      else 
+        stopImageRotation();
+    });
+  });
+
+  observer.observe(imageContent$);
+</script>

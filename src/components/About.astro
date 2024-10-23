@@ -1,5 +1,5 @@
 ---
-import { Picture } from "astro:assets";
+import { Picture, Image } from "astro:assets";
 import OooscillateLines from "@shared/content/OooscillateLines.astro";
 import InsetRadial from "@shared/content/InsetRadial.astro";
 import "@/themes/molecules/wordAnimate.scss";
@@ -26,13 +26,23 @@ const textReveal = `👋 Hello, I'm Brandol`;
         />
       </div>
 
-      <Picture
+      <!-- <Picture
         class="object-cover object-top [transition:all_.1s_ease-in] hover:[filter:drop-shadow(0_0_1.3em_rgb(0,255,247,0.09))] rounded-[2rem] cursor-crosshair will-change-[filter] lg:p-2 [mask-image:linear-gradient(black_40%,transparent)] rounded-bl-[10rem]"
         src={avatar}
         alt="Avatar"
         loading="eager"
         formats={["avif", "webp", "png"]}
-      />
+      /> -->
+
+      <Image
+        class="object-cover object-top [transition:all_.1s_ease-in] hover:[filter:drop-shadow(0_0_1.3em_rgb(0,255,247,0.09))] rounded-[2rem] cursor-crosshair   will-change-[filter] lg:p-2 [mask-image:linear-gradient(black_40%,transparent)] rounded-bl-[10rem]"
+        src={avatar}
+        widths={[240, 540, 720, avatar.width]}
+        sizes={`(max-width: 360px) 240px, (max-width: 720px) 540px, (max-width: 1600px) 720px, ${avatar.width}px`}
+        alt="Programmer Avatar"
+        loading={"eager"}
+/>
+
     </figure>
 
     <div class="w-full h-full flex flex-col gap-8 md:gap-0 relative">

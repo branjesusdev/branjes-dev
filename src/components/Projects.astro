@@ -26,7 +26,7 @@ import Badge from "@/components/ui/Badge.astro";
       <div class="cards__card card animation-timeline">
         <CardProduct
           urlInner="https://flypass-find-movies.vercel.app/"
-          imageProduct="findmovies.webp"
+          imageProduct={["findmovies-one.webp", "findmovies-two.webp", "findmovies-three.webp"]}
           title="Find Movies"
           subTitle="I developed a movie app with Angular 18 and Signals, integrating TheMovieDB API to show trending and popular content."
         >
@@ -45,7 +45,8 @@ import Badge from "@/components/ui/Badge.astro";
       <div class="cards__card card animation-timeline">
         <CardProduct
           urlInner="https://only-shopping.vercel.app/"
-          imageProduct="onlyShopping.avif"
+          
+          imageProduct={["onlyShopping.avif"]}
           title="OnlyShopping"
           subTitle="I developed a shirt store web app using React, integrating WhatsApp for direct customer contact and orders."
         >
@@ -64,7 +65,7 @@ import Badge from "@/components/ui/Badge.astro";
       <div class="cards__card card animation-timeline">
         <CardProduct
           urlInner="https://film-quality.vercel.app/"
-          imageProduct="MovieFilm.avif"
+          imageProduct={["MovieFilm.avif"]}
           title="MovieFilm"
           subTitle="I built a movie web app using Next.js, with server-side rendering for fast performance, integrating TheMovieDB API to showcase trending and popular movies."
         >
@@ -83,7 +84,7 @@ import Badge from "@/components/ui/Badge.astro";
       <div class="cards__card card animation-timeline">
         <CardProduct
           urlInner="https://landing-warriors.vercel.app/"
-          imageProduct="Warriors.avif"
+          imageProduct={["Warriors.avif"]}
           title="Landing Warriors"
           subTitle="I built a web app with Astro, featuring dynamic Mortal Kombat characters and animations, optimized for fast performance."
         >
@@ -102,7 +103,7 @@ import Badge from "@/components/ui/Badge.astro";
       <div class="cards__card card animation-timeline">
         <CardProduct
           urlInner="https://triqui-game-neon.vercel.app/"
-          imageProduct="TriquiGame.avif"
+          imageProduct={["TriquiGame.avif"]}
           title="Triqui Game"
           subTitle="I developed a Tic-Tac-Toe game using React, with interactive gameplay and state management for a smooth user experience."
         >
@@ -257,7 +258,6 @@ import Badge from "@/components/ui/Badge.astro";
     }
 
     const applyOverlayMask = (e: PointerEvent) => {
-      console.log("applyOverlayMask");
 
       const overlayEl = e.currentTarget as HTMLElement;
       // const x = e.pageX - (cardsContainer?.offsetLeft || 0);
@@ -277,7 +277,6 @@ import Badge from "@/components/ui/Badge.astro";
 
     const observer = new ResizeObserver((entries) => {
       entries.forEach((entry) => {
-        console.log({ entry });
 
         const target = entry.target as HTMLElement;
         const cardIndex = cards.indexOf(target);
@@ -292,16 +291,11 @@ import Badge from "@/components/ui/Badge.astro";
     });
 
     const initOverlayCard = (cardEl: HTMLElement) => {
-      console.log({ cardEl });
-      console.log({ overlay });
-
       const overlayCard = document.createElement("div");
       overlayCard.classList.add("card");
       overlay.append(overlayCard);
       observer.observe(cardEl);
     };
-
-    console.log({ cards });
 
     cards.forEach(initOverlayCard);
     document.body.addEventListener("pointermove", applyOverlayMask);
