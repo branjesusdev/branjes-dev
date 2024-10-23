@@ -27,9 +27,9 @@ import Acknowledgements from "@/components/Acknowledgements.astro";
     <section
       class="z-20 mx-auto xl:max-w-6xl 2xl:max-w-7xl relative grid grid-cols-6 gap-5 grid-rows-[masonry] tabular-nums"
     >
-      <About client:load/>
-      <Intro  client:idle/>
-      <Stack class:list={`animation-timeline`} client:idle />
+      <About />
+      <Intro />
+      <Stack class:list={`animation-timeline`} />
       <Contact class:list={`animation-timeline`} client:visible/>
       <Repository class:list={`animation-timeline`} client:visible/>
 
