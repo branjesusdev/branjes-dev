@@ -6,7 +6,6 @@ import RadialGradientBottomFix from "@shared/content/RadialGradientBottomFix.ast
 import InsetRadial from "@shared/content/InsetRadial.astro";
 import PointsFixed from "@shared/content/PointsFixed.astro";
 
-import ThemeSwitch from "@/components/ThemeSwitch.astro";
 import About from "@components/About.astro";
 import Intro from "@components/Intro.astro";
 import Stack from "@components/Stack.astro";
@@ -28,23 +27,22 @@ import Acknowledgements from "@/components/Acknowledgements.astro";
     <section
       class="z-20 mx-auto xl:max-w-6xl 2xl:max-w-7xl relative grid grid-cols-6 gap-5 grid-rows-[masonry] tabular-nums"
     >
-      <ThemeSwitch />
-      <About/>
-      <Intro />
-      <Stack class:list={`animation-timeline`} />
-      <Contact class:list={`animation-timeline`}/>
-      <Repository class:list={`animation-timeline`}/>
+      <About client:load/>
+      <Intro  client:idle/>
+      <Stack class:list={`animation-timeline`} client:idle />
+      <Contact class:list={`animation-timeline`} client:visible/>
+      <Repository class:list={`animation-timeline`} client:visible/>
 
-      <Location class:list={`col-span-6 md:col-span-3 animation-timeline`}/>
-      <Experience  class:list={`col-span-6 md:col-span-3 row-span-2 animation-timeline`}/>
-      <News class:list={`col-span-6 md:col-span-3 animation-timeline`}/>
+      <Location class:list={`col-span-6 md:col-span-3 animation-timeline`} client:visible/>
+      <Experience  class:list={`col-span-6 md:col-span-3 row-span-2 animation-timeline`} client:visible/>
+      <News class:list={`col-span-6 md:col-span-3 animation-timeline`} client:visible/>
 
       <div class="col-span-6 ">
-        <Projects />
+        <Projects client:visible />
       </div>
 
       <div class="col-span-6 flex flex-col gap-4 relative animation-timeline ">
-        <Acknowledgements />
+        <Acknowledgements client:visible />
       </div>
       
 

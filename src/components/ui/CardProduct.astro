@@ -70,14 +70,14 @@ const idCard = `${title.replace(/\s/g, "-").toLowerCase()}`;
   </div>
 </article>
 
-<style is:inline>
+<style>
   .stroke-text {
     -webkit-text-stroke: 1px #fff;
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
   }
 </style>
 
-<script define:vars={{ idCard, imageProduct }}>
+<script define:vars={{ idCard, imageProduct }} is:inline>
 
 
   const $ = (selector) => document.querySelector(selector);
@@ -119,9 +119,6 @@ const idCard = `${title.replace(/\s/g, "-").toLowerCase()}`;
   };
 
   const stopImageRotation = () => {
-
-    console.log("stopImageRotation");
-
     if (intervalId) {
       clearInterval(intervalId);
       intervalId = null; // Resetea para evitar múltiples llamadas
