@@ -10,10 +10,11 @@ interface CardProductProps {
 
 const { title, subTitle, urlInner, imageProduct } =
   Astro.props as CardProductProps;
-const idImageCard = `image-card-${title.replace(/\s/g, "-").toLowerCase()}`;
+const idCard = `${title.replace(/\s/g, "-").toLowerCase()}`;
 ---
 
 <article
+  id={`card-product-${idCard}`}
   class="h-auto transition-all relative flex flex-wrap flex-1 gap-4 rounded-[1.2rem] group"
 >
   <div
@@ -27,7 +28,7 @@ const idImageCard = `image-card-${title.replace(/\s/g, "-").toLowerCase()}`;
 
   <div class="w-full h-full flex flex-col justify-between gap-4 z-10">
     <h1 class="stroke-text text-3xl">{title}</h1>
-    <p class="text-base text-white/70 mt-1">{subTitle}</p>
+    <p class="text-base text-white/70 mt-1 text-balance">{subTitle}</p>
 
     <div class="flex gap-4">
       <slot />
@@ -38,7 +39,7 @@ const idImageCard = `image-card-${title.replace(/\s/g, "-").toLowerCase()}`;
     class="overflow-hidden relative rounded-[1.2rem] w-full h-[18.89rem] group/product"
   >
     <div
-      id={`${idImageCard}`}
+      id={`image-card-${idCard}`}
       class="bg-images
           object-cover object-center
           transform-gpu overflow-hidden
@@ -51,7 +52,8 @@ const idImageCard = `image-card-${title.replace(/\s/g, "-").toLowerCase()}`;
           group-hover/product:filter
           group-hover/product:blur-md
           rounded-[1.2rem]
-          w-full h-full"
+          w-full h-full max-w-xl
+          mx-auto"
     >
     </div>
 
@@ -75,12 +77,15 @@ const idImageCard = `image-card-${title.replace(/\s/g, "-").toLowerCase()}`;
   }
 </style>
 
-<script define:vars={{ idImageCard, imageProduct }}>
+<script define:vars={{ idCard, imageProduct }}>
+
+
   const $ = (selector) => document.querySelector(selector);
   let intervalId;
 
   const pathImage = `/images/projects/`;
-  const imageContent$ = $(`#${idImageCard}`);
+  const imageContent$ = $(`#image-card-${idCard}`);
+  const cardProduct$ = $(`#card-product-${idCard}`);
 
   // animate changes in the background image
 
@@ -96,14 +101,27 @@ const idImageCard = `image-card-${title.replace(/\s/g, "-").toLowerCase()}`;
     changeImage(imageProduct[0]);
     if (imageProduct.length <= 1) return;
 
+    cardProduct$.addEventListener("mouseenter", initImageRotation);
+    cardProduct$.addEventListener("mouseleave", stopImageRotation);
+
+    cardProduct$.addEventListener("touchstart", initImageRotation);
+    cardProduct$.addEventListener("touchend", stopImageRotation);
+
+  };
+
+  const initImageRotation = () => {
+
     let i = 1;
     intervalId = setInterval(() => {
       changeImage(imageProduct[i]);
       i = i === imageProduct.length - 1 ? 0 : i + 1;
-    }, 3000);
+    }, 1500);
   };
 
   const stopImageRotation = () => {
+
+    console.log("stopImageRotation");
+
     if (intervalId) {
       clearInterval(intervalId);
       intervalId = null; // Resetea para evitar múltiples llamadas
