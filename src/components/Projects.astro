@@ -9,9 +9,10 @@ import TailwindCss from "@shared/icons/TailwindCss.astro";
 import Angular from "@shared/icons/Angular.astro";
 
 import Badge from "@/components/ui/Badge.astro";
+import Redux from "@/shared/icons/Redux.astro";
 ---
 
-<section class="main flow max-w-7xl" id="projects">
+<section class="main flow max-w-7xl c" id="projects">
   <div class="relative w-full my-2 lg:my-14">
     <InsetRadial />
     <h1
@@ -23,10 +24,39 @@ import Badge from "@/components/ui/Badge.astro";
 
   <div class="main__cards cards">
     <div class="cards__inner">
+
+      <div class="cards__card card animation-timeline">
+        <CardProduct
+          urlInner=""
+          imageProduct={["learn-next.webp"]}
+          title="Learn NextJs"
+          subTitle="I developed a Pokemon app using Next.js, integrating the PokeAPI to show Pokemon data and details. I also implemented Redux for state management."
+        >
+          <Badge>
+            <NextJs className="w-5 h-5" />
+            NextJs
+          </Badge>
+
+          <Badge>
+            <Redux className="w-5 h-5" />
+            Redux
+          </Badge>
+
+          <Badge>
+            <TailwindCss className="w-5 h-5" />
+            TailwindCss
+          </Badge>
+        </CardProduct>
+      </div>
+
       <div class="cards__card card animation-timeline">
         <CardProduct
           urlInner="https://flypass-find-movies.vercel.app/"
-          imageProduct={["findmovies-one.webp", "findmovies-two.webp", "findmovies-three.webp"]}
+          imageProduct={[
+            "findmovies-one.webp",
+            "findmovies-two.webp",
+            "findmovies-three.webp",
+          ]}
           title="Find Movies"
           subTitle="I developed a movie app with Angular 18 and Signals, integrating TheMovieDB API to show trending and popular content."
         >
@@ -45,7 +75,11 @@ import Badge from "@/components/ui/Badge.astro";
       <div class="cards__card card animation-timeline">
         <CardProduct
           urlInner="https://only-shopping.vercel.app/"
-          imageProduct={["shopping-one.webp", "shopping-two.webp", "shopping-three.webp"]}
+          imageProduct={[
+            "shopping-one.webp",
+            "shopping-two.webp",
+            "shopping-three.webp",
+          ]}
           title="OnlyShopping"
           subTitle="I developed a shirt store web app using React, integrating WhatsApp for direct customer contact and orders."
         >
@@ -117,7 +151,6 @@ import Badge from "@/components/ui/Badge.astro";
           </Badge>
         </CardProduct>
       </div>
-
       <div class="overlay cards__inner"></div>
     </div>
   </div>
@@ -197,6 +230,12 @@ import Badge from "@/components/ui/Badge.astro";
       --lightness: 50%;
     }
 
+    .card:nth-child(6) {
+      --hue: 956.25;
+      --saturation: 100%;
+      --lightness: 50%;
+    }
+
     .card__heading {
       font-size: 1.05em;
       font-weight: 600;
@@ -257,7 +296,6 @@ import Badge from "@/components/ui/Badge.astro";
     }
 
     const applyOverlayMask = (e: PointerEvent) => {
-
       const overlayEl = e.currentTarget as HTMLElement;
       // const x = e.pageX - (cardsContainer?.offsetLeft || 0);
       const x = e.pageX - 300;
@@ -276,7 +314,6 @@ import Badge from "@/components/ui/Badge.astro";
 
     const observer = new ResizeObserver((entries) => {
       entries.forEach((entry) => {
-
         const target = entry.target as HTMLElement;
         const cardIndex = cards.indexOf(target);
         const { inlineSize: width, blockSize: height } = entry.borderBoxSize[0];

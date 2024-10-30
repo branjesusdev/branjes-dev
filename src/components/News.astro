@@ -11,7 +11,9 @@ const { class: classList } = Astro.props as Props;
 
 ---
 
-<section class:list={[classList, "pf-location--overview group relative"]}>
+<section 
+  class:list={[classList, "pf-location--overview group relative"]}
+  style="content-visibility: auto;">
   <HeaderTitle title="News">
     <div class="flex-1"></div>
     <div class="relative transition-all">
