@@ -1,22 +1,67 @@
 ---
-const { title, subTitle } = Astro.props;
+interface InnerLineProps {
+  title: string;
+  subTitle: string;
+  description: string;
+  through: boolean;
+  link?: string;
+}
+
+const { title, subTitle, description, through, link } =
+  Astro.props as InnerLineProps;
 ---
 
 <article class="relative">
   <div
-    class="before:[content:''] before:w-[1px] before:h-full before:bg-gray-700 
+    class="before:[content:''] before:w-[1px] before:h-full before:bg-gray-700
     before:absolute before:top-0 before:left-1 before:right-0 before:rounded-lg"
   >
-
-    <blockquote class="relative inline-block">
+    <blockquote class="relative inline-block w-full">
       <div
         class="before:[content:''] before:w-2 before:h-2 before:rounded-full before:bg-white before:absolute before:top-1 before:z-10 before:translate-x-[-50%] before:translate-y-[-50%] before:left-1 before:[box-shadow:rgb(255,255,255)0px_0px_0px_1px,rgba(255,255,255,0.5)0px_0px_0px_5px] group-hover:before:bg-cyan-50 group-hover:before:w-3 group-hover:before:h-3 transition-all group-hover:before:[box-shadow:rgb(255,255,255)0px_0px_0px_1px,rgba(255,255,255,0.5)0px_0px_0px_4px]"
       >
-        <div class="pl-9 pb-8 space-y-1 -translate-y-2">
-          <h1 class="text-base text-red-200">{ title }</h1>
-          <p class="text-xs text-white/70">
-            { subTitle }
-          </p>
+        <div
+          class="pl-9 flex flex-row mb-8 -translate-y-2 items-start justify-between"
+        >
+          <div class="flex flex-col gap-1">
+            <h5
+              class="block md:hidden text-xs md:text-md font-medium dark:text-white text-black opacity-65"
+            >
+              {description}
+            </h5>
+
+            <h1
+              class:list={[
+                through ? "line-through opacity-55" : "opacity-100",
+                "text-xl md:text-2xl font-medium dark:text-red-200 text-black text-left w-fit ",
+              ]}
+            >
+              {title}
+            </h1>
+          </div>
+
+          <div class="flex flex-col md:items-end md:text-right">
+            <a
+              href={link}
+              referrerpolicy="no-referrer"
+              target="_blank"
+              class:list={[
+                through ? "opacity-80" : "opacity-90",
+                "cursor-pointer text-sm lg:text-lg font-medium dark:text-white text-black hover:text-sky-200",
+              ]}
+            >
+              {subTitle}
+            </a>
+
+            <p
+              class:list={[
+                through ? "opacity-80" : "opacity-65",
+                "hidden md:block text-xs lg:text-md font-medium dark:text-white text-black ",
+              ]}
+            >
+              {description}
+            </p>
+          </div>
         </div>
       </div>
     </blockquote>
