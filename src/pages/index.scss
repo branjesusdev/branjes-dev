@@ -20,8 +20,6 @@
     flex-direction: column;
     justify-content: center;
     @include overwiew($background: #49a7ff56, $padding: 1rem);
-    h1 {
-    }
   }
 }
 
