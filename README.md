@@ -11,6 +11,7 @@ npm create astro@latest -- --template minimal
 [![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/branjes-dev)
 [![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/branjes-dev)
 [![Open in GitHub VSCode](https://github.com/codespaces/badge.svg)](https://vscode.dev/github/branjesusdev/branjes-dev)
+[![Open in Codeanywhere](https://codeanywhere.com/img/open-in-codeanywhere-btn.svg)](https://app.codeanywhere.com/#https://github.com/branjesusdev/branjes-dev)
 
 ## ⚙️ Stack
 
