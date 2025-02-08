@@ -19,7 +19,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    @include overwiew($background: #49a7ff56, $padding: 1rem);
+    @include overwiew( $padding: 1rem);
   }
 }
 
@@ -56,12 +56,12 @@
 }
 
 .pf-experience--overview {
-  @include overwiew($background: hsl(208, 100%, 7%), $padding: 0);
+  @include overwiew($padding: 0);
 }
 
 .pf-location--overview {
-  @include overwiew($background: hsl(208, 100%, 7%), $padding: 0);
+  @include overwiew($padding: 0);
 }
 .pf-projects--overview {
-  @include overwiew($background: hsl(208, 100%, 7%), $padding: 0);
+  @include overwiew($padding: 0);
 }

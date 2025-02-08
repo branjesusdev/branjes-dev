@@ -1,9 +1,6 @@
 ---
 import HeaderTitle from "@/components/ui/HeaderTitle.astro";
 import Avatar from "@/components/ui/Avatar.astro";
-
-import { Picture } from "astro:assets";
-import avatar from "./assets/stars.svg";
 ---
 
 <section 
@@ -13,25 +10,9 @@ import avatar from "./assets/stars.svg";
   <HeaderTitle title="Acknowledgements" />
 
   <article
-    class="mt-16 inner-content inner-content--space flex flex-col justify-between items-center space-y-2 relative overflow-hidden"
+    class="mt-16 inner-content inner-content--space flex flex-row justify-between items-center space-y-2 relative overflow-hidden"
   >
-    <div 
-      id="stars-background"
-      class="absolute -z-50 inset-x-0 top-4 overflow-hidden w-full h-full pointer-events-none">
-
-      <Picture
-        class="w-4/5 mx-auto pointer-events-none cursor-none"
-        src={avatar}
-        alt="Desktop and notebook programming"
-        loading="lazy"
-        formats={["avif", "webp", "png"]}
-      />
-    </div>
-
-    <div
-      class="relative w-full flex flex-col md:flex-row max-w-xl md:max-w-4xl py-4 gap-8"
-    >
-      <div class="flex justify-between md:block">
+      <div class="flex justify-between flex-col gap-4 md:block">
         <Avatar
           className="md:-translate-y-5 xl:-translate-y-5"
           img="/images/avatars/midudev.avif"
@@ -39,7 +20,7 @@ import avatar from "./assets/stars.svg";
           caption="Midudev"
         />
         <Avatar
-          className="md:translate-x-12 xl:-translate-x-12"
+          className="md:translate-x-12"
           img="/images/avatars/leiferMendez.avif"
           alt="Master programmer Leifer Mendez"
           caption="Leifer Mendez"
@@ -56,15 +37,15 @@ import avatar from "./assets/stars.svg";
         class="flex flex-col justify-center items-center max-w-2xl gap-6 text-center mx-auto"
       >
         <span>⭐⭐⭐⭐⭐</span>
-        <p class="max-w-[40ch] md:text-sm xl:text-lg text-slate-100">
+        <p class="max-w-[40ch] md:text-sm xl:text-2xl text-slate-100">
           The beauty of programming lies in its ability to inspire and connect
           us. To learn from the masters is to honour tradition and innovation in
           equal measure!
         </p>
-        <h1 class="text-[var(--ocean-green-20)]">Thanks 🙏</h1>
+        <h1 class="text-[var(--ocean-green-20)] text-xl">Thanks 🙏</h1>
       </div>
 
-      <div class="flex justify-between md:block">
+      <div class="flex justify-between flex-col gap-4 md:block">
         <Avatar
           className="md:-translate-y-5 xl:-translate-y-5"
           img="/images/avatars/Goncy.avif"
@@ -72,7 +53,7 @@ import avatar from "./assets/stars.svg";
           caption="Goncy"
         />
         <Avatar
-          className="md:-translate-x-12 xl:translate-x-12"
+          className="md:-translate-x-12 "
           img="/images/avatars/nikobytes.avif"
           alt="Master programmer Nikobytes"
           caption="Nikobytes"
@@ -84,50 +65,14 @@ import avatar from "./assets/stars.svg";
           caption="Manzdev"
         />
       </div>
-    </div>
   </article>
 </section>
+
+
 
 <script>
   import { splotlightBorder } from "@shared/lib/spotlight-border";
   import { mouseFollowerRun } from "@shared/lib/mouse-follower";
   splotlightBorder({ selector: "acknowledgements" });
   mouseFollowerRun({ selector: "acknowledgements" });
-</script>
-
-<script>
-
-  import confetti from "canvas-confetti";
-
-  const $acknowledgements = document.getElementById("acknowledgements")!;
-
-  $acknowledgements.addEventListener(
-    "mouseenter",
-    () => {
-      confetti({
-        particleCount: 50,
-        angle: 60,
-        spread: 55,
-        origin: { x: 0 },
-      });
-    },
-    { once: true }
-  );
-
-
-  // Animate Stars
-
-  const $starsBackground = document.getElementById("stars-background")!;
-  
-  new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        $starsBackground.classList.add("animate-stars");
-      } else {
-        $starsBackground.classList.remove("animate-stars");
-      }
-    });
-  }).observe($starsBackground);
-  
-
 </script>

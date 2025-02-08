@@ -1,9 +1,9 @@
 ---
-import { Picture, Image } from "astro:assets";
-import OooscillateLines from "@shared/content/OooscillateLines.astro";
+import { Picture } from "astro:assets";
 import InsetRadial from "@shared/content/InsetRadial.astro";
 import "@/themes/molecules/wordAnimate.scss";
 import avatar from "./assets/avatar.avif";
+import GridBackgroundBoxes from "@/shared/content/GridBackgroundBoxes.astro";
 
 
 const textReveal = `👋 Hello, I'm Brandol`;
@@ -12,12 +12,12 @@ const textReveal = `👋 Hello, I'm Brandol`;
 
 <article
   id="about"
-  class="pf-focus--overview col-span-6 md:col-span-5 relative w-full min-h-[80dvh] animate-fade-up animate-duration-500 animate-delay-0"
+  class="pf-focus--overview col-span-6 md:col-span-5 relative w-full min-h-[90dvh] animate-fade-up animate-duration-500 animate-delay-0 overflow-hidden"
 >
 
-  <OooscillateLines />
+  <GridBackgroundBoxes />
 
-  <article class="h-full w-full flex flex-col md:flex-row gap-8">
+  <article class="h-full w-full flex flex-col gap-8 justify-center items-center z-10">
     <figure
       class="m-auto w-[15rem] md:w-[28rem] relative saturate-[120%] brightness-100 transition-all"
     >
@@ -30,34 +30,20 @@ const textReveal = `👋 Hello, I'm Brandol`;
       </div>
 
       <Picture
-        class="object-cover object-top [transition:all_.1s_ease-in] hover:[filter:drop-shadow(0_0_1.3em_rgb(0,255,247,0.09))] rounded-[2rem] cursor-crosshair will-change-[filter] lg:p-2 [mask-image:linear-gradient(black_40%,transparent)] rounded-bl-[10rem]"
+        class="m-auto object-cover object-top [transition:all_.1s_ease-in] hover:[filter:drop-shadow(0_0_1.3em_rgb(0,255,247,0.09))] rounded-[2rem] cursor-crosshair will-change-[filter] lg:p-2 [mask-image:linear-gradient(black_40%,transparent)] rounded-bl-[10rem] max-w-[clamp(12rem,30vw,20rem)] z-10"
         src={avatar}
         alt="Avatar"
         loading="eager"
         formats={["avif", "webp", "png"]}
       />
 
-      <!-- <Image
-        class="object-cover object-top [transition:all_.1s_ease-in] hover:[filter:drop-shadow(0_0_1.3em_rgb(0,255,247,0.09))] rounded-[2rem] cursor-crosshair   will-change-[filter] lg:p-2 [mask-image:linear-gradient(black_40%,transparent)] rounded-bl-[10rem]"
-        src={avatar}
-        widths={[240, 540, 720, avatar.width]}
-        sizes={`(max-width: 360px) 240px, (max-width: 720px) 540px, (max-width: 1600px) 720px, ${avatar.width}px`}
-        alt="Programmer Avatar"
-        loading={"eager"}
-/> -->
-
     </figure>
 
-    <div class="w-full h-full flex flex-col gap-8 md:gap-0 relative">
+    <div class="w-full h-full flex flex-col gap-8 md:gap-0 relative justify-center items-center text-center">
       <div class="flex flex-col justify-evenly h-full gap-8 md:gap-0">
         <h1 
           class="relative inline-block
-            text-3xl
-            sm:text-3xl
-            md:text-3xl
-            lg:text-5xl
-            xl:text-5xl
-            2xl:text-5xl
+            text-[clamp(1.5rem,5vw,3.2rem)]
             font-bold
             overflow-hidden"
         >
@@ -77,22 +63,12 @@ const textReveal = `👋 Hello, I'm Brandol`;
 
         </h1>
 
-        <h2
-          class="text-lg lg:text-2xl text-balance max-w-[700px] text-sky-200 font-semibold leading-6 tracking-widest"
-        >
-          Creative problem solver with a full-stack skillset, passionate about
-          mastering new technologies and crafting elegant solutions.
-        </h2>
-
-      </div>
-
-      <div class="flex justify-end items-center">
-        <p
-          class="text-right text-red-200 font-semibold text-[0.8rem] lg:text-[1rem] leading-normal max-w-[40ch]"
-        >
-          "A user interface is like a joke. If you have to explain it, it's not
-          so good"
-        </p>
+          <h2
+            class="text-[clamp(1.2rem,5vw,2rem)] text-balance max-w-[700px] text-white font-sans"
+          >
+            Creative problem solver with a full-stack skillset, passionate about
+            mastering new technologies and crafting elegant solutions.
+          </h2>
 
       </div>
     </div>

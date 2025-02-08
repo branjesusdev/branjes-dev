@@ -1,7 +1,4 @@
 ---
-
-import HeaderTitle from "@/components/ui/HeaderTitle.astro";
-
 import Angular from "@shared/icons/Angular.astro";
 import React from "@shared/icons/React.astro";
 import IcAstro from "@shared/icons/IcAstro.astro";
@@ -22,6 +19,7 @@ import Redux from "@shared/icons/Redux.astro";
 import PostCss from "@shared/icons/PostCss.astro";
 import NestJs from "@shared/icons/NestJs.astro";
 import NextJs from "@/shared/icons/NextJs.astro";
+import GridBackgroundDot from "@/shared/content/GridBackgroundDot.astro";
 
 const widthIcons = `w-10 h-10 sm:w-11 sm:h-11 md:w-9 md:h-9 lg:w-12 lg:h-12 `;
 
@@ -29,9 +27,10 @@ const widthIcons = `w-10 h-10 sm:w-11 sm:h-11 md:w-9 md:h-9 lg:w-12 lg:h-12 `;
 
 <article 
   id="skills"
-  class="col-span-6 md:col-span-3 pf-skills--overview relative animate-fade-up animate-duration-500 animate-delay-0"
+  class="col-span-6 md:col-span-3 pf-skills--overview relative  animate-fade-up animate-duration-500 animate-delay-0"
   style="content-visibility: auto;">
 
+  <GridBackgroundDot />
     
   <section
     class="mt-16 grid grid-cols-3 sm:grid-cols-4 gap-5 [&>div]:flex 
@@ -40,9 +39,10 @@ const widthIcons = `w-10 h-10 sm:w-11 sm:h-11 md:w-9 md:h-9 lg:w-12 lg:h-12 `;
     relative z-10 overflow-hidden mx-1 pb-5 "
   >
 
-    <div class="absolute w-full h-full pointer-events-none cursor-none opacity-25 -z-10 overflow-hidden [mask-image:linear-gradient(332deg,#26292d_-266%,#00132482_74%,#fff0_116%)]">
+
+    <!-- <div class="absolute w-full h-full pointer-events-none cursor-none opacity-25 -z-10 overflow-hidden [mask-image:linear-gradient(332deg,#26292d_-266%,#00132482_74%,#fff0_116%)]">
       <div class="absolute bg-[url(/images/points-white.avif)] bg-cover w-full h-full rounded-b-3xl"></div>
-    </div>
+    </div> -->
 
     <div class=" md:rotate-3 md:-translate-x-4 md:translate-y-3">
       <JavaScript className={widthIcons} />
