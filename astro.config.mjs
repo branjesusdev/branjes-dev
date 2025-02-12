@@ -2,6 +2,7 @@ import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
 import sitemap from "@astrojs/sitemap";
 import { VitePWA } from "vite-plugin-pwa";
+import vercel from '@astrojs/vercel'
 
 // Helper imports
 import { manifest, seoConfig } from "./src/utils/seoConfig";
@@ -11,6 +12,8 @@ export default defineConfig({
   devToolbar: {
     enabled: false
   },
+  output: "server",
+  adapters: [vercel()],
   server: { port: 8080 },  
   compressHTML: true,
   prefetch: true,

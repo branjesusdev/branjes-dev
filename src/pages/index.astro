@@ -6,16 +6,16 @@ import RadialGradientBottomFix from "@shared/content/RadialGradientBottomFix.ast
 import InsetRadial from "@shared/content/InsetRadial.astro";
 import PointsFixed from "@shared/content/PointsFixed.astro";
 
-import About from "@components/About.astro";
-import Intro from "@components/Intro.astro";
-import Stack from "@components/Stack.astro";
-import Contact from "@components/Contact.astro";
-import Repository from "@components/Repository.astro";
-import Experience from "@components/Experience.astro";
-import Location from "@components/Location.astro";
-import Projects from "@/components/Projects.astro";
-import News from "@/components/News.astro";
-import Acknowledgements from "@/components/Acknowledgements.astro";
+import About from "@/sections/About.astro";
+import Hero from "@/sections/Hero.astro";
+import Stack from "@/sections/Stack.astro";
+import Contact from "@/sections/Contact.astro";
+import Repository from "@/sections/Repository.astro";
+import Experience from "@/sections/Experience.astro";
+import Location from "@/sections/Location.astro";
+import Projects from "@/sections/Projects.astro";
+import News from "@/sections/News.astro";
+import Acknowledgements from "@/sections/Acknowledgements.astro";
 ---
 
 <Layout title="Home - Brandol Jesus">
@@ -28,7 +28,7 @@ import Acknowledgements from "@/components/Acknowledgements.astro";
       class="z-20 mx-auto xl:max-w-6xl 2xl:max-w-7xl relative grid grid-cols-6 gap-5 grid-rows-[masonry] tabular-nums"
     >
       <About />
-      <Intro />
+      <Hero />
       <Stack class:list={`animation-timeline`} />
       <Contact class:list={`animation-timeline`} />
       <Repository class:list={`animation-timeline`} />
@@ -38,11 +38,11 @@ import Acknowledgements from "@/components/Acknowledgements.astro";
       <News class:list={`col-span-6 md:col-span-3 animation-timeline`} />
 
       <div class="col-span-6 ">
-        <Projects  />
+        <Projects />
       </div>
 
       <div class="col-span-6 flex flex-col gap-4 relative animation-timeline ">
-        <Acknowledgements  />
+        <Acknowledgements />
       </div>
       
 

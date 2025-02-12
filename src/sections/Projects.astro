@@ -1,6 +1,6 @@
 ---
 import InsetRadial from "@shared/content/InsetRadial.astro";
-import CardProduct from "@/components/ui/CardProduct.astro";
+import CardProduct from "@/components/CardProduct.astro";
 
 import NextJs from "@shared/icons/NextJs.astro";
 import React from "@shared/icons/React.astro";
@@ -8,12 +8,12 @@ import IcAstro from "@shared/icons/IcAstro.astro";
 import TailwindCss from "@shared/icons/TailwindCss.astro";
 import Angular from "@shared/icons/Angular.astro";
 
-import Badge from "@/components/ui/Badge.astro";
+import Badge from "@/components/Badge.astro";
 import Redux from "@/shared/icons/Redux.astro";
 import GridBackgroundDot from "@/shared/content/GridBackgroundDot.astro";
 ---
 
-<section class="main flow max-w-7xl" id="projects">
+<section class="main flow max-w-7xl">
   <div class="relative w-full my-2 lg:my-14">
     <InsetRadial />
     <h1
@@ -290,6 +290,10 @@ import GridBackgroundDot from "@/shared/content/GridBackgroundDot.astro";
   </style>
 
   <script>
+
+console.log("Hello from Projects.astro");
+
+
     const cardsContainer = document.querySelector(
       ".cards"
     ) as HTMLElement | null;
