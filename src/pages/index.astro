@@ -33,16 +33,16 @@ import Acknowledgements from "@/sections/Acknowledgements.astro";
       <Contact class:list={`animation-timeline`} />
       <Repository class:list={`animation-timeline`} />
 
-      <Location class:list={`col-span-6 md:col-span-3 animation-timeline`} />
-      <Experience  class:list={`col-span-6 md:col-span-3 row-span-2 animation-timeline`} />
-      <News class:list={`col-span-6 md:col-span-3 animation-timeline`} />
+      <Location client:visible class:list={`col-span-6 md:col-span-3 animation-timeline`} />
+      <Experience client:visible  class:list={`col-span-6 md:col-span-3 row-span-2 animation-timeline`} />
+      <News client:visible class:list={`col-span-6 md:col-span-3 animation-timeline`} />
 
       <div class="col-span-6 ">
-        <Projects />
+        <Projects  client:visible/>
       </div>
 
       <div class="col-span-6 flex flex-col gap-4 relative animation-timeline ">
-        <Acknowledgements />
+        <Acknowledgements client:visible />
       </div>
       
 
