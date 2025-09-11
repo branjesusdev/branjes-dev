@@ -1,6 +1,7 @@
 ---
 import HeaderTitle from "@/components/HeaderTitle.astro";
 import InnerLine from "@/components/InnerLine.astro";
+import curriculum from "@/assets/curriculum.json";
 
 interface Props {
   class?: string
@@ -27,9 +28,18 @@ const { class: classList } = Astro.props as Props;
     <div class="absolute bg-[url(/images/Orbite-eee.svg)] bg-cover bg-center w-[350px] h-[350px]"></div>
     <div class="absolute bg-[url(/images/Orbite-eee.svg)] bg-cover bg-center w-[440px] h-[440px]"></div>
   </div>
-      <InnerLine title="Web Developer" subTitle="Movii" description="2021 - Current" link="https://movii.com.co" through={false}/>
-      <InnerLine title="Full Stack Developer" subTitle="Cobis" description="2020 - 2021" through={true}/>
-      <InnerLine title="Software Engineer" subTitle="Bis@" description="2019 - 2020" through={true} link="https://www.bisacorporation.com/" />
+      {
+        curriculum.experiences.map((experience, index) => (
+          <InnerLine
+            title={experience.role }
+            subTitle={experience.company}
+            description={experience.duration}
+            through={index !== 0o0}
+            link={experience.link ?? undefined}
+          />
+        ))
+      }
+
   </section>
 </section>
 

@@ -4,6 +4,7 @@ import CardIcon from "@/components/CardIcon.astro";
 import Linkedin from "@shared/icons/Linkedin.astro";
 import Mail from "@shared/icons/Mail.astro";
 import Download from "@shared/icons/Download.astro";
+import curriculum from "@/assets/curriculum.json";
 
 const classCardIcon = `text-white w-[2rem] h-[2rem] md:w-[3rem] md:h-[3rem] group-hover:animate-jump-out duration-200 transition-all animate-jump-in delay-150`
 ---
@@ -12,7 +13,7 @@ const classCardIcon = `text-white w-[2rem] h-[2rem] md:w-[3rem] md:h-[3rem] grou
   class="gap-4 grid grid-cols-3 md:grid-cols-1 col-span-6 md:col-span-1 [&>div]:space-y-5 animate-fade-up animate-duration-500 animate-delay-100"
 >
   <CardIcon
-    redirectURL="https://www.linkedin.com/in/brandol-jes%C3%BAs-vargas-44294b135/"
+    redirectURL={curriculum.social.linkedin}
     infoText="Linkedin"
   >
     <Linkedin
@@ -20,14 +21,14 @@ const classCardIcon = `text-white w-[2rem] h-[2rem] md:w-[3rem] md:h-[3rem] grou
     />
   </CardIcon>
 
-  <CardIcon redirectURL="mailto:brandolvargas9@gmail.com" infoText="Mail">
+  <CardIcon redirectURL={`mailto:${curriculum.social.email}`} infoText="Mail">
     <Mail
       className={classCardIcon}
     />
   </CardIcon>
 
   <CardIcon
-    redirectURL="/docs/CUR-BRANJES-DEV.pdf"
+    redirectURL={curriculum.curriculumPDF}
     infoText="Curriculum"
   >
     <Download

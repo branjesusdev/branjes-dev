@@ -4,9 +4,10 @@ import InsetRadial from "@shared/content/InsetRadial.astro";
 import "@/themes/molecules/wordAnimate.scss";
 import avatar from "@/assets/avatar.avif";
 import GridBackgroundBoxes from "@/shared/content/GridBackgroundBoxes.astro";
+import curriculum from "@/assets/curriculum.json";
 
 
-const textReveal = `👋 Hello, I'm Brandol`;
+const textReveal = `${curriculum.name}`;
 ---
 
 
@@ -66,8 +67,7 @@ const textReveal = `👋 Hello, I'm Brandol`;
           <h2
             class="text-[clamp(1.2rem,5vw,2rem)] text-balance max-w-[700px] text-white font-sans"
           >
-            Creative problem solver with a full-stack skillset, passionate about
-            mastering new technologies and crafting elegant solutions.
+            {curriculum.about}
           </h2>
 
       </div>

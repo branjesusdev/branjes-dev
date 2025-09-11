@@ -1,0 +1,34 @@
+{
+  "name": "👋 Hello, I'm Brandol",
+  "age": "26",
+  "experienceYears": "6+",
+  "about": "Creative problem solver with a full-stack skillset, passionate about mastering new technologies and crafting elegant solutions.",
+  "social": {
+    "linkedin": "https://www.linkedin.com/in/brandoljesusv",
+    "github": "https://github.com/branjesusdev",
+    "email": "brandolvargas9@gmail.com"
+  },
+  "curriculumPDF": "/docs/CUR-BRANJES-DEV.pdf",
+  "repositoryAbout": "GitHub profile, visit my projects",
+  "experiences": [
+    {
+      "role": "Web Developer",
+      "company": "Movii",
+      "duration": "2021 - Present",
+      "link": "https://movii.com.co"
+    },
+    {
+      "role": "Full Stack Developer",
+      "company": "Cobis",
+      "duration": "2020 - 2021",
+      "link": "https://www.cobis.com/"
+    },
+    {
+      "role": "Software Engineer",
+      "company": "Bis@",
+      "duration": "2019 - 2020",
+      "link": "https://www.bisacorporation.com/"
+    }
+  ],
+  "location": "Fusagasugá, Colombia"
+}
