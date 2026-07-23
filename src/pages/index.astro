@@ -21,7 +21,7 @@ import Acknowledgements from "@/sections/Acknowledgements.astro";
 import curriculum from "@/assets/curriculum.json";
 ---
 
-<Layout title={`${curriculum.fullName} — ${curriculum.title}`}>
+<Layout title={`${curriculum.fullName} — ${curriculum.title.en}`}>
   <main class="relative p-8 w-full">
     <RadialGradientBottomFix />
     <InsetRadial zIndex="z-30"/>
@@ -51,7 +51,7 @@ import curriculum from "@/assets/curriculum.json";
       
 
       <article class="col-span-6 text-center py-20 text-base text-slate-100">
-        <p>With 💖 for branjesusdev 🚀</p>
+        <p data-i18n="footer.madeWith">With 💖 for branjesusdev 🚀</p>
         <p>2.1.0</p>
       </article>
     </section>

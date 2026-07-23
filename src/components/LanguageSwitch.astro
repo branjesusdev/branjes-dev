@@ -1,0 +1,50 @@
+---
+import Translate from "@shared/icons/Translate.astro";
+---
+
+<button
+  id="lang-switch"
+  type="button"
+  aria-label="Switch to Spanish"
+  name="Idioma"
+  class="fixed top-6 right-6 z-[1000] flex h-10 items-center gap-x-2 rounded-full border border-white/10 bg-[#0d1117]/90 px-3 py-2 text-sm text-sky-100/80 shadow-lg backdrop-blur transition hover:border-cyan-300/50 hover:text-sky-100"
+>
+  <Translate className="size-[1.2em] shrink-0" />
+  <span id="lang-switch-label" class="font-semibold tracking-wide">ENG</span>
+</button>
+
+<script>
+  import {
+    getInitialLocale,
+    setStoredLocale,
+    applyTranslations,
+    t,
+    type Locale,
+  } from "@shared/lib/i18n";
+
+  const LABELS: Record<Locale, string> = { en: "ENG", es: "ESP" };
+
+  const button = document.querySelector<HTMLButtonElement>("#lang-switch");
+  const label = document.querySelector<HTMLElement>("#lang-switch-label");
+
+  if (button && label) {
+    const reflect = (locale: Locale) => {
+      label.textContent = LABELS[locale];
+      button.setAttribute(
+        "aria-label",
+        t(locale, locale === "en" ? "languageSwitch.switchToEs" : "languageSwitch.switchToEn"),
+      );
+    };
+
+    let currentLocale = getInitialLocale();
+    applyTranslations(currentLocale);
+    reflect(currentLocale);
+
+    button.addEventListener("click", () => {
+      currentLocale = currentLocale === "en" ? "es" : "en";
+      setStoredLocale(currentLocale);
+      applyTranslations(currentLocale);
+      reflect(currentLocale);
+    });
+  }
+</script>

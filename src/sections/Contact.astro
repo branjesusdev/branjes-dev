@@ -15,13 +15,14 @@ const classCardIcon = `text-white w-[2rem] h-[2rem] md:w-[3rem] md:h-[3rem] grou
   <CardIcon
     redirectURL={curriculum.social.linkedin}
     infoText="Linkedin"
+    i18nKey="contact.linkedin"
   >
     <Linkedin
       className={classCardIcon}
     />
   </CardIcon>
 
-  <CardIcon redirectURL={`mailto:${curriculum.social.email}`} infoText="Mail">
+  <CardIcon redirectURL={`mailto:${curriculum.social.email}`} infoText="Mail" i18nKey="contact.mail">
     <Mail
       className={classCardIcon}
     />
@@ -30,6 +31,7 @@ const classCardIcon = `text-white w-[2rem] h-[2rem] md:w-[3rem] md:h-[3rem] grou
   <CardIcon
     redirectURL={curriculum.curriculumPDF}
     infoText="Curriculum"
+    i18nKey="contact.curriculum"
   >
     <Download
       className={classCardIcon}

@@ -14,7 +14,7 @@ const { class: classList } = Astro.props as Props;
   class:list={[classList, "pf-location--overview group relative"]}
 >
 
-  <HeaderTitle title="Education"/>
+  <HeaderTitle title="Education" i18nKey="education.title"/>
 
   <section
     class="mt-16 inner-content inner-content--not-padded overflow-hidden p-6 flex flex-col gap-6"
@@ -22,7 +22,13 @@ const { class: classList } = Astro.props as Props;
     {
       curriculum.education.map((item) => (
         <div class="flex flex-col gap-1">
-          <p class="font-bold text-sky-100 text-sm">{item.degree}</p>
+          <p
+            class="font-bold text-sky-100 text-sm"
+            data-i18n-en={item.degree.en}
+            data-i18n-es={item.degree.es}
+          >
+            {item.degree.en}
+          </p>
           <p class="text-xs text-cyan-300">{item.institution}</p>
           <p class="text-xs text-sky-100/70">{item.duration}</p>
         </div>
@@ -33,8 +39,12 @@ const { class: classList } = Astro.props as Props;
       curriculum.educationExtras?.length > 0 && (
         <div class="flex flex-wrap gap-2 border-t border-white/10 pt-4">
           {curriculum.educationExtras.map((extra) => (
-            <span class="rounded-full border border-lime-300/30 bg-lime-300/10 px-3 py-1 text-xs font-medium text-lime-300">
-              {extra}
+            <span
+              class="rounded-full border border-lime-300/30 bg-lime-300/10 px-3 py-1 text-xs font-medium text-lime-300"
+              data-i18n-en={extra.en}
+              data-i18n-es={extra.es}
+            >
+              {extra.en}
             </span>
           ))}
         </div>

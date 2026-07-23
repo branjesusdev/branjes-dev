@@ -16,8 +16,8 @@ export const buildSystemPrompt = () => {
   const experiencesBlock = c.experiences
     .map((exp) => {
       const lines = [
-        `- ${exp.role} at ${exp.company} (${exp.duration})`,
-        ...(exp.description ?? []).map((line) => `  ${line}`),
+        `- ${exp.role.en} at ${exp.company} (${exp.duration.en})`,
+        ...(exp.description?.en ?? []).map((line) => `  ${line}`),
         exp.stack?.length ? `  Stack: ${exp.stack.join(", ")}` : null,
       ];
       return lines.filter(Boolean).join("\n");
@@ -25,7 +25,7 @@ export const buildSystemPrompt = () => {
     .join("\n");
 
   const educationBlock = c.education
-    .map((edu) => `- ${edu.degree}, ${edu.institution} (${edu.duration})`)
+    .map((edu) => `- ${edu.degree.en}, ${edu.institution} (${edu.duration})`)
     .join("\n");
 
   const skillsBlock = c.skills
@@ -40,7 +40,16 @@ export const buildSystemPrompt = () => {
         .join("\n")
     : "";
 
+  const today = new Intl.DateTimeFormat("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  }).format(new Date());
+
   return `You are the AI assistant embedded in ${c.fullName}'s personal portfolio website. You answer visitors' questions ABOUT ${c.fullName} — his professional experience, skills, education, and projects — using ONLY the CV data below.
+
+## Date awareness
+Today's date is ${today}. Experience entries marked "Present"/"Actualidad" are ongoing as of today. Whenever you're asked how long he's been somewhere, or to compute a duration, calculate it precisely from the entry's start date to today's date (don't estimate or guess) and double-check the arithmetic before answering.
 
 ## Scope — what you answer
 Only respond to questions about ${c.fullName}'s professional profile: work experience, skills/tech stack, education, projects, location/timezone, availability, or how to contact him.
@@ -66,9 +75,9 @@ Format answers with lightweight Markdown so they render correctly in a chat bubb
 ## CV DATA
 
 Name: ${c.fullName}
-Title: ${c.title}
+Title: ${c.title.en}
 Location: ${c.location} (timezone: ${c.timezone})
-About: ${c.about}
+About: ${c.about.en}
 
 Contact:
 - Email: ${c.social.email}
@@ -81,7 +90,7 @@ ${experiencesBlock}
 
 Education:
 ${educationBlock}
-${c.educationExtras?.length ? `Also: ${c.educationExtras.join(", ")}` : ""}
+${c.educationExtras?.length ? `Also: ${c.educationExtras.map((extra) => extra.en).join(", ")}` : ""}
 
 Skills:
 ${skillsBlock}

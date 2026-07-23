@@ -6,7 +6,7 @@ import Avatar from "@/components/Avatar.astro";
 <section 
   id="acknowledgements" 
   class="pf-location--overview group relative">
-  <HeaderTitle title="Acknowledgements" />
+  <HeaderTitle title="Acknowledgements" i18nKey="acknowledgements.title" />
 
   <article
     class="mt-16 inner-content inner-content--space flex flex-row justify-between items-center space-y-2 relative overflow-hidden"
@@ -17,6 +17,7 @@ import Avatar from "@/components/Avatar.astro";
             className="md:-translate-y-5 xl:-translate-y-5"
             img="/images/avatars/midudev.avif"
             alt="Master programmer with +15 years of experience"
+            altI18nKey="acknowledgements.altMidudev"
             caption="Midudev"
           />
         </div>
@@ -25,6 +26,7 @@ import Avatar from "@/components/Avatar.astro";
             className="md:translate-x-12"
             img="/images/avatars/leiferMendez.avif"
             alt="Master programmer Leifer Mendez"
+            altI18nKey="acknowledgements.altLeifer"
             caption="Leifer Mendez"
           />
         </div>
@@ -33,6 +35,7 @@ import Avatar from "@/components/Avatar.astro";
             className="md:translate-y-5 xl:translate-y-5"
             img="/images/avatars/fernandoHerrera.avif"
             alt="Master programmer Fernando Herrera"
+            altI18nKey="acknowledgements.altFernando"
             caption="Fernando Herrera"
           />
         </div>
@@ -41,19 +44,19 @@ import Avatar from "@/components/Avatar.astro";
       <div
         class="flex flex-col justify-center items-center max-w-2xl gap-6 text-center mx-auto"
       >
-        <span class="stars flex gap-1 text-lg" aria-label="5 stars">
+        <span class="stars flex gap-1 text-lg" aria-label="5 stars" data-i18n-aria-label="acknowledgements.starsLabel">
           <span class="star">⭐</span>
           <span class="star">⭐</span>
           <span class="star">⭐</span>
           <span class="star">⭐</span>
           <span class="star">⭐</span>
         </span>
-        <p class="max-w-[40ch] md:text-sm xl:text-xl text-slate-100">
+        <p class="max-w-[40ch] md:text-sm xl:text-xl text-slate-100" data-i18n="acknowledgements.quote">
           The beauty of programming lies in its ability to inspire and connect
           us. To learn from the masters is to honour tradition and innovation in
           equal measure!
         </p>
-        <p class="text-[var(--ocean-green-20)] text-xl">Thanks 🙏</p>
+        <p class="text-[var(--ocean-green-20)] text-xl" data-i18n="acknowledgements.thanks">Thanks 🙏</p>
       </div>
 
       <div class="flex justify-between flex-col gap-4 md:block">
@@ -62,6 +65,7 @@ import Avatar from "@/components/Avatar.astro";
             className="md:-translate-y-5 xl:-translate-y-5"
             img="/images/avatars/Goncy.avif"
             alt="Master programmer Goncy"
+            altI18nKey="acknowledgements.altGoncy"
             caption="Goncy"
           />
         </div>
@@ -70,6 +74,7 @@ import Avatar from "@/components/Avatar.astro";
             className="md:-translate-x-12 "
             img="/images/avatars/nikobytes.avif"
             alt="Master programmer Nikobytes"
+            altI18nKey="acknowledgements.altNikobytes"
             caption="Nikobytes"
           />
         </div>
@@ -78,6 +83,7 @@ import Avatar from "@/components/Avatar.astro";
             className="md:translate-y-5 xl:translate-y-5"
             img="/images/avatars/manzdev.avif"
             alt="Master programmer manzdev"
+            altI18nKey="acknowledgements.altManzdev"
             caption="Manzdev"
           />
         </div>

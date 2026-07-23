@@ -1,7 +1,7 @@
 ---
 import ArrowIconEfect from "@/components/ArrowIconEfect.astro";
 
-const { redirectURL, infoText } = Astro.props;
+const { redirectURL, infoText, i18nKey } = Astro.props;
 
 ---
 
@@ -11,6 +11,7 @@ const { redirectURL, infoText } = Astro.props;
   rel="noopener noreferrer"
   class="pf-social--overview group cursor-pointer relative min-h-[10rem]"
   aria-label={infoText}
+  data-i18n-aria-label={i18nKey}
 >
   <div class="flex justify-center items-center flex-col transition space-y-2">
     <div
@@ -27,6 +28,7 @@ const { redirectURL, infoText } = Astro.props;
 
     <p
       class="text-sm font-bold text-[#dae2fd] group-hover:translate-y-4 md:group-hover:translate-y-10 transition-all transform group-hover:text-base group-hover:text-cyan-200"
+      data-i18n={i18nKey}
     >
       { infoText }
     </p>

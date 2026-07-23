@@ -3,20 +3,22 @@ interface Props {
   titleHeader : string
   contentBody : string
   footerInfo  : string
+  titleI18nKey?: string
+  footerI18nKey?: string
 }
 
-const { titleHeader, contentBody, footerInfo } = Astro.props
+const { titleHeader, contentBody, footerInfo, titleI18nKey, footerI18nKey } = Astro.props
 ---
 
 <aside class="text-center space-y-5">
-  <p class="text-xs sm:text-sm text-sky-100 ">{ titleHeader }</p>
+  <p class="text-xs sm:text-sm text-sky-100 " data-i18n={titleI18nKey}>{ titleHeader }</p>
   <p
     class="text-5xl md:text-6xl md:leading-tight font-bold text-transparent bg-clip-text bg-gradient-to-br from-lime-300 to-cyan-300"
     data-counter={contentBody}
   >
     0
   </p>
-  <p class="text-sm text-sky-100 font-bold">{footerInfo}</p>
+  <p class="text-sm text-sky-100 font-bold" data-i18n={footerI18nKey}>{footerInfo}</p>
 </aside>
 
 <script>

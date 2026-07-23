@@ -2,6 +2,7 @@
 import '../themes/@global.scss'
 import Noise from '@shared/content/Noise.astro'
 import ChatBot from '@/components/ChatBot.astro'
+import LanguageSwitch from '@/components/LanguageSwitch.astro'
 import { seoConfig } from '@/utils/seoConfig'
 import curriculum from '@/assets/curriculum.json'
 
@@ -15,7 +16,7 @@ const personSchema = {
 	"@context": "https://schema.org",
 	"@type": "Person",
 	name: curriculum.fullName,
-	jobTitle: curriculum.title,
+	jobTitle: curriculum.title.en,
 	url: seoConfig.baseURL,
 	email: `mailto:${curriculum.social.email}`,
 	address: curriculum.location,
@@ -68,6 +69,7 @@ const personSchema = {
     <Noise/>
 		<slot />
     <ChatBot />
+    <LanguageSwitch />
 	</body>
 </html>
 

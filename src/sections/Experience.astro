@@ -15,7 +15,7 @@ const { class: classList } = Astro.props as Props;
   class:list={[classList, "relative pf-experience--overview group overflow-hidden border-clip"]}
 >
 
-  <HeaderTitle title="Experience"/>
+  <HeaderTitle title="Experience" i18nKey="experience.title"/>
 
   <section
   class="inner-content inner-content--space overflow-hidden relative"
@@ -52,8 +52,10 @@ const { class: classList } = Astro.props as Props;
                 index !== 0 ? "line-through opacity-55" : "opacity-100",
                 "text-xl md:text-2xl font-medium text-red-200 text-left w-fit",
               ]}
+              data-i18n-en={experience.role.en}
+              data-i18n-es={experience.role.es}
             >
-              {experience.role}
+              {experience.role.en}
             </h3>
 
             {experience.link ? (
@@ -80,18 +82,33 @@ const { class: classList } = Astro.props as Props;
             )}
           </div>
 
-          <p class="text-xs text-sky-100/60">{experience.duration}</p>
+          <p
+            class="text-xs text-sky-100/60"
+            data-i18n-en={experience.duration.en}
+            data-i18n-es={experience.duration.es}
+          >
+            {experience.duration.en}
+          </p>
 
-          {experience.quote && (
-            <p class="mt-4 max-w-2xl italic text-sky-100/80">
-              “{experience.quote}”
+          {experience.quote?.en && (
+            <p
+              class="mt-4 max-w-2xl italic text-sky-100/80"
+              data-i18n-en={`“${experience.quote.en}”`}
+              data-i18n-es={`“${experience.quote.es}”`}
+            >
+              “{experience.quote.en}”
             </p>
           )}
 
-          {experience.description?.length > 0 && (
+          {experience.description?.en?.length > 0 && (
             <div class="mt-4 flex max-w-2xl flex-col gap-4 text-sm leading-relaxed text-sky-100/80">
-              {experience.description.map((paragraph) => (
-                <p>{paragraph}</p>
+              {experience.description.en.map((paragraph, i) => (
+                <p
+                  data-i18n-en={paragraph}
+                  data-i18n-es={experience.description.es[i]}
+                >
+                  {paragraph}
+                </p>
               ))}
             </div>
           )}

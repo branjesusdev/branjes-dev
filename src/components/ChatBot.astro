@@ -1,23 +1,56 @@
 ---
 import { Image } from "astro:assets";
 import curriculum from "@/assets/curriculum.json";
+
+const firstName = curriculum.fullName.split(" ")[0];
+
+const strings = {
+  panelAriaLabel: { en: `Chat about ${firstName}`, es: `Chat sobre ${firstName}` },
+  headerTitle: { en: `Ask about ${firstName}`, es: `Pregunta sobre ${firstName}` },
+  subtitle: { en: "AI assistant · answers from his CV", es: "Asistente de IA · responde según su CV" },
+  closeLabel: { en: "Close chat", es: "Cerrar chat" },
+  greeting: {
+    en: `Hi! Ask me anything about ${firstName}'s experience, skills, or projects.`,
+    es: `¡Hola! Pregúntame lo que quieras sobre la experiencia, habilidades o proyectos de ${firstName}.`,
+  },
+  placeholder: { en: "Ask a question...", es: "Escribe una pregunta..." },
+  sendLabel: { en: "Send", es: "Enviar" },
+  openLabel: { en: "Open chat", es: "Abrir chat" },
+  iconAlt: { en: "Chat icon", es: "Ícono de chat" },
+};
 ---
 
 <div id="chatbot" class="fixed bottom-6 right-6 z-[1000] flex flex-col items-end gap-3">
   <section
     id="chatbot-panel"
     class="hidden w-[min(22rem,calc(100vw-3rem))] flex-col overflow-hidden rounded-2xl border border-white/10 bg-[#0d1117] shadow-2xl"
-    aria-label={`Chat about ${curriculum.fullName}`}
+    aria-label={strings.panelAriaLabel.en}
+    data-i18n-aria-label-en={strings.panelAriaLabel.en}
+    data-i18n-aria-label-es={strings.panelAriaLabel.es}
   >
     <header class="flex items-center justify-between gap-2 border-b border-white/10 bg-white/5 px-4 py-3">
       <div class="flex flex-col">
-        <p class="text-sm font-semibold text-sky-100">Ask about {curriculum.fullName.split(" ")[0]}</p>
-        <p class="text-xs text-sky-100/60">AI assistant · answers from his CV</p>
+        <p
+          class="text-sm font-semibold text-sky-100"
+          data-i18n-en={strings.headerTitle.en}
+          data-i18n-es={strings.headerTitle.es}
+        >
+          {strings.headerTitle.en}
+        </p>
+        <p
+          class="text-xs text-sky-100/60"
+          data-i18n-en={strings.subtitle.en}
+          data-i18n-es={strings.subtitle.es}
+        >
+          {strings.subtitle.en}
+        </p>
       </div>
       <button
         id="chatbot-close"
         type="button"
-        aria-label="Close chat"
+        aria-label={strings.closeLabel.en}
+        data-i18n-aria-label-en={strings.closeLabel.en}
+        data-i18n-aria-label-es={strings.closeLabel.es}
         class="rounded-full p-1.5 text-sky-100/70 transition hover:bg-white/10 hover:text-sky-100"
       >
         ✕
@@ -29,8 +62,12 @@ import curriculum from "@/assets/curriculum.json";
       data-lenis-prevent
       class="flex max-h-[24rem] min-h-[16rem] flex-col gap-3 overflow-y-auto px-4 py-4"
     >
-      <div class="max-w-[85%] rounded-2xl rounded-bl-sm bg-white/10 px-3 py-2 text-sm text-sky-100">
-        Hi! Ask me anything about {curriculum.fullName.split(" ")[0]}'s experience, skills, or projects.
+      <div
+        class="max-w-[85%] rounded-2xl rounded-bl-sm bg-white/10 px-3 py-2 text-sm text-sky-100"
+        data-i18n-en={strings.greeting.en}
+        data-i18n-es={strings.greeting.es}
+      >
+        {strings.greeting.en}
       </div>
     </div>
 
@@ -40,12 +77,16 @@ import curriculum from "@/assets/curriculum.json";
         type="text"
         autocomplete="off"
         maxlength="800"
-        placeholder="Ask a question..."
+        placeholder={strings.placeholder.en}
+        data-i18n-placeholder-en={strings.placeholder.en}
+        data-i18n-placeholder-es={strings.placeholder.es}
         class="min-w-0 flex-1 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-sky-100 placeholder:text-sky-100/40 focus:border-cyan-300/50 focus:outline-none"
       />
       <button
         type="submit"
-        aria-label="Send"
+        aria-label={strings.sendLabel.en}
+        data-i18n-aria-label-en={strings.sendLabel.en}
+        data-i18n-aria-label-es={strings.sendLabel.es}
         class="flex size-9 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-cyan-300 to-lime-300 text-[#0d1117] transition hover:brightness-110 disabled:opacity-50"
       >
         ➤
@@ -56,13 +97,17 @@ import curriculum from "@/assets/curriculum.json";
   <button
     id="chatbot-toggle"
     type="button"
-    aria-label="Open chat"
+    aria-label={strings.openLabel.en}
+    data-i18n-aria-label-en={strings.openLabel.en}
+    data-i18n-aria-label-es={strings.openLabel.es}
     aria-expanded="false"
     class="flex size-14 items-center justify-center overflow-hidden rounded-full border-2 border-cyan-300/70 bg-[#0d1117] shadow-lg shadow-cyan-300/20 transition hover:scale-105 hover:border-lime-300"
   >
     <Image
       src="/images/avatars/ai-dev.webp"
-      alt="Chat icon"
+      alt={strings.iconAlt.en}
+      data-i18n-alt-en={strings.iconAlt.en}
+      data-i18n-alt-es={strings.iconAlt.es}
       width={56}
       height={56}
       class="size-full object-cover"
@@ -71,10 +116,17 @@ import curriculum from "@/assets/curriculum.json";
 </div>
 
 <script>
+  import { getInitialLocale, t, type Locale } from "@shared/lib/i18n";
+
   interface ChatMessage {
     role: "user" | "assistant";
     content: string;
   }
+
+  let currentLocale: Locale = getInitialLocale();
+  window.addEventListener("locale-change", ((event: CustomEvent<Locale>) => {
+    currentLocale = event.detail;
+  }) as EventListener);
 
   const root = document.querySelector<HTMLElement>("#chatbot");
   const panel = document.querySelector<HTMLElement>("#chatbot-panel");
@@ -206,13 +258,13 @@ import curriculum from "@/assets/curriculum.json";
         const data = await response.json();
 
         if (!response.ok) {
-          pending.innerHTML = renderMarkdown(data.error ?? "Something went wrong. Try again.");
+          pending.innerHTML = renderMarkdown(data.error ?? t(currentLocale, "chatbot.genericError"));
         } else {
           pending.innerHTML = renderMarkdown(data.reply);
           history.push({ role: "assistant", content: data.reply });
         }
       } catch {
-        pending.innerHTML = renderMarkdown("Something went wrong. Try again.");
+        pending.innerHTML = renderMarkdown(t(currentLocale, "chatbot.genericError"));
       } finally {
         messagesEl.scrollTop = messagesEl.scrollHeight;
         isSending = false;

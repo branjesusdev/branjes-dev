@@ -1,58 +1,84 @@
 {
-  "name": "👋 Hello, I'm Brandol",
+  "name": { "en": "👋 Hello, I'm Brandol", "es": "👋 Hola, soy Brandol" },
   "fullName": "Brandol Jesus Fontecha Vargas",
-  "title": "Frontend Developer Senior",
+  "title": { "en": "Frontend Developer Senior", "es": "Desarrollador Frontend Senior" },
   "age": "27",
   "experienceYears": "7+",
-  "about": "Creative problem solver with a full-stack skillset, passionate about mastering new technologies and crafting elegant solutions.",
+  "about": {
+    "en": "Creative problem solver with a full-stack skillset, passionate about mastering new technologies and crafting elegant solutions.",
+    "es": "Solucionador de problemas creativo con habilidades full-stack, apasionado por dominar nuevas tecnologías y crear soluciones elegantes."
+  },
   "social": {
     "linkedin": "https://www.linkedin.com/in/brandoljesusv",
     "github": "https://github.com/branjesusdev",
     "email": "brandolvargas9@gmail.com"
   },
   "curriculumPDF": "/docs/CUR-BRANJES-DEV.pdf",
-  "repositoryAbout": "GitHub profile, visit my projects",
+  "repositoryAbout": {
+    "en": "GitHub profile, visit my projects",
+    "es": "Perfil de GitHub, visita mis proyectos"
+  },
   "experiences": [
     {
-      "role": "Frontend Developer",
+      "role": { "en": "Frontend Developer", "es": "Desarrollador Frontend" },
       "company": "Movii",
-      "duration": "Mar 2021 - Present",
+      "duration": { "en": "Mar 2021 - Present", "es": "Mar 2021 - Actualidad" },
       "link": "https://movii.com.co",
-      "quote": "",
-      "description": [
-        "Building and evolving the interfaces behind Movii's fintech platform with React, Next.js and Angular, from new business features to performance and code health, working under Scrum alongside UX/UI, backend and QA."
-      ],
+      "quote": { "en": "", "es": "" },
+      "description": {
+        "en": [
+          "Building and evolving the interfaces behind Movii's fintech platform with React, Next.js and Angular, from new business features to performance and code health, working under Scrum alongside UX/UI, backend and QA."
+        ],
+        "es": [
+          "Construyendo y evolucionando las interfaces de la plataforma fintech de Movii con React, Next.js y Angular, desde nuevas funcionalidades de negocio hasta rendimiento y calidad de código, trabajando bajo Scrum junto a UX/UI, backend y QA."
+        ]
+      },
       "stack": ["React", "Next.js", "Angular", "Jest", "Storybook"]
     },
     {
-      "role": "Senior Full Stack Developer (Freelance)",
+      "role": { "en": "Senior Full Stack Developer (Freelance)", "es": "Desarrollador Full Stack Senior (Freelance)" },
       "company": "OpenSistemas · Banco Santander",
-      "duration": "Oct 2023 - Apr 2025",
-      "quote": "",
-      "description": [
-        "Freelance engagement building and maintaining web applications for Banco Santander: a progressive Angular version migration, REST API integration, and a rewrite of the unit test suite that took coverage from 5% to 97%."
-      ],
+      "duration": { "en": "Oct 2023 - Apr 2025", "es": "Oct 2023 - Abr 2025" },
+      "quote": { "en": "", "es": "" },
+      "description": {
+        "en": [
+          "Freelance engagement building and maintaining web applications for Banco Santander: a progressive Angular version migration, REST API integration, and a rewrite of the unit test suite that took coverage from 5% to 97%."
+        ],
+        "es": [
+          "Proyecto freelance construyendo y manteniendo aplicaciones web para Banco Santander: una migración progresiva de versión de Angular, integración de APIs REST, y una reescritura de la suite de pruebas unitarias que llevó la cobertura del 5% al 97%."
+        ]
+      },
       "stack": ["Angular", "Signals", "REST APIs", "Sonar"]
     },
     {
-      "role": "Full Stack Developer",
+      "role": { "en": "Full Stack Developer", "es": "Desarrollador Full Stack" },
       "company": "MiddleSoftware",
-      "duration": "Oct 2020 - Mar 2021",
-      "quote": "",
-      "description": [
-        "Built and maintained REST APIs in Java with SQL databases, plus Angular (v8-11) frontends and Cordova mobile apps, supporting mobile banking projects for Banco FIE and Banco Panamá."
-      ],
+      "duration": { "en": "Oct 2020 - Mar 2021", "es": "Oct 2020 - Mar 2021" },
+      "quote": { "en": "", "es": "" },
+      "description": {
+        "en": [
+          "Built and maintained REST APIs in Java with SQL databases, plus Angular (v8-11) frontends and Cordova mobile apps, supporting mobile banking projects for Banco FIE and Banco Panamá."
+        ],
+        "es": [
+          "Construí y mantuve APIs REST en Java con bases de datos SQL, además de frontends en Angular (v8-11) y apps móviles con Cordova, dando soporte a proyectos de banca móvil para Banco FIE y Banco Panamá."
+        ]
+      },
       "stack": ["Java", "Angular", "SQL", "Cordova", "Azure"]
     },
     {
-      "role": "Full Stack Developer",
+      "role": { "en": "Full Stack Developer", "es": "Desarrollador Full Stack" },
       "company": "Bis@ Corporation",
-      "duration": "Mar 2019 - Nov 2020",
+      "duration": { "en": "Mar 2019 - Nov 2020", "es": "Mar 2019 - Nov 2020" },
       "link": "https://www.bisacorporation.com/",
-      "quote": "",
-      "description": [
-        "Developed web and mobile applications with Laravel, Angular and .NET for institutional and government platforms, designing REST APIs under SOLID/MVC and working directly with clients on requirements."
-      ],
+      "quote": { "en": "", "es": "" },
+      "description": {
+        "en": [
+          "Developed web and mobile applications with Laravel, Angular and .NET for institutional and government platforms, designing REST APIs under SOLID/MVC and working directly with clients on requirements."
+        ],
+        "es": [
+          "Desarrollé aplicaciones web y móviles con Laravel, Angular y .NET para plataformas institucionales y gubernamentales, diseñando APIs REST bajo SOLID/MVC y trabajando directamente con clientes en los requerimientos."
+        ]
+      },
       "stack": ["Laravel", "Angular", ".NET", "Docker", "GitLab"]
     }
   ],
@@ -60,17 +86,20 @@
   "timezone": "America/Bogota",
   "education": [
     {
-      "degree": "Ingeniería de Sistemas",
+      "degree": { "en": "Systems Engineering", "es": "Ingeniería de Sistemas" },
       "institution": "Universidad CUN",
       "duration": "Mar 2022 - Jun 2025"
     },
     {
-      "degree": "Tecnología",
+      "degree": { "en": "Technology", "es": "Tecnología" },
       "institution": "SENA",
       "duration": "Apr 2015 - Apr 2017"
     }
   ],
-  "educationExtras": ["+40 courses", "English B2"],
+  "educationExtras": [
+    { "en": "+40 courses", "es": "+40 cursos" },
+    { "en": "English B2", "es": "Inglés B2" }
+  ],
   "skills": {
     "frontend": ["React.js", "Next.js", "Angular", "Astro", "JavaScript ES6+", "TypeScript", "Redux / Context API", "HTML5", "CSS3", "TailwindCSS", "Lit Element", "Storybook"],
     "backend": ["Node.js", "NestJS", "Laravel (PHP)", "REST APIs", "JWT/JWE", "Swagger", "PostgreSQL", "MySQL", "MongoDB"],

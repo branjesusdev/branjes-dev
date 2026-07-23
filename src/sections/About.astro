@@ -7,7 +7,7 @@ import GridBackgroundBoxes from "@/shared/content/GridBackgroundBoxes.astro";
 import curriculum from "@/assets/curriculum.json";
 
 
-const textReveal = `${curriculum.name}`;
+const textReveal = { en: curriculum.name.en, es: curriculum.name.es };
 ---
 
 
@@ -52,24 +52,40 @@ const textReveal = `${curriculum.name}`;
         >
           
           <span class="word-animate-reveal text-yellow-500">
-            {
-              textReveal.match(/./gu)!.map((char, index) => (
-                <span
-                  class="word-item"
-                  style={{ animationDelay: `${index * 0.05}s` }}
-                >
-                  {char === " " ? "\u00A0" : char}
-                </span>
-              ))
-            }
+            <span data-i18n-lang="en">
+              {
+                textReveal.en.match(/./gu)!.map((char, index) => (
+                  <span
+                    class="word-item"
+                    style={{ animationDelay: `${index * 0.05}s` }}
+                  >
+                    {char === " " ? "\u00A0" : char}
+                  </span>
+                ))
+              }
+            </span>
+            <span data-i18n-lang="es" class="hidden">
+              {
+                textReveal.es.match(/./gu)!.map((char, index) => (
+                  <span
+                    class="word-item"
+                    style={{ animationDelay: `${index * 0.05}s` }}
+                  >
+                    {char === " " ? "\u00A0" : char}
+                  </span>
+                ))
+              }
+            </span>
           </span>
 
         </h1>
 
           <h2
             class="text-[clamp(1.2rem,5vw,2rem)] text-balance max-w-[700px] text-white font-sans"
+            data-i18n-en={curriculum.about.en}
+            data-i18n-es={curriculum.about.es}
           >
-            {curriculum.about}
+            {curriculum.about.en}
           </h2>
 
       </div>

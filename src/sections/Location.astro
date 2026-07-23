@@ -16,7 +16,7 @@ const { class: classList } = Astro.props as Props;
   id="location"
   class:list={[classList, "pf-location--overview group relative"]}>
 
-  <HeaderTitle title="Location"/>
+  <HeaderTitle title="Location" i18nKey="location.title"/>
 
   <section
     class="mt-16 inner-content inner-content--not-padded overflow-hidden p-0 min-h-[4rem] "
@@ -35,7 +35,7 @@ const { class: classList } = Astro.props as Props;
 
     <div class="flex flex-row justify-between items-center">
       <div class="flex flex-col gap-1 ml-4">
-        <p class="font-bold text-sky-100 text-sm">Based in {curriculum.location}</p>
+        <p class="font-bold text-sky-100 text-sm"><span data-i18n="location.basedIn">Based in</span> {curriculum.location}</p>
         <p data-location-diff class="text-xs text-cyan-300">&nbsp;</p>
         <p data-location-time class="text-lg font-bold text-lime-300">&nbsp;</p>
         <p data-location-date class="text-xs text-sky-100/70">&nbsp;</p>
@@ -60,10 +60,17 @@ const { class: classList } = Astro.props as Props;
 <script>
   import { initSectionEffects } from "@shared/lib/section-effects";
   import curriculum from "@/assets/curriculum.json";
+  import { getInitialLocale, getLocationDiffLabel, type Locale } from "@shared/lib/i18n";
 
   initSectionEffects({ selector: "location" });
 
   const timeZone = curriculum.timezone;
+  let currentLocale: Locale = getInitialLocale();
+
+  window.addEventListener("locale-change", ((event: CustomEvent<Locale>) => {
+    currentLocale = event.detail;
+    updateLocationWidget();
+  }) as EventListener);
 
   const getUtcOffsetMinutes = (tz: string, date: Date) => {
     const parts = new Intl.DateTimeFormat("en-US", {
@@ -101,14 +108,11 @@ const { class: classList } = Astro.props as Props;
     const visitorOffset = -now.getTimezoneOffset();
     const diffHours = Math.round((targetOffset - visitorOffset) / 60);
 
-    const diffLabel =
-      diffHours === 0
-        ? "Same time as you"
-        : diffHours > 0
-          ? `${diffHours}h ahead of you`
-          : `${Math.abs(diffHours)}h behind you`;
+    const diffLabel = getLocationDiffLabel(currentLocale, diffHours);
 
-    const timeLabel = new Intl.DateTimeFormat("en-US", {
+    const intlLocale = currentLocale === "es" ? "es-CO" : "en-US";
+
+    const timeLabel = new Intl.DateTimeFormat(intlLocale, {
       timeZone,
       hour: "numeric",
       minute: "2-digit",
@@ -116,11 +120,11 @@ const { class: classList } = Astro.props as Props;
     }).format(now);
 
     const offsetLabel =
-      new Intl.DateTimeFormat("en-US", { timeZone, timeZoneName: "shortOffset" })
+      new Intl.DateTimeFormat(intlLocale, { timeZone, timeZoneName: "shortOffset" })
         .formatToParts(now)
         .find((part) => part.type === "timeZoneName")?.value ?? "";
 
-    const dateLabel = new Intl.DateTimeFormat("en-US", {
+    const dateLabel = new Intl.DateTimeFormat(intlLocale, {
       timeZone,
       weekday: "long",
       month: "long",

@@ -1,14 +1,15 @@
 ---
 import { Image } from "astro:assets";
 
-const { className, img, alt, caption } = Astro.props;
+const { className, img, alt, caption, altI18nKey } = Astro.props;
 ---
 
 <figure class:list={[`${className} flex justify-start md:justify-center items-center flex-col
   gap-2 text-xs text-center`]}>
-  <Image 
-    src={img} 
-    alt={alt} 
+  <Image
+    src={img}
+    alt={alt}
+    data-i18n-alt={altI18nKey}
     decoding="async"
     loading="lazy"
     width="90"

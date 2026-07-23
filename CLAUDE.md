@@ -82,6 +82,42 @@ Campos principales: `name`, `age`, `experienceYears`, `about`, `social`
 (`linkedin`, `github`, `email`), `curriculumPDF`, `experiences[]` (`role`, `company`,
 `duration`, `link`), `location`.
 
+Los campos de texto libre visibles en pantalla (`name`, `title`, `about`,
+`repositoryAbout`, `experiences[].role`/`duration`/`quote`/`description`,
+`education[].degree`, `educationExtras[]`) son objetos `{ en, es }` — el sitio
+soporta i18n en inglés/español vía un toggle client-side (ver más abajo). Al
+editar estos campos hay que actualizar ambos idiomas. Campos estructurales
+(`fullName`, `age`, fechas, links, nombres de empresa/instituciones, stacks
+tecnológicos) siguen siendo strings simples, no traducibles.
+
+## i18n (inglés/español)
+
+El sitio es una sola página con scroll (sin rutas por idioma), así que la
+traducción es client-side: un botón flotante (`src/components/LanguageSwitch.astro`,
+ícono de globo, esquina inferior izquierda) alterna el idioma sin recargar,
+guardando la preferencia en `localStorage`. La lógica vive en
+`src/shared/lib/i18n.ts`:
+
+- `data-i18n="clave.en.el.diccionario"` — traduce el `textContent` de un
+  elemento usando el diccionario de strings de UI (headers de sección,
+  aria-labels, chrome del chatbot, etc. — todo lo que NO viene de
+  `curriculum.json`).
+- `data-i18n-en="..." data-i18n-es="..."` (y las variantes `-alt-`,
+  `-placeholder-`, `-aria-label-`) — ambos idiomas ya renderizados en el HTML
+  en build time; se usa para contenido que viene de `curriculum.json` o que
+  necesita interpolación (ej. el nombre del visitante en el chatbot).
+- `data-i18n-lang="en"|"es"` — oculta/muestra bloques completos cuando no se
+  puede intercambiar solo el texto (ej. la animación de reveal carácter por
+  carácter del nombre en `About.astro`, que necesita spans distintos por
+  idioma).
+
+Al agregar una sección o componente con texto nuevo: si el texto es UI fija,
+añadir la clave al diccionario `ui` en `i18n.ts` y usar `data-i18n`; si el
+texto sale de `curriculum.json`, hacer el campo `{ en, es }` y usar
+`data-i18n-en`/`data-i18n-es`. `chat-prompt.ts` (el system prompt del chatbot)
+siempre usa `.en` de estos campos — el modelo responde en el idioma que
+use el visitante, independientemente del idioma activo en la UI.
+
 ## Convenciones de trabajo
 
 - Los alias de import configurados en `tsconfig.json`: `@/*`, `@layouts/*`, `@pages/*`,
