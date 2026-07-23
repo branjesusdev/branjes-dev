@@ -1,6 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import curriculum from "@/assets/curriculum.json";
+import aiDevIcon from "@/assets/ai-dev.webp";
 
 const firstName = curriculum.fullName.split(" ")[0];
 
@@ -104,12 +105,15 @@ const strings = {
     class="flex size-14 items-center justify-center overflow-hidden rounded-full border-2 border-cyan-300/70 bg-[#0d1117] shadow-lg shadow-cyan-300/20 transition hover:scale-105 hover:border-lime-300"
   >
     <Image
-      src="/images/avatars/ai-dev.webp"
+      src={aiDevIcon}
       alt={strings.iconAlt.en}
       data-i18n-alt-en={strings.iconAlt.en}
       data-i18n-alt-es={strings.iconAlt.es}
       width={56}
       height={56}
+      densities={[1, 2]}
+      loading="eager"
+      fetchpriority="high"
       class="size-full object-cover"
     />
   </button>
