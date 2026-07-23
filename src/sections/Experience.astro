@@ -143,79 +143,89 @@ const { class: classList } = Astro.props as Props;
   // The line/fill only span from the first dot's center to the last dot's
   // center (not the track's full height, which extends well past the last
   // dot to fit that entry's description/badges) — otherwise the track line
-  // visibly runs on past the last dot into empty space below it. Measured
-  // via JS since entry heights are dynamic (variable description length).
-  const layoutLine = () => {
-    if (!track || !line || !fill || !dots.length) return;
+  // visibly runs on past the last dot into empty space below it. And the
+  // dot only lights up once the growing line has actually reached it — a
+  // separate concern from the text reveal above, so it stays dim even if
+  // the entry's text is already visible further down.
+  //
+  // Every geometry READ (getBoundingClientRect) for a given update is done
+  // up front in `measure()`, before any style WRITE — interleaving them
+  // (write a layout-affecting style, then immediately read layout) forces
+  // the browser into a synchronous, blocking layout recalculation ("forced
+  // reflow") instead of letting it batch the read/write into its normal
+  // paint cycle.
+  if (track && line && fill && dots.length) {
+    const dotEls = dots;
 
-    const trackRect = track.getBoundingClientRect();
-    const firstDotTop = dots[0].getBoundingClientRect().top - trackRect.top;
-    const lastDotTop =
-      dots[dots.length - 1].getBoundingClientRect().top - trackRect.top;
-    const height = lastDotTop - firstDotTop;
+    const measure = () => {
+      const trackTop = track.getBoundingClientRect().top;
+      const dotTops = Array.from(dotEls, (dot) => dot.getBoundingClientRect().top);
+      return { trackTop, dotTops };
+    };
 
-    line.style.top = `${firstDotTop}px`;
-    line.style.height = `${height}px`;
-    fill.style.top = `${firstDotTop}px`;
-    fill.style.height = `${height}px`;
-  };
+    const applyLayout = ({ trackTop, dotTops }: ReturnType<typeof measure>) => {
+      const firstDotTop = dotTops[0] - trackTop;
+      const lastDotTop = dotTops[dotTops.length - 1] - trackTop;
+      const height = lastDotTop - firstDotTop;
 
-  layoutLine();
+      line.style.top = `${firstDotTop}px`;
+      line.style.height = `${height}px`;
+      fill.style.top = `${firstDotTop}px`;
+      fill.style.height = `${height}px`;
+    };
 
-  // The DOT, on the other hand, only lights up once the growing line has
-  // actually reached it — a separate concern from the text reveal above, so
-  // it stays dim even if the entry's text is already visible further down.
-  // Scroll-driven progress bar: the fill grows as the timeline scrolls
-  // through the viewport, from the first dot's position to the last dot's
-  // (matching `layoutLine`'s bounds) so "line fully grown" and "reached the
-  // last dot" are the same moment. Runs regardless of
-  // `prefers-reduced-motion`, matching the rest of the site's scroll-driven
-  // pieces (Lenis, the Projects carousel): treated as core to the feel, not
-  // a decorative extra.
-  if (track && fill && dots.length) {
-    let targetProgress = 0;
-    let renderedProgress = -1;
-    let rafId = 0;
-
-    // Deliberately NOT clamped here: dot activation compares against this
-    // directly, and clamping to 0 first would make an unstarted timeline
-    // (progress genuinely negative, well before the section is reached)
-    // read as exactly 0 — which trivially satisfies `0 >= dotFraction(0)`
-    // for the first dot, lighting it up from anywhere on the page.
-    const computeProgress = () => {
-      const firstDotY = dots[0].getBoundingClientRect().top;
-      const lastDotY = dots[dots.length - 1].getBoundingClientRect().top;
+    // Deliberately not clamped to [0, 1] here: dot activation compares
+    // against this directly, and clamping an unstarted timeline (progress
+    // genuinely negative, well before the section is reached) to exactly 0
+    // would trivially satisfy `0 >= dotFraction(0)` for the first dot,
+    // lighting it up from anywhere on the page.
+    const computeProgress = ({ dotTops }: ReturnType<typeof measure>) => {
+      const firstDotY = dotTops[0];
+      const lastDotY = dotTops[dotTops.length - 1];
       const referenceLine = window.innerHeight * 0.5;
       return (referenceLine - firstDotY) / (lastDotY - firstDotY);
     };
+
+    const applyProgress = (
+      { dotTops }: ReturnType<typeof measure>,
+      progress: number,
+    ) => {
+      fill.style.transform = `scaleY(${Math.min(1, Math.max(0, progress))})`;
+
+      const firstDotY = dotTops[0];
+      const lastDotY = dotTops[dotTops.length - 1];
+      dotEls.forEach((dot, i) => {
+        const dotFraction = (dotTops[i] - firstDotY) / (lastDotY - firstDotY);
+        dot.dataset.active = progress >= dotFraction ? "true" : "false";
+      });
+    };
+
+    let targetProgress = 0;
+    let renderedProgress = -1;
+    let rafId = 0;
 
     const render = () => {
       rafId = 0;
       if (Math.abs(renderedProgress - targetProgress) < 0.002) return;
 
       renderedProgress = targetProgress;
-      fill.style.transform = `scaleY(${Math.min(1, Math.max(0, renderedProgress))})`;
-
-      const firstDotY = dots[0].getBoundingClientRect().top;
-      const lastDotY = dots[dots.length - 1].getBoundingClientRect().top;
-      dots.forEach((dot) => {
-        const dotFraction =
-          (dot.getBoundingClientRect().top - firstDotY) /
-          (lastDotY - firstDotY);
-        dot.dataset.active = renderedProgress >= dotFraction ? "true" : "false";
-      });
+      applyProgress(measure(), renderedProgress);
     };
 
     const requestRender = () => {
-      targetProgress = computeProgress();
+      targetProgress = computeProgress(measure());
       if (!rafId) rafId = requestAnimationFrame(render);
     };
 
+    const initialMeasurement = measure();
+    applyLayout(initialMeasurement);
+    applyProgress(initialMeasurement, computeProgress(initialMeasurement));
+
     window.addEventListener("scroll", requestRender, { passive: true });
     window.addEventListener("resize", () => {
-      layoutLine();
-      requestRender();
+      const measurement = measure();
+      applyLayout(measurement);
+      applyProgress(measurement, computeProgress(measurement));
     });
-    requestRender();
   }
 </script>

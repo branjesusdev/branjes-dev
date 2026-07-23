@@ -42,8 +42,15 @@ export const initProjectsCarousel = () => {
       parseFloat(style.paddingRight);
 
     distance = Math.max(track.scrollWidth - visibleWidth, 0);
-    pin.style.height = `calc(100vh + ${distance}px)`;
+
+    // Read `pin`'s current position BEFORE writing its height below.
+    // Setting an element's own height doesn't move its own top edge, so
+    // this read doesn't need the write to happen first — but doing the
+    // write first would force a synchronous layout recalculation just to
+    // serve this read (a "forced reflow"), instead of letting the browser
+    // batch it into its normal paint cycle.
     offsetStart = pin.getBoundingClientRect().top + window.scrollY;
+    pin.style.height = `calc(100vh + ${distance}px)`;
   };
 
   const render = (scroll: number) => {
