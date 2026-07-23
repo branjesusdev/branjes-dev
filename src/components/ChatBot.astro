@@ -90,6 +90,69 @@ import curriculum from "@/assets/curriculum.json";
     const history: ChatMessage[] = [];
     let isSending = false;
 
+    const ESCAPE_MAP: Record<string, string> = {
+      "&": "&amp;",
+      "<": "&lt;",
+      ">": "&gt;",
+      '"': "&quot;",
+      "'": "&#39;",
+    };
+    const escapeHtml = (str: string) => str.replace(/[&<>"']/g, (ch) => ESCAPE_MAP[ch]);
+
+    // The API replies with lightweight Markdown (see chat-prompt.ts's
+    // Formatting section) — bullet/numbered lists, **bold**, and
+    // [text](url) links. Escape first, then only ever turn escaped text
+    // into HTML via these known-safe patterns, so nothing the model
+    // outputs can inject arbitrary markup.
+    const applyInline = (line: string) =>
+      escapeHtml(line)
+        .replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>")
+        .replace(
+          /\[([^\]]+)\]\((https?:\/\/[^\s)]+|mailto:[^\s)]+)\)/g,
+          '<a href="$2" target="_blank" rel="noopener noreferrer" class="text-cyan-200 underline decoration-cyan-300/40 underline-offset-2 hover:decoration-cyan-300 break-words">$1</a>',
+        );
+
+    const renderMarkdown = (text: string) => {
+      const blocks: string[] = [];
+      let listBuffer: string[] = [];
+      let listType: "ul" | "ol" | null = null;
+
+      const flushList = () => {
+        if (!listBuffer.length || !listType) return;
+        const items = listBuffer.map((item) => `<li>${applyInline(item)}</li>`).join("");
+        const listClass = listType === "ul" ? "list-disc" : "list-decimal";
+        blocks.push(`<${listType} class="${listClass} space-y-1 pl-5">${items}</${listType}>`);
+        listBuffer = [];
+        listType = null;
+      };
+
+      for (const rawLine of text.split(/\r?\n/)) {
+        const line = rawLine.trim();
+        const bulletMatch = line.match(/^[-*]\s+(.*)$/);
+        const numberedMatch = line.match(/^\d+[.)]\s+(.*)$/);
+
+        if (bulletMatch) {
+          if (listType && listType !== "ul") flushList();
+          listType = "ul";
+          listBuffer.push(bulletMatch[1]);
+          continue;
+        }
+
+        if (numberedMatch) {
+          if (listType && listType !== "ol") flushList();
+          listType = "ol";
+          listBuffer.push(numberedMatch[1]);
+          continue;
+        }
+
+        flushList();
+        if (line) blocks.push(`<p class="mb-2 last:mb-0 leading-relaxed">${applyInline(line)}</p>`);
+      }
+
+      flushList();
+      return blocks.join("");
+    };
+
     const setOpen = (open: boolean) => {
       panel.classList.toggle("hidden", !open);
       panel.classList.toggle("flex", open);
@@ -109,7 +172,11 @@ import curriculum from "@/assets/curriculum.json";
         role === "user"
           ? "max-w-[85%] self-end rounded-2xl rounded-br-sm bg-gradient-to-br from-cyan-300 to-lime-300 px-3 py-2 text-sm text-[#0d1117]"
           : "max-w-[85%] rounded-2xl rounded-bl-sm bg-white/10 px-3 py-2 text-sm text-sky-100";
-      bubble.textContent = text;
+      if (role === "assistant") {
+        bubble.innerHTML = renderMarkdown(text);
+      } else {
+        bubble.textContent = text;
+      }
       messagesEl.append(bubble);
       messagesEl.scrollTop = messagesEl.scrollHeight;
       return bubble;
@@ -139,14 +206,15 @@ import curriculum from "@/assets/curriculum.json";
         const data = await response.json();
 
         if (!response.ok) {
-          pending.textContent = data.error ?? "Something went wrong. Try again.";
+          pending.innerHTML = renderMarkdown(data.error ?? "Something went wrong. Try again.");
         } else {
-          pending.textContent = data.reply;
+          pending.innerHTML = renderMarkdown(data.reply);
           history.push({ role: "assistant", content: data.reply });
         }
       } catch {
-        pending.textContent = "Something went wrong. Try again.";
+        pending.innerHTML = renderMarkdown("Something went wrong. Try again.");
       } finally {
+        messagesEl.scrollTop = messagesEl.scrollHeight;
         isSending = false;
         input.disabled = false;
         input.focus();
