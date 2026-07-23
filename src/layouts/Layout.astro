@@ -1,6 +1,7 @@
 ---
 import '../themes/@global.scss'
 import Noise from '@shared/content/Noise.astro'
+import ChatBot from '@/components/ChatBot.astro'
 import { seoConfig } from '@/utils/seoConfig'
 import curriculum from '@/assets/curriculum.json'
 
@@ -66,6 +67,7 @@ const personSchema = {
 	<body >
     <Noise/>
 		<slot />
+    <ChatBot />
 	</body>
 </html>
 

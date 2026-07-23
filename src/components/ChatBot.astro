@@ -1,0 +1,156 @@
+---
+import { Image } from "astro:assets";
+import curriculum from "@/assets/curriculum.json";
+---
+
+<div id="chatbot" class="fixed bottom-6 right-6 z-[1000] flex flex-col items-end gap-3">
+  <section
+    id="chatbot-panel"
+    class="hidden w-[min(22rem,calc(100vw-3rem))] flex-col overflow-hidden rounded-2xl border border-white/10 bg-[#0d1117] shadow-2xl"
+    aria-label={`Chat about ${curriculum.fullName}`}
+  >
+    <header class="flex items-center justify-between gap-2 border-b border-white/10 bg-white/5 px-4 py-3">
+      <div class="flex flex-col">
+        <p class="text-sm font-semibold text-sky-100">Ask about {curriculum.fullName.split(" ")[0]}</p>
+        <p class="text-xs text-sky-100/60">AI assistant · answers from his CV</p>
+      </div>
+      <button
+        id="chatbot-close"
+        type="button"
+        aria-label="Close chat"
+        class="rounded-full p-1.5 text-sky-100/70 transition hover:bg-white/10 hover:text-sky-100"
+      >
+        ✕
+      </button>
+    </header>
+
+    <div
+      id="chatbot-messages"
+      data-lenis-prevent
+      class="flex max-h-[24rem] min-h-[16rem] flex-col gap-3 overflow-y-auto px-4 py-4"
+    >
+      <div class="max-w-[85%] rounded-2xl rounded-bl-sm bg-white/10 px-3 py-2 text-sm text-sky-100">
+        Hi! Ask me anything about {curriculum.fullName.split(" ")[0]}'s experience, skills, or projects.
+      </div>
+    </div>
+
+    <form id="chatbot-form" class="flex gap-2 border-t border-white/10 p-3">
+      <input
+        id="chatbot-input"
+        type="text"
+        autocomplete="off"
+        maxlength="800"
+        placeholder="Ask a question..."
+        class="min-w-0 flex-1 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-sky-100 placeholder:text-sky-100/40 focus:border-cyan-300/50 focus:outline-none"
+      />
+      <button
+        type="submit"
+        aria-label="Send"
+        class="flex size-9 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-cyan-300 to-lime-300 text-[#0d1117] transition hover:brightness-110 disabled:opacity-50"
+      >
+        ➤
+      </button>
+    </form>
+  </section>
+
+  <button
+    id="chatbot-toggle"
+    type="button"
+    aria-label="Open chat"
+    aria-expanded="false"
+    class="flex size-14 items-center justify-center overflow-hidden rounded-full border-2 border-cyan-300/70 bg-[#0d1117] shadow-lg shadow-cyan-300/20 transition hover:scale-105 hover:border-lime-300"
+  >
+    <Image
+      src="/images/avatars/ai-dev.webp"
+      alt="Chat icon"
+      width={56}
+      height={56}
+      class="size-full object-cover"
+    />
+  </button>
+</div>
+
+<script>
+  interface ChatMessage {
+    role: "user" | "assistant";
+    content: string;
+  }
+
+  const root = document.querySelector<HTMLElement>("#chatbot");
+  const panel = document.querySelector<HTMLElement>("#chatbot-panel");
+  const toggleBtn = document.querySelector<HTMLButtonElement>("#chatbot-toggle");
+  const closeBtn = document.querySelector<HTMLButtonElement>("#chatbot-close");
+  const form = document.querySelector<HTMLFormElement>("#chatbot-form");
+  const input = document.querySelector<HTMLInputElement>("#chatbot-input");
+  const messagesEl = document.querySelector<HTMLElement>("#chatbot-messages");
+
+  if (root && panel && toggleBtn && closeBtn && form && input && messagesEl) {
+    // Only real exchanged turns go here — the canned greeting bubble is
+    // cosmetic and never sent to the API.
+    const history: ChatMessage[] = [];
+    let isSending = false;
+
+    const setOpen = (open: boolean) => {
+      panel.classList.toggle("hidden", !open);
+      panel.classList.toggle("flex", open);
+      toggleBtn.setAttribute("aria-expanded", String(open));
+      if (open) input.focus();
+    };
+
+    toggleBtn.addEventListener("click", () => {
+      const isOpen = !panel.classList.contains("hidden");
+      setOpen(!isOpen);
+    });
+    closeBtn.addEventListener("click", () => setOpen(false));
+
+    const appendBubble = (role: ChatMessage["role"], text: string) => {
+      const bubble = document.createElement("div");
+      bubble.className =
+        role === "user"
+          ? "max-w-[85%] self-end rounded-2xl rounded-br-sm bg-gradient-to-br from-cyan-300 to-lime-300 px-3 py-2 text-sm text-[#0d1117]"
+          : "max-w-[85%] rounded-2xl rounded-bl-sm bg-white/10 px-3 py-2 text-sm text-sky-100";
+      bubble.textContent = text;
+      messagesEl.append(bubble);
+      messagesEl.scrollTop = messagesEl.scrollHeight;
+      return bubble;
+    };
+
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      const text = input.value.trim();
+      if (!text || isSending) return;
+
+      isSending = true;
+      input.value = "";
+      input.disabled = true;
+
+      appendBubble("user", text);
+      history.push({ role: "user", content: text });
+
+      const pending = appendBubble("assistant", "…");
+
+      try {
+        const response = await fetch("/api/chat", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ messages: history }),
+        });
+
+        const data = await response.json();
+
+        if (!response.ok) {
+          pending.textContent = data.error ?? "Something went wrong. Try again.";
+        } else {
+          pending.textContent = data.reply;
+          history.push({ role: "assistant", content: data.reply });
+        }
+      } catch {
+        pending.textContent = "Something went wrong. Try again.";
+      } finally {
+        isSending = false;
+        input.disabled = false;
+        input.focus();
+      }
+    });
+  }
+</script>

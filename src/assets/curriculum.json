@@ -70,5 +70,50 @@
       "duration": "Apr 2015 - Apr 2017"
     }
   ],
-  "educationExtras": ["+40 courses", "English B2"]
+  "educationExtras": ["+40 courses", "English B2"],
+  "skills": {
+    "frontend": ["React.js", "Next.js", "Angular", "Astro", "JavaScript ES6+", "TypeScript", "Redux / Context API", "HTML5", "CSS3", "TailwindCSS", "Lit Element", "Storybook"],
+    "backend": ["Node.js", "NestJS", "Laravel (PHP)", "REST APIs", "JWT/JWE", "Swagger", "PostgreSQL", "MySQL", "MongoDB"],
+    "aiAndAutomation": ["AI-Assisted Development", "Model Context Protocol (MCP)", "Prompt Engineering", "AI-assisted code generation, documentation and testing"],
+    "architectureAndQuality": ["DDD", "SOLID", "Clean Code", "monorepo (Nx, Turborepo)", "micro-frontends", "unit and E2E testing (Jest, FIRST/AAA)", "Sonar"],
+    "devops": ["Docker (Linux)", "Azure DevOps (CI/CD)", "GitHub/GitLab", "husky"],
+    "softSkills": ["mentoring", "problem solving", "strategic planning", "adaptability", "creative thinking"]
+  },
+  "projects": [
+    {
+      "title": "Learn NextJs",
+      "description": "A Pokemon app built with Next.js, integrating the PokeAPI to show Pokemon data and details, with Redux for state management.",
+      "stack": ["Next.js", "Redux", "TailwindCSS"]
+    },
+    {
+      "title": "Find Movies",
+      "description": "A movie app built with Angular 18 and Signals, integrating TheMovieDB API to show trending and popular content.",
+      "stack": ["Angular", "TailwindCSS"],
+      "link": "https://flypass-find-movies.vercel.app/"
+    },
+    {
+      "title": "OnlyShopping",
+      "description": "A shirt store web app built with React, integrating WhatsApp for direct customer contact and orders.",
+      "stack": ["React", "TailwindCSS"],
+      "link": "https://only-shopping.vercel.app/"
+    },
+    {
+      "title": "MovieFilm",
+      "description": "A movie web app built with Next.js and server-side rendering, integrating TheMovieDB API to showcase trending and popular movies.",
+      "stack": ["Next.js", "TailwindCSS"],
+      "link": "https://film-quality.vercel.app/"
+    },
+    {
+      "title": "Landing Warriors",
+      "description": "A web app built with Astro, featuring dynamic Mortal Kombat characters and animations, optimized for fast performance.",
+      "stack": ["Astro", "TailwindCSS"],
+      "link": "https://landing-warriors.vercel.app/"
+    },
+    {
+      "title": "Triqui Game",
+      "description": "A Tic-Tac-Toe game built with React, with interactive gameplay and state management for a smooth user experience.",
+      "stack": ["React", "TailwindCSS"],
+      "link": "https://triqui-game-neon.vercel.app/"
+    }
+  ]
 }
