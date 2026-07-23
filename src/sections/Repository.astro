@@ -1,7 +1,9 @@
 ---
+import { Image } from "astro:assets";
 import ArrowIconEfect from "@components/ArrowIconEfect.astro";
 import GitHubMove from "@/shared/icons/GitHubMove.astro";
 import curriculum from "@/assets/curriculum.json";
+import revertPrevCommit from "@/assets/rever-prev-commit.avif";
 ---
 
 <article 
@@ -17,12 +19,12 @@ import curriculum from "@/assets/curriculum.json";
           group-hover:[mask-image:linear-gradient(black_30%,transparent)] 
           group-hover:scale-105 transition-transform transform-gpu overflow-hidden"
       >
-        <img
-          src="/images/rever-prev-commit.avif"
+        <Image
+          src={revertPrevCommit}
           alt=""
           class="w-full h-full overflow-hidden opacity-50 filter blur-md object-cover object-center"
-          width="564"
-          height="705"
+          width={520}
+          height={480}
           decoding="async"
         />
       </div>

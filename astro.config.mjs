@@ -11,9 +11,15 @@ export default defineConfig({
   devToolbar: {
     enabled: false
   },
-  server: { port: 8080 },  
+  server: { port: 8080 },
   compressHTML: true,
   prefetch: true,
+  build: {
+    // Both page stylesheets are small (under ~11 KiB); inlining them into
+    // the HTML removes two separate render-blocking CSS requests from the
+    // critical path entirely, instead of just reordering/deferring them.
+    inlineStylesheets: "always",
+  },
   integrations: [tailwind(), sitemap()],
   site: seoConfig.baseURL,
   vite: {
