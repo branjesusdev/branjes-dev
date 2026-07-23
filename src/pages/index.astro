@@ -12,13 +12,14 @@ import Stack from "@/sections/Stack.astro";
 import Contact from "@/sections/Contact.astro";
 import Repository from "@/sections/Repository.astro";
 import Experience from "@/sections/Experience.astro";
+import Education from "@/sections/Education.astro";
 import Location from "@/sections/Location.astro";
 import Projects from "@/sections/Projects.astro";
-import News from "@/sections/News.astro";
 import Acknowledgements from "@/sections/Acknowledgements.astro";
+import curriculum from "@/assets/curriculum.json";
 ---
 
-<Layout title="Home - Brandol Jesus">
+<Layout title={`${curriculum.fullName} — ${curriculum.title}`}>
   <main class="relative p-8 w-full">
     <RadialGradientBottomFix />
     <InsetRadial zIndex="z-30"/>
@@ -34,10 +35,11 @@ import Acknowledgements from "@/sections/Acknowledgements.astro";
       <Repository class:list={`animation-timeline`} />
 
       <Location class:list={`col-span-6 md:col-span-3 animation-timeline`} />
-      <Experience  class:list={`col-span-6 md:col-span-3 row-span-2 animation-timeline`} />
-      <News class:list={`col-span-6 md:col-span-3 animation-timeline`} />
+      <Education class:list={`col-span-6 md:col-span-3 animation-timeline`} />
 
-      <div class="col-span-6 ">
+      <Experience class:list={`col-span-6`} />
+
+      <div class="col-span-6">
         <Projects />
       </div>
 

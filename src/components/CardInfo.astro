@@ -10,10 +10,50 @@ const { titleHeader, contentBody, footerInfo } = Astro.props
 
 <aside class="text-center space-y-5">
   <p class="text-xs sm:text-sm text-sky-100 ">{ titleHeader }</p>
-  <h1
+  <p
     class="text-5xl md:text-6xl md:leading-tight font-bold text-transparent bg-clip-text bg-gradient-to-br from-lime-300 to-cyan-300"
+    data-counter={contentBody}
   >
-    { contentBody }
-  </h1>
+    0
+  </p>
   <p class="text-sm text-sky-100 font-bold">{footerInfo}</p>
 </aside>
+
+<script>
+  import { animate } from "animejs";
+
+  const animateCounter = (el: HTMLElement) => {
+    const raw = el.dataset.counter ?? "";
+    const match = raw.match(/^(\d+)(.*)$/);
+    if (!match) {
+      el.textContent = raw;
+      return;
+    }
+
+    const [, digits, suffix] = match;
+    const target = Number(digits);
+    const state = { value: 0 };
+
+    animate(state, {
+      value: target,
+      duration: 1400,
+      ease: "outExpo",
+      modifier: Math.round,
+      onUpdate: () => {
+        el.textContent = `${state.value}${suffix}`;
+      },
+    });
+  };
+
+  const counters = document.querySelectorAll<HTMLElement>("[data-counter]");
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      animateCounter(entry.target as HTMLElement);
+      observer.unobserve(entry.target);
+    });
+  });
+
+  counters.forEach((el) => observer.observe(el));
+</script>

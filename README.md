@@ -1,4 +1,4 @@
-![Portfolio](/public/landing.png)
+![Portfolio](/public/images/landing.png)
 
 > 🔗 **Sitio WEB:** https://branjes-dev.vercel.app/ 
 

@@ -1,9 +1,12 @@
 
 .animation-timeline {
-  animation: 1s ease-in both;
-  animation-timeline: view();
-  animation-range: entry 5% 30%;
-  animation-name: blurFadeIn;
+  opacity: 0;
+  transform: scale(0.2);
+  filter: blur(5px);
+}
+
+.animation-timeline.is-visible {
+  animation: blurFadeIn 1s ease-in both;
 }
 
 @keyframes blurFadeIn {
@@ -16,5 +19,22 @@
       transform: scale(1);
       opacity: 1;
       filter: blur(0);
+  }
+}
+
+// Per-entry timeline reveal: each entry fades in once, the moment it
+// scrolls into view (see Experience.astro), and stays visible from then on.
+[data-reveal].in {
+  animation: timeline-entry-in 500ms ease-out forwards;
+}
+
+@keyframes timeline-entry-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

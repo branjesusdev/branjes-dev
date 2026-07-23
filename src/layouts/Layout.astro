@@ -1,35 +1,52 @@
---- 
+---
 import '../themes/@global.scss'
 import Noise from '@shared/content/Noise.astro'
+import { seoConfig } from '@/utils/seoConfig'
+import curriculum from '@/assets/curriculum.json'
 
 interface Props {
 	title: string;
 }
 
 const { title } = Astro.props;
+
+const personSchema = {
+	"@context": "https://schema.org",
+	"@type": "Person",
+	name: curriculum.fullName,
+	jobTitle: curriculum.title,
+	url: seoConfig.baseURL,
+	email: `mailto:${curriculum.social.email}`,
+	address: curriculum.location,
+	sameAs: [curriculum.social.linkedin, curriculum.social.github],
+};
 ---
 
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>{title}</title>
-		<meta name="description" content="Currinculum de un desarrollador Front-Web de Brandol Jesus Vargas">
-		<link rel="canonical" href="https://branjes-dev.vercel.app/">
 		<meta charset="UTF-8" />
+		<title>{title}</title>
+		<meta name="description" content={seoConfig.description}>
+		<link rel="canonical" href={seoConfig.baseURL}>
 
 		<meta name="viewport" content="width=device-width" />
     <meta name="keywords" content="dev, developer, FrontWeb, FullStack, BackEnd, Curriculum, brandol" />
-		
+
     <link rel="icon" type="image/svg+xml" href="/address-card.svg" />
     <meta name="msapplication-config" content="/browserconfig.xml" />
 
 		<meta name="generator" content={Astro.generator} />
-		<meta property="og:title" content="Curriculum - Brandol Jesus Fontecha Vargas">
-		<meta property="og:description" content="Currinculum de un desarrollador Front-Web de Brandol Jesus Vargas	">
-		<meta property="og:url" content="https://branjes-dev.vercel.app/">
-    <meta name="og:site_name" content="Curriculum Brandol dev">
-    <meta name="og:type" content="website">
-    <meta name="og:locale" content="es_CO">
+		<meta property="og:title" content={title}>
+		<meta property="og:description" content={seoConfig.description}>
+		<meta property="og:url" content={seoConfig.baseURL}>
+    <meta property="og:site_name" content={seoConfig.siteName}>
+    <meta property="og:type" content={seoConfig.type}>
+    <meta property="og:locale" content="es_CO">
+
+    <meta name="twitter:card" content={seoConfig.twitter.card}>
+    <meta name="twitter:title" content={title}>
+    <meta name="twitter:description" content={seoConfig.description}>
 
     <meta name="robots" content="index, follow" />
     <meta name="googlebot" content="index, follow" />
@@ -43,9 +60,19 @@ const { title } = Astro.props;
 
     <link rel="manifest" href="/manifest.webmanifest" />
 
+    <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
+
 	</head>
 	<body >
     <Noise/>
 		<slot />
 	</body>
 </html>
+
+<script>
+  import { initSmoothScroll } from "@shared/lib/smooth-scroll";
+  import { initScrollReveal } from "@shared/lib/scroll-reveal";
+
+  initSmoothScroll();
+  initScrollReveal();
+</script>

@@ -3,9 +3,10 @@ import Layout from "@layouts/Layout.astro";
 
 import RadialGradientBottomFix from "@shared/content/RadialGradientBottomFix.astro";
 import "@pages/index.scss";
+import curriculum from "@/assets/curriculum.json";
 ---
 
-<Layout title="404 - Brandol Jesus">
+<Layout title={`404 — ${curriculum.fullName}`}>
   <main class="relative w-full overflow-hidden">
     <RadialGradientBottomFix />
 

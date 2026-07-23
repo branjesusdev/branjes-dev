@@ -99,12 +99,8 @@ const textReveal = `${curriculum.name}`;
 </style>
 
 
-<script >
+<script>
+  import { initSectionEffects } from "@shared/lib/section-effects";
 
-  import { splotlightBorder } from "@shared/lib/spotlight-border";
-  import { mouseFollowerRun } from "@shared/lib/mouse-follower";
-  
-  splotlightBorder({ selector: "about" });
-  mouseFollowerRun({ selector: "about" });
-  
+  initSectionEffects({ selector: "about" });
 </script>

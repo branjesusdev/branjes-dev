@@ -1,6 +1,6 @@
 ---
 import HeaderTitle from "@/components/HeaderTitle.astro";
-import InnerLine from "@/components/InnerLine.astro";
+import Badge from "@/components/Badge.astro";
 import curriculum from "@/assets/curriculum.json";
 
 interface Props {
@@ -8,13 +8,11 @@ interface Props {
 }
 
 const { class: classList } = Astro.props as Props;
-
 ---
 
 <section
   id="experience"
   class:list={[classList, "relative pf-experience--overview group overflow-hidden border-clip"]}
-  style="content-visibility: auto;"
 >
 
   <HeaderTitle title="Experience"/>
@@ -28,22 +26,196 @@ const { class: classList } = Astro.props as Props;
     <div class="absolute bg-[url(/images/Orbite-eee.svg)] bg-cover bg-center w-[350px] h-[350px]"></div>
     <div class="absolute bg-[url(/images/Orbite-eee.svg)] bg-cover bg-center w-[440px] h-[440px]"></div>
   </div>
-      {
-        curriculum.experiences.map((experience, index) => (
-          <InnerLine
-            title={experience.role }
-            subTitle={experience.company}
-            description={experience.duration}
-            through={index !== 0o0}
-            link={experience.link ?? undefined}
+
+  <div id="timeline-track" class="relative flex flex-col gap-16 pl-10 max-w-4xl">
+    <div
+      data-timeline-line
+      class="absolute left-1 w-1 rounded-full bg-white/10"
+    ></div>
+    <div
+      data-timeline-fill
+      class="absolute left-1 w-1 origin-top scale-y-0 rounded-full bg-gradient-to-b from-cyan-300 to-lime-300"
+    ></div>
+
+    {
+      curriculum.experiences.map((experience, index) => (
+        <article class="relative opacity-0 translate-y-4" data-reveal>
+          <span
+            data-timeline-dot
+            data-active="false"
+            class="absolute -left-[2.125rem] top-1 z-10 h-3 w-3 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white/40 opacity-50 [box-shadow:0_0_0_4px_var(--blue-black),0_0_0_5px_rgba(255,255,255,0.25)] transition-all duration-500 data-[active=true]:bg-cyan-300 data-[active=true]:opacity-100 data-[active=true]:[box-shadow:0_0_0_4px_var(--blue-black),0_0_0_6px_rgba(34,211,238,0.55)]"
           />
-        ))
-      }
+
+          <div class="flex flex-col gap-1 md:flex-row md:items-baseline md:justify-between">
+            <h3
+              class:list={[
+                index !== 0 ? "line-through opacity-55" : "opacity-100",
+                "text-xl md:text-2xl font-medium text-red-200 text-left w-fit",
+              ]}
+            >
+              {experience.role}
+            </h3>
+
+            {experience.link ? (
+              <a
+                href={experience.link}
+                referrerpolicy="no-referrer"
+                target="_blank"
+                class:list={[
+                  index !== 0 ? "opacity-80" : "opacity-90",
+                  "cursor-pointer text-sm lg:text-lg font-medium text-white hover:text-sky-200",
+                ]}
+              >
+                {experience.company}
+              </a>
+            ) : (
+              <span
+                class:list={[
+                  index !== 0 ? "opacity-80" : "opacity-90",
+                  "text-sm lg:text-lg font-medium text-white",
+                ]}
+              >
+                {experience.company}
+              </span>
+            )}
+          </div>
+
+          <p class="text-xs text-sky-100/60">{experience.duration}</p>
+
+          {experience.quote && (
+            <p class="mt-4 max-w-2xl italic text-sky-100/80">
+              “{experience.quote}”
+            </p>
+          )}
+
+          {experience.description?.length > 0 && (
+            <div class="mt-4 flex max-w-2xl flex-col gap-4 text-sm leading-relaxed text-sky-100/80">
+              {experience.description.map((paragraph) => (
+                <p>{paragraph}</p>
+              ))}
+            </div>
+          )}
+
+          {experience.stack?.length > 0 && (
+            <div class="mt-4 flex flex-wrap gap-2">
+              {experience.stack.map((tech) => (
+                <Badge>{tech}</Badge>
+              ))}
+            </div>
+          )}
+        </article>
+      ))
+    }
+  </div>
 
   </section>
 </section>
 
 <script>
-  import { mouseFollowerRun } from "@shared/lib/mouse-follower";
-  mouseFollowerRun({ selector: "experience" });
+  import { initSectionEffects } from "@shared/lib/section-effects";
+
+  initSectionEffects({ selector: "experience", spotlight: false });
+
+  const track = document.querySelector<HTMLElement>("#timeline-track");
+  const line = document.querySelector<HTMLElement>("#experience [data-timeline-line]");
+  const fill = document.querySelector<HTMLElement>("#experience [data-timeline-fill]");
+  const items = document.querySelectorAll<HTMLElement>("#experience [data-reveal]");
+  const dots = document.querySelectorAll<HTMLElement>("#experience [data-timeline-dot]");
+
+  // Each entry's TEXT reveals once, the moment it scrolls into view, and then
+  // stays visible — like reading down a normal resume — instead of fading
+  // back out as you keep scrolling (which left a "hole" where the previous
+  // entry had already hidden itself but the next one hadn't triggered yet).
+  const revealObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+
+        entry.target.classList.add("in");
+        revealObserver.unobserve(entry.target);
+      });
+    },
+    { rootMargin: "0px 0px -10% 0px" },
+  );
+
+  items.forEach((item) => revealObserver.observe(item));
+
+  // The line/fill only span from the first dot's center to the last dot's
+  // center (not the track's full height, which extends well past the last
+  // dot to fit that entry's description/badges) — otherwise the track line
+  // visibly runs on past the last dot into empty space below it. Measured
+  // via JS since entry heights are dynamic (variable description length).
+  const layoutLine = () => {
+    if (!track || !line || !fill || !dots.length) return;
+
+    const trackRect = track.getBoundingClientRect();
+    const firstDotTop = dots[0].getBoundingClientRect().top - trackRect.top;
+    const lastDotTop =
+      dots[dots.length - 1].getBoundingClientRect().top - trackRect.top;
+    const height = lastDotTop - firstDotTop;
+
+    line.style.top = `${firstDotTop}px`;
+    line.style.height = `${height}px`;
+    fill.style.top = `${firstDotTop}px`;
+    fill.style.height = `${height}px`;
+  };
+
+  layoutLine();
+
+  // The DOT, on the other hand, only lights up once the growing line has
+  // actually reached it — a separate concern from the text reveal above, so
+  // it stays dim even if the entry's text is already visible further down.
+  // Scroll-driven progress bar: the fill grows as the timeline scrolls
+  // through the viewport, from the first dot's position to the last dot's
+  // (matching `layoutLine`'s bounds) so "line fully grown" and "reached the
+  // last dot" are the same moment. Runs regardless of
+  // `prefers-reduced-motion`, matching the rest of the site's scroll-driven
+  // pieces (Lenis, the Projects carousel): treated as core to the feel, not
+  // a decorative extra.
+  if (track && fill && dots.length) {
+    let targetProgress = 0;
+    let renderedProgress = -1;
+    let rafId = 0;
+
+    // Deliberately NOT clamped here: dot activation compares against this
+    // directly, and clamping to 0 first would make an unstarted timeline
+    // (progress genuinely negative, well before the section is reached)
+    // read as exactly 0 — which trivially satisfies `0 >= dotFraction(0)`
+    // for the first dot, lighting it up from anywhere on the page.
+    const computeProgress = () => {
+      const firstDotY = dots[0].getBoundingClientRect().top;
+      const lastDotY = dots[dots.length - 1].getBoundingClientRect().top;
+      const referenceLine = window.innerHeight * 0.5;
+      return (referenceLine - firstDotY) / (lastDotY - firstDotY);
+    };
+
+    const render = () => {
+      rafId = 0;
+      if (Math.abs(renderedProgress - targetProgress) < 0.002) return;
+
+      renderedProgress = targetProgress;
+      fill.style.transform = `scaleY(${Math.min(1, Math.max(0, renderedProgress))})`;
+
+      const firstDotY = dots[0].getBoundingClientRect().top;
+      const lastDotY = dots[dots.length - 1].getBoundingClientRect().top;
+      dots.forEach((dot) => {
+        const dotFraction =
+          (dot.getBoundingClientRect().top - firstDotY) /
+          (lastDotY - firstDotY);
+        dot.dataset.active = renderedProgress >= dotFraction ? "true" : "false";
+      });
+    };
+
+    const requestRender = () => {
+      targetProgress = computeProgress();
+      if (!rafId) rafId = requestAnimationFrame(render);
+    };
+
+    window.addEventListener("scroll", requestRender, { passive: true });
+    window.addEventListener("resize", () => {
+      layoutLine();
+      requestRender();
+    });
+    requestRender();
+  }
 </script>

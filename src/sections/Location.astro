@@ -1,6 +1,5 @@
 ---
 import HeaderTitle from "@/components/HeaderTitle.astro";
-import { Picture } from "astro:assets";
 import avatar from "@/assets/stars.svg";
 import globe from "@/assets/globe.svg";
 import curriculum from "@/assets/curriculum.json";
@@ -23,25 +22,34 @@ const { class: classList } = Astro.props as Props;
     class="mt-16 inner-content inner-content--not-padded overflow-hidden p-0 min-h-[4rem] "
   >
     <div class="absolute -z-50 inset-x-0 top-1 overflow-hidden w-full h-full min-h-[] ">
-      <Picture
+      <img
         class="w-4/5 mx-auto pointer-events-none cursor-none"
-        src={avatar}
-        alt="Desktop and notebook programming"
+        src={avatar.src}
+        width={avatar.width}
+        height={avatar.height}
+        alt=""
         loading="lazy"
-        formats={["avif", "webp", "png"]}
+        decoding="async"
       />
     </div>
 
-    <div class=" flex flex-row justify-between items-center">
-      <p class="font-bold text-sky-100 text-sm ml-4">{curriculum.location}</p>
+    <div class="flex flex-row justify-between items-center">
+      <div class="flex flex-col gap-1 ml-4">
+        <p class="font-bold text-sky-100 text-sm">Based in {curriculum.location}</p>
+        <p data-location-diff class="text-xs text-cyan-300">&nbsp;</p>
+        <p data-location-time class="text-lg font-bold text-lime-300">&nbsp;</p>
+        <p data-location-date class="text-xs text-sky-100/70">&nbsp;</p>
+      </div>
 
       <div class="lg:block w-1/2">
-        <Picture
+        <img
           class=" pointer-events-none cursor-none"
-          src={globe}
-          alt="Desktop and notebook programming"
+          src={globe.src}
+          width={globe.width}
+          height={globe.height}
+          alt=""
           loading="lazy"
-          formats={["avif", "webp", "png"]}
+          decoding="async"
         />
       </div>
     </div>
@@ -50,10 +58,84 @@ const { class: classList } = Astro.props as Props;
 </div>
 
 <script>
-  import { splotlightBorder } from "@shared/lib/spotlight-border";
-  import { mouseFollowerRun } from "@shared/lib/mouse-follower";
-  
-  splotlightBorder({ selector: "location" });
-  mouseFollowerRun({ selector: "location" });
+  import { initSectionEffects } from "@shared/lib/section-effects";
+  import curriculum from "@/assets/curriculum.json";
 
+  initSectionEffects({ selector: "location" });
+
+  const timeZone = curriculum.timezone;
+
+  const getUtcOffsetMinutes = (tz: string, date: Date) => {
+    const parts = new Intl.DateTimeFormat("en-US", {
+      timeZone: tz,
+      hourCycle: "h23",
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
+    })
+      .formatToParts(date)
+      .reduce<Record<string, string>>((acc, part) => {
+        acc[part.type] = part.value;
+        return acc;
+      }, {});
+
+    const asUTC = Date.UTC(
+      Number(parts.year),
+      Number(parts.month) - 1,
+      Number(parts.day),
+      Number(parts.hour),
+      Number(parts.minute),
+      Number(parts.second),
+    );
+
+    return (asUTC - date.getTime()) / 60000;
+  };
+
+  const updateLocationWidget = () => {
+    const now = new Date();
+
+    const targetOffset = getUtcOffsetMinutes(timeZone, now);
+    const visitorOffset = -now.getTimezoneOffset();
+    const diffHours = Math.round((targetOffset - visitorOffset) / 60);
+
+    const diffLabel =
+      diffHours === 0
+        ? "Same time as you"
+        : diffHours > 0
+          ? `${diffHours}h ahead of you`
+          : `${Math.abs(diffHours)}h behind you`;
+
+    const timeLabel = new Intl.DateTimeFormat("en-US", {
+      timeZone,
+      hour: "numeric",
+      minute: "2-digit",
+      hour12: true,
+    }).format(now);
+
+    const offsetLabel =
+      new Intl.DateTimeFormat("en-US", { timeZone, timeZoneName: "shortOffset" })
+        .formatToParts(now)
+        .find((part) => part.type === "timeZoneName")?.value ?? "";
+
+    const dateLabel = new Intl.DateTimeFormat("en-US", {
+      timeZone,
+      weekday: "long",
+      month: "long",
+      day: "numeric",
+    }).format(now);
+
+    const diffEl = document.querySelector("[data-location-diff]");
+    const timeEl = document.querySelector("[data-location-time]");
+    const dateEl = document.querySelector("[data-location-date]");
+
+    if (diffEl) diffEl.textContent = diffLabel;
+    if (timeEl) timeEl.textContent = `${timeLabel} ${offsetLabel}`;
+    if (dateEl) dateEl.textContent = dateLabel;
+  };
+
+  updateLocationWidget();
+  setInterval(updateLocationWidget, 15_000);
 </script>

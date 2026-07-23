@@ -9,10 +9,9 @@ import Laravel from "@shared/icons/Laravel.astro";
 import TypeScript from "@shared/icons/TypeScript.astro";
 import NodeJs from "@shared/icons/NodeJs.astro";
 import MySql from "@shared/icons/MySql.astro";
-import Firebase from "@shared/icons/Firebase.astro";
 import GitCommand from "@shared/icons/GitCommand.astro";
 import Docker from "@shared/icons/Docker.astro";
-import Supabase from "@shared/icons/Supabase.astro";
+import Jest from "@shared/icons/Jest.astro";
 import Jasmine from "@shared/icons/Jasmine.astro";
 import Ionic from "@shared/icons/Ionic.astro";
 import Redux from "@shared/icons/Redux.astro";
@@ -27,8 +26,7 @@ const widthIcons = `w-10 h-10 sm:w-11 sm:h-11 md:w-9 md:h-9 lg:w-12 lg:h-12 `;
 
 <article 
   id="skills"
-  class="col-span-6 md:col-span-3 pf-skills--overview relative  animate-fade-up animate-duration-500 animate-delay-0"
-  style="content-visibility: auto;">
+  class="col-span-6 md:col-span-3 pf-skills--overview relative overflow-hidden animate-fade-up animate-duration-500 animate-delay-0">
 
   <GridBackgroundDot />
     
@@ -84,8 +82,8 @@ const widthIcons = `w-10 h-10 sm:w-11 sm:h-11 md:w-9 md:h-9 lg:w-12 lg:h-12 `;
       <p class="text-slate-100">Sass</p>
     </div>
     <div class="md:-translate-x-9 md:-rotate-[5deg]">
-      <Firebase className={widthIcons} />
-      <p class="text-slate-100">Firebase</p>
+      <Jest className={widthIcons} />
+      <p class="text-slate-100">Jest</p>
     </div>
     <div class="md:-translate-x-2 md:rotate-[7deg] md:-translate-y-8">
       <GitCommand className={widthIcons} />
@@ -94,10 +92,6 @@ const widthIcons = `w-10 h-10 sm:w-11 sm:h-11 md:w-9 md:h-9 lg:w-12 lg:h-12 `;
     <div class="md:-translate-x-6 md:-rotate-[7deg] md:-translate-y-3">
       <Docker className={widthIcons} />
       <p class="text-slate-100">Docker</p>
-    </div>
-    <div class="md:translate-x-8 md:rotate-[7deg] md:-translate-y-12">
-      <Supabase className={widthIcons} />
-      <p class="text-slate-100">Supabase</p>
     </div>
     <div class="md:-rotate-6">
       <Jasmine className={widthIcons} />
@@ -122,12 +116,8 @@ const widthIcons = `w-10 h-10 sm:w-11 sm:h-11 md:w-9 md:h-9 lg:w-12 lg:h-12 `;
   </section>
 </article>
 
-<script >
+<script>
+  import { initSectionEffects } from "@shared/lib/section-effects";
 
-  import { splotlightBorder } from "@shared/lib/spotlight-border";
-  import { mouseFollowerRun } from "@shared/lib/mouse-follower";
-  
-  splotlightBorder({ selector: "skills" });
-  mouseFollowerRun({ selector: "skills" });
-  
+  initSectionEffects({ selector: "skills" });
 </script>

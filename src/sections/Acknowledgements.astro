@@ -5,74 +5,115 @@ import Avatar from "@/components/Avatar.astro";
 
 <section 
   id="acknowledgements" 
-  class="pf-location--overview group relative"
-  style="content-visibility: auto;">
+  class="pf-location--overview group relative">
   <HeaderTitle title="Acknowledgements" />
 
   <article
     class="mt-16 inner-content inner-content--space flex flex-row justify-between items-center space-y-2 relative overflow-hidden"
   >
       <div class="flex justify-between flex-col gap-4 md:block">
-        <Avatar
-          className="md:-translate-y-5 xl:-translate-y-5"
-          img="/images/avatars/midudev.avif"
-          alt="Master programmer with +15 years of experience"
-          caption="Midudev"
-        />
-        <Avatar
-          className="md:translate-x-12"
-          img="/images/avatars/leiferMendez.avif"
-          alt="Master programmer Leifer Mendez"
-          caption="Leifer Mendez"
-        />
-        <Avatar
-          className="md:translate-y-5 xl:translate-y-5"
-          img="/images/avatars/fernandoHerrera.avif"
-          alt="Master programmer Fernando Herrera"
-          caption="Fernando Herrera"
-        />
+        <div data-parallax data-depth="0.7" class="transition-transform duration-300 ease-out">
+          <Avatar
+            className="md:-translate-y-5 xl:-translate-y-5"
+            img="/images/avatars/midudev.avif"
+            alt="Master programmer with +15 years of experience"
+            caption="Midudev"
+          />
+        </div>
+        <div data-parallax data-depth="1.2" class="transition-transform duration-300 ease-out">
+          <Avatar
+            className="md:translate-x-12"
+            img="/images/avatars/leiferMendez.avif"
+            alt="Master programmer Leifer Mendez"
+            caption="Leifer Mendez"
+          />
+        </div>
+        <div data-parallax data-depth="0.9" class="transition-transform duration-300 ease-out">
+          <Avatar
+            className="md:translate-y-5 xl:translate-y-5"
+            img="/images/avatars/fernandoHerrera.avif"
+            alt="Master programmer Fernando Herrera"
+            caption="Fernando Herrera"
+          />
+        </div>
       </div>
 
       <div
         class="flex flex-col justify-center items-center max-w-2xl gap-6 text-center mx-auto"
       >
-        <span>⭐⭐⭐⭐⭐</span>
+        <span class="stars flex gap-1 text-lg" aria-label="5 stars">
+          <span class="star">⭐</span>
+          <span class="star">⭐</span>
+          <span class="star">⭐</span>
+          <span class="star">⭐</span>
+          <span class="star">⭐</span>
+        </span>
         <p class="max-w-[40ch] md:text-sm xl:text-xl text-slate-100">
           The beauty of programming lies in its ability to inspire and connect
           us. To learn from the masters is to honour tradition and innovation in
           equal measure!
         </p>
-        <h1 class="text-[var(--ocean-green-20)] text-xl">Thanks 🙏</h1>
+        <p class="text-[var(--ocean-green-20)] text-xl">Thanks 🙏</p>
       </div>
 
       <div class="flex justify-between flex-col gap-4 md:block">
-        <Avatar
-          className="md:-translate-y-5 xl:-translate-y-5"
-          img="/images/avatars/Goncy.avif"
-          alt="Master programmer Goncy"
-          caption="Goncy"
-        />
-        <Avatar
-          className="md:-translate-x-12 "
-          img="/images/avatars/nikobytes.avif"
-          alt="Master programmer Nikobytes"
-          caption="Nikobytes"
-        />
-        <Avatar
-          className="md:translate-y-5 xl:translate-y-5"
-          img="/images/avatars/manzdev.avif"
-          alt="Master programmer manzdev"
-          caption="Manzdev"
-        />
+        <div data-parallax data-depth="0.9" class="transition-transform duration-300 ease-out">
+          <Avatar
+            className="md:-translate-y-5 xl:-translate-y-5"
+            img="/images/avatars/Goncy.avif"
+            alt="Master programmer Goncy"
+            caption="Goncy"
+          />
+        </div>
+        <div data-parallax data-depth="1.2" class="transition-transform duration-300 ease-out">
+          <Avatar
+            className="md:-translate-x-12 "
+            img="/images/avatars/nikobytes.avif"
+            alt="Master programmer Nikobytes"
+            caption="Nikobytes"
+          />
+        </div>
+        <div data-parallax data-depth="0.7" class="transition-transform duration-300 ease-out">
+          <Avatar
+            className="md:translate-y-5 xl:translate-y-5"
+            img="/images/avatars/manzdev.avif"
+            alt="Master programmer manzdev"
+            caption="Manzdev"
+          />
+        </div>
       </div>
   </article>
+
+  <style>
+    .star {
+      display: inline-block;
+      animation: star-twinkle 2.4s ease-in-out infinite;
+    }
+    .star:nth-child(1) { animation-delay: 0s; }
+    .star:nth-child(2) { animation-delay: 0.15s; }
+    .star:nth-child(3) { animation-delay: 0.3s; }
+    .star:nth-child(4) { animation-delay: 0.45s; }
+    .star:nth-child(5) { animation-delay: 0.6s; }
+
+    @keyframes star-twinkle {
+      0%, 100% { transform: scale(1) rotate(0deg); opacity: 1; }
+      50% { transform: scale(1.25) rotate(-8deg); opacity: 0.7; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .star {
+        animation: none;
+      }
+    }
+  </style>
 </section>
 
 
 
 <script>
-  import { splotlightBorder } from "@shared/lib/spotlight-border";
-  import { mouseFollowerRun } from "@shared/lib/mouse-follower";
-  splotlightBorder({ selector: "acknowledgements" });
-  mouseFollowerRun({ selector: "acknowledgements" });
+  import { initSectionEffects } from "@shared/lib/section-effects";
+  import { initMouseParallax } from "@shared/lib/mouse-parallax";
+
+  initSectionEffects({ selector: "acknowledgements" });
+  initMouseParallax({ selector: "acknowledgements" });
 </script>

@@ -7,7 +7,7 @@ import type { ManifestOptions } from "vite-plugin-pwa"
 export const seoConfig = {
 	baseURL: "https://branjes-dev.vercel.app/", // Production URL.
 	description:
-		"Currículum Vitae de Branjes, desarrollador web y estudiante de Ingeniería Informática.",
+		"Currículum de Brandol Fontecha, Frontend Developer Senior con más de 7 años de experiencia en FinTech y software B2B.",
 	type: "website",
 	image: {
 		url: "",
@@ -28,7 +28,7 @@ export const manifest: Partial<ManifestOptions> = {
 	name: "CV de Branjes",
 	short_name: "CV de Branjes",
 	description:
-		"Currículum Vitae de Branjes, desarrollador web y estudiante de Ingeniería Informática.",
+		"Currículum de Brandol Fontecha, Frontend Developer Senior con más de 7 años de experiencia en FinTech y software B2B.",
 	theme_color: "#d5ff00",
 	background_color: "#d5ff00",
 	display: "fullscreen",

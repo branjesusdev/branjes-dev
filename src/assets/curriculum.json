@@ -1,7 +1,9 @@
 {
   "name": "👋 Hello, I'm Brandol",
-  "age": "26",
-  "experienceYears": "6+",
+  "fullName": "Brandol Jesus Fontecha Vargas",
+  "title": "Frontend Developer Senior",
+  "age": "27",
+  "experienceYears": "7+",
   "about": "Creative problem solver with a full-stack skillset, passionate about mastering new technologies and crafting elegant solutions.",
   "social": {
     "linkedin": "https://www.linkedin.com/in/brandoljesusv",
@@ -12,23 +14,61 @@
   "repositoryAbout": "GitHub profile, visit my projects",
   "experiences": [
     {
-      "role": "Web Developer",
+      "role": "Frontend Developer",
       "company": "Movii",
-      "duration": "2021 - Present",
-      "link": "https://movii.com.co"
+      "duration": "Mar 2021 - Present",
+      "link": "https://movii.com.co",
+      "quote": "",
+      "description": [
+        "Building and evolving the interfaces behind Movii's fintech platform with React, Next.js and Angular, from new business features to performance and code health, working under Scrum alongside UX/UI, backend and QA."
+      ],
+      "stack": ["React", "Next.js", "Angular", "Jest", "Storybook"]
+    },
+    {
+      "role": "Senior Full Stack Developer (Freelance)",
+      "company": "OpenSistemas · Banco Santander",
+      "duration": "Oct 2023 - Apr 2025",
+      "quote": "",
+      "description": [
+        "Freelance engagement building and maintaining web applications for Banco Santander: a progressive Angular version migration, REST API integration, and a rewrite of the unit test suite that took coverage from 5% to 97%."
+      ],
+      "stack": ["Angular", "Signals", "REST APIs", "Sonar"]
     },
     {
       "role": "Full Stack Developer",
-      "company": "Cobis",
-      "duration": "2020 - 2021",
-      "link": "https://www.cobis.com/"
+      "company": "MiddleSoftware",
+      "duration": "Oct 2020 - Mar 2021",
+      "quote": "",
+      "description": [
+        "Built and maintained REST APIs in Java with SQL databases, plus Angular (v8-11) frontends and Cordova mobile apps, supporting mobile banking projects for Banco FIE and Banco Panamá."
+      ],
+      "stack": ["Java", "Angular", "SQL", "Cordova", "Azure"]
     },
     {
-      "role": "Software Engineer",
-      "company": "Bis@",
-      "duration": "2019 - 2020",
-      "link": "https://www.bisacorporation.com/"
+      "role": "Full Stack Developer",
+      "company": "Bis@ Corporation",
+      "duration": "Mar 2019 - Nov 2020",
+      "link": "https://www.bisacorporation.com/",
+      "quote": "",
+      "description": [
+        "Developed web and mobile applications with Laravel, Angular and .NET for institutional and government platforms, designing REST APIs under SOLID/MVC and working directly with clients on requirements."
+      ],
+      "stack": ["Laravel", "Angular", ".NET", "Docker", "GitLab"]
     }
   ],
-  "location": "Fusagasugá, Colombia"
+  "location": "Fusagasugá, Colombia",
+  "timezone": "America/Bogota",
+  "education": [
+    {
+      "degree": "Ingeniería de Sistemas",
+      "institution": "Universidad CUN",
+      "duration": "Mar 2022 - Jun 2025"
+    },
+    {
+      "degree": "Tecnología",
+      "institution": "SENA",
+      "duration": "Apr 2015 - Apr 2017"
+    }
+  ],
+  "educationExtras": ["+40 courses", "English B2"]
 }
